@@ -34,9 +34,15 @@ class PNode {
     
     /**
      *
-     * @var type int - the linenumber of this node
+     * @var int - line number where this tag starts
      */
-    private $_ln;
+    private $_linenumber;
+    
+    /**
+     *
+     * @var int - column number where this tag starts
+     */
+    private $_colnumber;
     
     /**
     * @var _uid for this node 
@@ -50,14 +56,15 @@ class PNode {
      * @param mixed $uid
      * @return void
      */
-    public function __construct($value = null, $uid = null, $attr = null, $ln) {
+    public function __construct($value, $linenumber, $colnumber, $uid = null, $attr = null) {
         if(!isset($value)) {
             throw new Exception('A value is required to create a node');
         }
         $this->setValue($value);
         $this->setUid($uid);
         $this->setAttr($attr);
-        $this->setLn($ln);
+        $this->setLineNumber($linenumber);
+        $this->setColNumber($colnumber);
     }
  
     /**
@@ -95,9 +102,14 @@ class PNode {
     }
  
     
-    public function setLn($ln) {
-        $this->_ln = $ln;
+    public function setLineNumber($ln) {
+        $this->_linenumber = $ln;
     }
+    
+    public function setColNumber($colnumber) {
+        $this->_colnumber = $colnumber;
+    }
+    
     
     /**
      * PNode::setValue()

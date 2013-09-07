@@ -1,7 +1,8 @@
 <?php
 
 require 'PNode.php';
-
+require 'PTree.php';
+require 'Tag.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -16,8 +17,11 @@ class Parser {
     
     var $file; /* the file to parse */
     var $lines; /* array of lines in the file */
-    var $elements; /* 2D array holding line number and html tags contained within */
+    var $tags; /* Holds tags found in the document (includes open and close tags) */
     var $numlines; /*number of lines in the file */
+    var $errors; /* Holds errors detected in the document */
+    var $tree; /* The parse tree */
+    
     
     public function __construct($filepath) {
         $this->lines = array();
@@ -25,10 +29,11 @@ class Parser {
         $this->file = file_get_contents("test.html");
         $this->lines = explode("\n", $this->file);
         $this->numlines = count($this->lines);
-        $this->elements = array();
-
+        $this->tags = array();
+        //$this->tree = new PTree();
         $this->parse();
         $this->printTags();
+        
     }
     
     public function parse() {
@@ -45,23 +50,14 @@ class Parser {
                 $i--;
                 continue;
             }
-            $tags = $this->processLine($line, $lineArray);
-            foreach ($tags as $tag) {
-                if (!isset($this->elements[$i])) {
-                    $this->elements[$i] = array();
-                }
-                array_push($this->elements[$i], $tag);
-            }
+            $this->processLine($line, $lineArray, $i);
         }
     }
     
     private function printTags() {
-        for ($i = 0; $i < count($this->elements); $i++) {
-            echo "Line " . $i . ":";
-            foreach ($this->elements[$i] as $tag) {
-                echo " " . htmlspecialchars($tag) . ", ";
-            }
-            echo '<br />';
+        for ($i = 0; $i < count($this->tags); $i++) {
+            $tag = $this->tags[$i];
+            echo "Tag: " . $tag->getValue() . ", Line: " . $tag->getLine() . ", Index: " . $tag->getInd() . "<br />";
         }
     }
     
@@ -92,26 +88,50 @@ class Parser {
     }
     
     
-    private function processLine($line, $lineArr) {
-        $tags = array();
+    private function processLine($line, $lineArr, $ln) {
         for ($i = 0; $i < count($lineArr); $i++) {
             if ($lineArr[$i] == '<') {
-                array_push($tags, $this->betweenStr($line, '<', '>', $i));
+                $fullTag = $this->betweenStr($line, '<','>', $i);
+                $tagAttr = null;
+                $splitTag = explode(' ', $fullTag);
+                if (count($splitTag) > 1) {
+                    //we have attributes
+                    $tagAttr = array();
+                    $tagValue = $splitTag[0];
+                    if (str_split($splitTag[0])[1] == '/') {
+                        //attributes in a closing tag - error here
+                    }
+                    for ($j = 1; $j < count($splitTag)-1; $j++) {
+                        array_push($tagAttr, $splitTag[$j]);
+                    }
+                } else {
+                    $tagValue = $this->betweenStr($line, '<', '>', $i);
+                }
+
+                $tagLn = $ln;
+                $tagInd = $i;           
+                $tag = new Tag($tagValue, $tagAttr, $tagLn, $tagInd);
+                
+                array_push($this->tags, $tag);
             }
         }
-        return $tags;
     }
     
     
-    
-    private function createNode($tag, $location) {
-        if (strpos($tag, '</')) {
-            //close tag - find out the element
+    //TODO
+    private function createParseTree() {
+        if (count($this->elements) > 0) {
+            $open = new SplStack(); //holds open tags
+            //Set the first element as the head
+            //$headNode = new PNode($this->elements[0], null, null, )
             
-            
+            for ($i = 1; $i < count($this->elements); $i++) {
+                
+            }
+        } else {
+            //throw an error - nothing to parse
         }
-    }
-        
+    }  
     
     // Grabs the text between two identifying substrings in a string.
     private function betweenStr($InputString, $StartStr, $EndStr=0, $StartLoc=0) {
@@ -125,8 +145,8 @@ class Parser {
         if (!$EndLoc = strpos($InputString, $EndStr, $StartLoc)) { 
             return false; 
         }
-        return substr($InputString, $StartLoc-1, ($EndLoc-$StartLoc)+2);
-}
+        return substr($InputString, $StartLoc, ($EndLoc-$StartLoc));
+    }
     
 }
 
