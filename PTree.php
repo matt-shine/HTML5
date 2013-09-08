@@ -8,7 +8,7 @@
 /**
  * Description of PTree
  *
- * @author matt
+ * @author matt - ref: http://phptouch.com/2011/04/17/implementation-of-a-tree-structure-in-php/
  */
 class PTree {
     /**
@@ -107,7 +107,7 @@ class PTree {
       * @return string $uid
       * @throws Exception
       */
-     public function createNode($value, $uid = null) {
+     public function createNode($value, $attr = null, $uid = null) {
          if (!isset($value)) {
              throw new Exception('A value is required to create a node');
          }

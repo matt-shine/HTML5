@@ -120,10 +120,12 @@ class Parser {
     
     //TODO
     private function createParseTree() {
-        if (count($this->elements) > 0) {
+        if (count($this->tags) > 0) {
             $open = new SplStack(); //holds open tags
             //Set the first element as the head
-            //$headNode = new PNode($this->elements[0], null, null, )
+            $first = $this->elements[0];
+            $headNode = new PNode($first->getValue(), $first->getLine(), $first->getInd(),null, $first->getAttr());
+            $this->tree->addFirst($headNode->getUid()); //add first node to tree
             
             for ($i = 1; $i < count($this->elements); $i++) {
                 

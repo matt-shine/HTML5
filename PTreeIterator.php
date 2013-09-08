@@ -8,7 +8,7 @@
 /**
  * Description of PTreeIterator
  *
- * @author matt
+ * @author matt - ref: http://phptouch.com/2011/04/17/implementation-of-a-tree-structure-in-php/
  */
 class PTreeIterator extends ArrayIterator implements RecursiveIterator {
    /**
