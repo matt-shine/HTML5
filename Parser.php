@@ -3,6 +3,8 @@
 require 'PNode.php';
 require 'PTree.php';
 require 'Tag.php';
+require 'PTreeRecursiveIterator.php';
+require 'PTreeIterator.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -30,10 +32,14 @@ class Parser {
         $this->lines = explode("\n", $this->file);
         $this->numlines = count($this->lines);
         $this->tags = array();
-        //$this->tree = new PTree();
+        $this->errors = array();
+        $this->tree = new PTree();
         $this->parse();
         $this->printTags();
+        $this->createParseTree();
         
+        $it = new PTreeRecursiveIterator($this->tree, new PTreeIterator($this->tree->getTree()), true);
+        foreach ($it as $k => $v) {}
     }
     
     public function parse() {
@@ -107,10 +113,8 @@ class Parser {
                 } else {
                     $tagValue = $this->betweenStr($line, '<', '>', $i);
                 }
-
-                $tagLn = $ln;
-                $tagInd = $i;           
-                $tag = new Tag($tagValue, $tagAttr, $tagLn, $tagInd);
+          
+                $tag = new Tag($tagValue, $tagAttr, $ln, $i);
                 
                 array_push($this->tags, $tag);
             }
@@ -122,18 +126,62 @@ class Parser {
     private function createParseTree() {
         if (count($this->tags) > 0) {
             $open = new SplStack(); //holds open tags
+            $children = new SplStack(); //holds children of open tags
             //Set the first element as the head
-            $first = $this->elements[0];
+            $first = $this->tags[0];            
             $headNode = new PNode($first->getValue(), $first->getLine(), $first->getInd(),null, $first->getAttr());
+            $headNode->setUid();
             $this->tree->addFirst($headNode->getUid()); //add first node to tree
-            
-            for ($i = 1; $i < count($this->elements); $i++) {
-                
+            $open->push($first); // push the first tag onto the stack
+            for ($i = 1; $i < count($this->tags); $i++) {
+                $currentTag = $this->tags[$i];
+                if ($this->startsWith($currentTag->getValue(), "/")) { //Closing tag here (e.g. </head>)
+                    if (strpos(strtolower($currentTag->getValue()), strtolower($open->top()->getValue())) != 1) {
+                        //TODO: Generate an error here - misnested
+                    } else {
+                        //Closing tag which matches the currently open tag
+                        $tagNode = new PNode($currentTag->getValue(), $currentTag->getLine(), 
+                        $currentTag->getInd(), null, $currentTag->getAttr());
+                        $tagNode->setUid();
+                        $tagNode->setParent($tagNode->getUid(), $open->top()->getUid());
+                        //add any elements in the children stack as this nodes children
+                        while (!$children->isEmpty()) {
+                            $tagNode->setChild($tagNode->getUid(), $children->pop()->getUid());
+                        }
+                        $tempNode = $open->pop(); //remove the current parent
+                        if (!$open->isEmpty()){ //check if there are more tags on the stack
+                            //don't need to do anything
+                            continue;
+                        } else {
+                            //push the tempnode onto the child stack
+                            $children->push($tempNode);
+                        }
+                    }
+                } else {
+                    $tnode = new PNode($currentTag->getValue(), $currentTag->getLine(), 
+                        $currentTag->getInd(), null, $currentTag->getAttr());
+                    $tnode->setUid();
+                    $children->push($tnode);
+                }
             }
         } else {
             //throw an error - nothing to parse
         }
     }  
+    
+    /**
+     * 
+     * Checks if the given string ($haystack) begins with the 
+     * given string $needle
+     * 
+     * @param type $haystack - the string to check
+     * @param type $needle - the prefix to check
+     * @return boolean - true if haystack begins with needle, false else.
+     */
+    private function startsWith($haystack, $needle) {
+        return $needle === "" || strpos($haystack, $needle) === 0;
+    }
+    
     
     // Grabs the text between two identifying substrings in a string.
     private function betweenStr($InputString, $StartStr, $EndStr=0, $StartLoc=0) {

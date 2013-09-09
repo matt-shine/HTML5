@@ -36,6 +36,11 @@ class PTree {
          $this->_size = 0;
      }
      
+     public function getTree() {
+        return $this->_list;
+    }
+     
+     
      /**
       * PTree::getNode()
       * Given a UID get the node object 
@@ -52,8 +57,10 @@ class PTree {
          if (array_key_exists($uid,$this->_list) == true) {
              $ret = $this->_list[$uid];
          }
-         return ret;
+         return $ret;
      }
+     
+     
      
      /**
       * PTree::setChild()
@@ -64,7 +71,7 @@ class PTree {
       * @param type $uid
       * @param type $chilUid
       */
-     public function setChild($uid, $chilUid) {
+     public function setChild($uid, $childUid) {
          if (empty($uid) || empty($childUid)) {
              throw new Exception('Both from and to UIDs are required');
          }
@@ -107,12 +114,13 @@ class PTree {
       * @return string $uid
       * @throws Exception
       */
-     public function createNode($value, $attr = null, $uid = null) {
+     public function createNode($value, $uid = null) {
          if (!isset($value)) {
              throw new Exception('A value is required to create a node');
          }
          
-         $node = new PNode($value, $uid);
+         $node = new PNode($value, 0, 0, null, null);
+         $node->setUid();
          $uid = $node->getUid();
          $this->_list[$uid] = $node;
          return $uid;

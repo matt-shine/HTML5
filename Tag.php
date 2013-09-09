@@ -17,7 +17,7 @@ class Tag {
     private $_line;
     private $_ind;
     
-    public function __construct($value, $attr, $line, $ind) {
+    public function __construct($value, $attr=null, $line, $ind) {
         $this->setValue($value);
         $this->setAttr($attr);
         $this->setLine($line);
