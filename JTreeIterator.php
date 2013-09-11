@@ -1,16 +1,21 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of PTreeIterator
- *
- * @author matt - ref: http://phptouch.com/2011/04/17/implementation-of-a-tree-structure-in-php/
+ * JTreeIterator
+ * 
+ * The Tree structure would be incomplete if I did not include a 
+ * iterator. There is nothing special about this iterator and its implementation
+ * is pretty standard.
+ * I have extended the arrayIterator because I am using an array for my hash table.  
+ * Note that I have not implemented the next and rewind methods as I do not need to
+ * special with these. So the parent(ArrayIterator) methods will be called by default.
+ * 
+ * @package    
+ * @author  Jayesh Wadhwani
+ * @copyright Jayesh Wadhwani
+ * @version 2011
  */
-class PTreeIterator extends ArrayIterator implements RecursiveIterator {
+class JTreeIterator extends ArrayIterator implements RecursiveIterator {
    /**
     * @var _list this is the hash table 
    */
@@ -25,11 +30,11 @@ class PTreeIterator extends ArrayIterator implements RecursiveIterator {
     private $_position;
  
     /**
-     * PTreeIterator::__construct()
+     * JTreeIterator::__construct()
      * 
      * @param mixed $list - the hash table
      * @param mixed $tree - 
-     * @return PTreeIterator
+     * @return JTreeIterator
    */
     public function __construct(array $list, array $tree = null) {
         $this->_list = $list;
@@ -46,7 +51,7 @@ class PTreeIterator extends ArrayIterator implements RecursiveIterator {
     }
  
     /**
-     * PTreeIterator::current()
+     * JTreeIterator::current()
      * 
      * @return
    */
@@ -59,7 +64,7 @@ class PTreeIterator extends ArrayIterator implements RecursiveIterator {
     }
  
     /**
-     * PTreeIterator::key()
+     * JTreeIterator::key()
      * 
      * @return
      */
@@ -70,7 +75,7 @@ class PTreeIterator extends ArrayIterator implements RecursiveIterator {
     }
  
     /**
-     * PTreeIterator::hasChildren()
+     * JTreeIterator::hasChildren()
      * 
      * @return mixed
      */
@@ -81,14 +86,14 @@ class PTreeIterator extends ArrayIterator implements RecursiveIterator {
     }
  
     /**
-     * PTreeIterator::getChildren()
+     * JTreeIterator::getChildren()
      * 
-     * @return PTreeIterator
+     * @return JTreeIterator
      */
     public function getChildren() {
         $childObj = $this->_list[$this->key()];
         $children = $childObj->getChildren();
-        return new PTreeIterator($this->_list, $children);
+        return new JTreeIterator($this->_list, $children);
     }
 }
 

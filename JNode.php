@@ -1,69 +1,64 @@
 <?php
 
- /**
- * Description of PNode
- *
- * @author matt - ref: http://phptouch.com/2011/04/17/implementation-of-a-tree-structure-in-php/
+/**
+ * JNode
+ * 
+ * This is a simple class to construct a node
+ * Please note that each node object will be 
+ * eventually stored in a hash table where the 
+ * hash will be a UID.
+ * 
+ * Note that in comparison to thee Doubly Linked List implementation
+ * the children are now stored in an array
+ * 
+ * @package JTree   
+ * @author Jayesh Wadhwani
+ * @copyright Jayesh Wadhwani
+ * @version 2011
  */
-class PNode {
-    
-    /**
-     * @var _type - the type of the node
-     */
-    private $_type;
-   
-    /**
+class JNode {
+   /**
+    * @var _value for the value field 
+   */
+    private $_value;
+   /**
     * @var _parent uid of the parent node 
-    */
+   */
     private $_parent;
-   
-    /**
+   /**
     * @var _children collection of uids for the child nodes 
-    */
+   */
     private $_children = array();
-   
-    /**
-     * @var _attr array of the nodes attributes, if any
-     */
-    private $_attr = array();
-    
-    /**
-     *
-     * @var int - line number where this tag starts
-     */
-    private $_linenumber;
-    
-    /**
-     *
-     * @var int - column number where this tag starts
-     */
-    private $_colnumber;
-    
-    /**
+   /**
     * @var _uid for this node 
-    */
+   */
     private $_uid;
  
+    private $_ln;
+    private $_ind;
+    private $attr = array();
     /**
-     * PNode::__construct()
+     * JNode::__construct()
      * 
      * @param mixed $value
      * @param mixed $uid
      * @return void
      */
-    public function __construct($value, $linenumber, $colnumber, $uid = null, $attr = null) {
+    public function __construct($value, $ln, $ind, $attr = null, $uid = null) {
         if(!isset($value)) {
             throw new Exception('A value is required to create a node');
         }
         $this->setValue($value);
         $this->setUid($uid);
-        $this->setAttr($attr);
-        $this->setLineNumber($linenumber);
-        $this->setColNumber($colnumber);
+        $this->setln($ln);
+        $this->setInd($ind);
+        if (!empty($attr)) {
+            $this->attr = $attr;
+        }
     }
  
     /**
-     * PNode::setUid()
+     * JNode::setUid()
      * 
      * @param mixed $uid
      * @return
@@ -77,18 +72,16 @@ class PNode {
         }
     }
     
-    /**
-     * PNode::setAttr()
-     * 
-     * @param array $attr
-     * @return
-     */
-    public function setAttr($attr = null) {
-       $this->_attr = $attr;
+    public function getAttr() {
+        return $this->attr;
+    }
+    
+    public function addAttr($att) {
+        array_push($this->attr, $att);
     }
  
     /**
-     * PNode::getUid()
+     * JNode::getUid()
      * 
      * @return string uid
      */
@@ -96,18 +89,8 @@ class PNode {
         return $this->_uid;
     }
  
-    
-    public function setLineNumber($ln) {
-        $this->_linenumber = $ln;
-    }
-    
-    public function setColNumber($colnumber) {
-        $this->_colnumber = $colnumber;
-    }
-    
-    
     /**
-     * PNode::setValue()
+     * JNode::setValue()
      * 
      * @param mixed $value
      * @return void
@@ -116,8 +99,10 @@ class PNode {
         $this->_value = $value;
     }
  
+
+    
     /**
-     * PNode::getValue()
+     * JNode::getValue()
      * 
      * @return mixed
      */
@@ -125,8 +110,24 @@ class PNode {
         return $this->_value;
     }
  
+    public function setLn($ln) {
+        $this->ln = $ln;
+    }
+    
+    public function getLn() {
+        return $this->ln;
+    }
+    
+    public function setInd($ind) {
+        $this->ind= $ind;
+    }
+    
+    public function getInd() {
+        return $this->ind;
+    }
+    
     /**
-     * PNode::getParent()
+     * JNode::getParent()
      * 
     * gets the uid of the parent node
     * 
@@ -137,7 +138,7 @@ class PNode {
     }
  
     /**
-     * PNode::setParent()
+     * JNode::setParent()
      * 
      * @param mixed $parent
      * @return void
@@ -147,7 +148,7 @@ class PNode {
     }
  
     /**
-     * PNode::getChildren()
+     * JNode::getChildren()
      * 
      * @return mixed
      */
@@ -156,7 +157,7 @@ class PNode {
     }
  
     /**
-     * PNode::setChild()
+     * JNode::setChild()
      * 
     * A child node's uid is added to the childrens array
     * 
@@ -170,7 +171,7 @@ class PNode {
     }
  
     /**
-     * PNode::anyChildren()
+     * JNode::anyChildren()
      * 
     * Checks if there are any children 
     * returns ture if it does, false otherwise
@@ -187,7 +188,7 @@ class PNode {
     }
  
     /**
-     * PNode::childrenCount()
+     * JNode::childrenCount()
      * 
     * returns the number of children
     * 

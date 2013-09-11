@@ -1,24 +1,31 @@
 <?php
 
-
-
 /**
- * Description of PTreeRecursiveIterator
- *
- * @author matt
+ * JTreeRecursiveIterator
+ * 
+ * To use a recursive iterator you have to extend of the RecursiveIteratorIterator
+ * As an example I have built an unordered list 
+ * For detailed information on please see RecursiveIteratorIterator
+ * http://us.php.net/manual/en/class.recursiveiteratoriterator.php
+ * 
+ * @package   JTree
+ * @author Jayesh Wadhwani 
+ * @copyright Jayesh Wadhwani
+ * @license  GNU GENERAL PUBLIC LICENSE 3.0
+ * @version 1.0 2011
  */
-class PTreeRecursiveIterator extends RecursiveIteratorIterator {
-    /**
+class JTreeRecursiveIterator extends RecursiveIteratorIterator {
+   /**
    * @var _jTree the JTree object 
    */
-    private $_pTree;
+    private $_jTree;
    /**
    * @var _str string with ul/li string 
    */
     private $_str;
  
     /**
-     * PTreeRecursiveIterator::__construct()
+     * JTreeRecursiveIterator::__construct()
      * 
      * @param mixed $jt - the tree object
      * @param mixed $iterator - the tree iterator
@@ -26,11 +33,11 @@ class PTreeRecursiveIterator extends RecursiveIteratorIterator {
      * @param integer $flags
      * @return
      */
-    public function __construct(PTree $pt, $iterator, $mode = LEAVES_ONLY, $flags = 0) {
+    public function __construct(JTree $jt, $iterator, $mode = LEAVES_ONLY, $flags = 0) {
  
         parent::__construct($iterator, $mode, $flags);
-        $this->_pTree = $pt;
-        $this->_str = "<ul>\n";
+        $this->_jTree = $jt;
+        $this->_str = "******<br />";
     }
  
     /**
@@ -40,7 +47,7 @@ class PTreeRecursiveIterator extends RecursiveIteratorIterator {
      */
     public function endChildren() {
         parent::endChildren();
-        $this->_str .= "</ul></li>\n";
+        $this->_str .= "******<br />";
     }
  
     /**
@@ -54,9 +61,9 @@ class PTreeRecursiveIterator extends RecursiveIteratorIterator {
         $value = $this->current()->getValue();
  
         if($ret === true) {
-            $this->_str .= "<li>{$value}<ul>\n";
+            $this->_str .= "*{$value}<br />";
         } else {
-            $this->_str .= "<li>{$value}</li>\n";
+            $this->_str .= "*{$value}<br />";
         }
         return $ret;
     }
@@ -67,9 +74,10 @@ class PTreeRecursiveIterator extends RecursiveIteratorIterator {
      * @return void
      */
     public function __destruct() {
-        $this->_str .= "</ul>\n";
+        $this->_str .= "******<br />";
                 echo $this->_str;
     }
+ 
 }
 
 ?>
