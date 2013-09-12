@@ -33,12 +33,14 @@ class JTreeRecursiveIterator extends RecursiveIteratorIterator {
      * @param integer $flags
      * @return
      */
-    public function __construct(JTree $jt, $iterator, $mode = LEAVES_ONLY, $flags = 0) {
+    public function __construct(JTree $jt, $iterator, $mode = SELF_FIRST, $flags = 0) {
  
         parent::__construct($iterator, $mode, $flags);
         $this->_jTree = $jt;
-        $this->_str = "******<br />";
+        $this->_str = "<br />";
     }
+    
+   
  
     /**
      * JTreeRecursiveIterator::endChildren()
@@ -47,7 +49,7 @@ class JTreeRecursiveIterator extends RecursiveIteratorIterator {
      */
     public function endChildren() {
         parent::endChildren();
-        $this->_str .= "******<br />";
+        $this->_str .= "<br />";
     }
  
     /**
@@ -61,9 +63,9 @@ class JTreeRecursiveIterator extends RecursiveIteratorIterator {
         $value = $this->current()->getValue();
  
         if($ret === true) {
-            $this->_str .= "*{$value}<br />";
+            $this->_str .= ">>>>>{$value}<br />";
         } else {
-            $this->_str .= "*{$value}<br />";
+            $this->_str .= ">>>>>>>>>>{$value}<br />";
         }
         return $ret;
     }
@@ -74,7 +76,7 @@ class JTreeRecursiveIterator extends RecursiveIteratorIterator {
      * @return void
      */
     public function __destruct() {
-        $this->_str .= "******<br />";
+        $this->_str .= "*<br />";
                 echo $this->_str;
     }
  

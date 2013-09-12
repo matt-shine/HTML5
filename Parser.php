@@ -5,6 +5,7 @@ require 'JTree.php';
 require 'Tag.php';
 require 'JTreeRecursiveIterator.php';
 require 'JTreeIterator.php';
+require 'HtmlValidator.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -36,11 +37,25 @@ class Parser {
         $this->tree = new JTree();
         $this->parse();
         $this->printTags();
-        $this->createParseTree();
-                  
+        //$this->createParseTree();
+        $val = new HtmlValidator($this->tags);
+       
         
+        /*
         $it = new JTreeRecursiveIterator($this->tree, new JTreeIterator($this->tree->getTree()), true);
-        foreach ($it as $k => $v) {}
+        foreach ($it as $k => $v) {
+            if ($v->getParent() == $this->tree->getHead()) {
+                fwrite($f, "FIRST LEVEL - key: " . $k . ", value: " . $v->getValue() . "\n");
+            }
+            //if ($it->getDepth() == 0) {
+            if ($v->getValue() == "body") {
+                fwrite($f, "Body's Parent: " . $this->tree->getValue($v->getParent()) . "\n");
+            }
+           // }
+        }
+        fclose($f);
+          */
+
     }
     
     public function parse() {
@@ -96,6 +111,7 @@ class Parser {
     
     
     private function processLine($line, $lineArr, $ln) {
+        
         for ($i = 0; $i < count($lineArr); $i++) {
             if ($lineArr[$i] == '<') {
                 $fullTag = $this->betweenStr($line, '<','>', $i);
@@ -108,7 +124,7 @@ class Parser {
                     if (str_split($splitTag[0])[1] == '/') {
                         //attributes in a closing tag - error here
                     }
-                    for ($j = 1; $j < count($splitTag)-1; $j++) {
+                    for ($j = 1; $j < count($splitTag); $j++) {
                         array_push($tagAttr, $splitTag[$j]);
                     }
                 } else {
@@ -123,7 +139,11 @@ class Parser {
     }
     
     
-    //TODO
+    /**
+     * Converts the tags in $this->tags into nodes, and adds them
+     * to the tree, with their correct parent and children nodes (if applicable)
+     * 
+     */
     private function createParseTree() {
         if (count($this->tags) > 0) {
             
@@ -135,19 +155,12 @@ class Parser {
             $first = $this->tags[0];            
             
             $uid = $this->tree->createNode($first->getValue(), $first->getLine(), $first->getInd(), $first->getAttr(), null);
-            //$this->tree->addFirst($uid);
             $this->tree->addChild(null, $uid);
-            
-            //$f = fopen("testing.txt", "a");
-            //fwrite($f, "First node: " . $uid . "\n");
-            
-            
+
             if ($this->tree->getValue($uid) != "!DOCTYPE") {
                 //TODO: error here
                 $open->push($first); // push the first tag onto the stack
             }
-            
-            
             
             for ($i = 1; $i < count($this->tags); $i++) {
                 $currentTag = $this->tags[$i];
@@ -171,8 +184,6 @@ class Parser {
         } else {
             $this->tree->addChild($open->top(), $tagUid);
         }
-        $f = fopen("testing.txt", "a");
-        fwrite($f, "Push to open: ". $tagUid . ": " . $this->tree->getValue($tagUid) . "\n");
         $open->push($tagUid);
 
     }
@@ -209,7 +220,6 @@ class Parser {
             }
         } 
     }
-    
     
     
     

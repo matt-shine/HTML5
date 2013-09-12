@@ -72,6 +72,10 @@ class JTree {
     public function getTree() {
         return $this->_list;
     }
+    
+    public function getHead() {
+        return $this->_head;
+    }
  
    /**
    * JTree::getNode()

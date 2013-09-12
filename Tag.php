@@ -16,12 +16,36 @@ class Tag {
     private $_attr;
     private $_line;
     private $_ind;
+    private $children = array();
+    private $parent;
+    private $id;
     
     public function __construct($value, $attr=null, $line, $ind) {
         $this->setValue($value);
         $this->setAttr($attr);
         $this->setLine($line);
         $this->setInd($ind);
+        $this->id = uniqid();
+    }
+    
+    public function getId() {
+        return $this->id;
+    }
+    
+    public function getParent() {
+        return $this->parent;
+    }
+    
+    public function setParent($tag) {
+        $this->parent = $parent;
+    }
+    
+    public function addChild($tag) {
+        array_push($tag);
+    }
+    
+    public function getChildren() {
+        return $this->children;
     }
     
     public function setValue($value) {
