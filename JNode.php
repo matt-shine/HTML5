@@ -37,6 +37,7 @@ class JNode {
     private $_ln;
     private $_ind;
     private $attr = array();
+
     /**
      * JNode::__construct()
      * 
@@ -56,6 +57,7 @@ class JNode {
             $this->attr = $attr;
         }
     }
+
  
     /**
      * JNode::setUid()

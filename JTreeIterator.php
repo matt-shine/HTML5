@@ -1,5 +1,8 @@
 <?php
 
+require 'NodeValidator.php';
+
+
 /**
  * JTreeIterator
  * 
@@ -60,6 +63,8 @@ class JTreeIterator extends ArrayIterator implements RecursiveIterator {
       //then get the object
         $current = parent::current();
         $nObj = $this->_list[$current];
+        $validator = new NodeValidator($nObj);
+        
         return $nObj;
     }
  

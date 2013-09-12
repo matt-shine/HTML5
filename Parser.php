@@ -171,8 +171,6 @@ class Parser {
         } else {
             $this->tree->addChild($open->top(), $tagUid);
         }
-        $f = fopen("testing.txt", "a");
-        fwrite($f, "Push to open: ". $tagUid . ": " . $this->tree->getValue($tagUid) . "\n");
         $open->push($tagUid);
 
     }

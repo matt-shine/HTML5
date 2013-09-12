@@ -16,13 +16,17 @@ class Tag {
     private $_attr;
     private $_line;
     private $_ind;
+ 
     
     public function __construct($value, $attr=null, $line, $ind) {
         $this->setValue($value);
         $this->setAttr($attr);
         $this->setLine($line);
         $this->setInd($ind);
+
     }
+    
+    
     
     public function setValue($value) {
         $this->_value = $value;

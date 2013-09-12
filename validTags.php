@@ -25,7 +25,6 @@ class validTags {
         "select","small","source","span","strong","style","sub","summary",
         "sup","table","tbody","td","textarea","tfoot","th","thead","time",
         "title","tr","track","u","ul","var","video","wbr");
-    
 }
 
 ?>
