@@ -64,7 +64,13 @@ class Parser {
     private function printTags() {
         for ($i = 0; $i < count($this->tags); $i++) {
             $tag = $this->tags[$i];
-            echo "Tag: " . $tag->getValue() . ", Line: " . $tag->getLine() . ", Index: " . $tag->getInd() . "<br />";
+            if (count($tag->getAttr()) > 0) {
+                for ($j = 0; $j < count($tag->getAttr()); $j++) {
+                    echo "tag: " . $tag->getValue() . ", Location: " . $tag->getLine(). " " . $tag->getInd() . ", Attr: " . $tag->getAttr()[$j] . "<br />";
+                    }
+            } else {
+                echo "Tag: " . $tag->getValue() . ", Line: " . $tag->getLine() . ", Index: " . $tag->getInd() . "<br />";
+            }
         }
     }
     
@@ -108,14 +114,17 @@ class Parser {
                     if (str_split($splitTag[0])[1] == '/') {
                         //attributes in a closing tag - error here
                     }
-                    for ($j = 1; $j < count($splitTag)-1; $j++) {
+                    for ($j = 1; $j < count($splitTag); $j++) {
                         array_push($tagAttr, $splitTag[$j]);
                     }
                 } else {
                     $tagValue = $this->betweenStr($line, '<', '>', $i);
                 }
-          
-                $tag = new Tag($tagValue, $tagAttr, $ln, $i);
+                if (isset($tagAttr)) {
+                    $tag = new Tag($tagValue, $ln, $i, $tagAttr);
+                } else {
+                    $tag = new Tag($tagValue, $ln, $i, null);
+                }
                 
                 array_push($this->tags, $tag);
             }
@@ -179,7 +188,6 @@ class Parser {
         if ($open->isEmpty()) {
          //TODO: closing tag without a corresponding open tag - error here
         } else {
-            
             if (strcmp(ltrim($tag->getValue(), '/'), $this->tree->getValue($open->top())) != 0) {
                 //TODO: Generate an error here - misnested
             } else {
@@ -187,7 +195,6 @@ class Parser {
              $tagUid = $this->tree->createNode(ltrim($tag->getValue(), '/'), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null);  
              $this->tree->setParent($tagUid, $open->top());
             
-             
             /* add any elements in the children stack as this nodes children */
              while (!$children->isEmpty()) {
                  $this->tree->setChild($tagUid, $this->tree->getNode($children->pop()));

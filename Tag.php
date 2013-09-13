@@ -13,17 +13,21 @@
 class Tag {
     
     private $_value;
-    private $_attr;
+    private $_attr = array();
     private $_line;
     private $_ind;
  
     
-    public function __construct($value, $attr=null, $line, $ind) {
+    public function __construct($value, $line, $ind, $attr=null) {
         $this->setValue($value);
         $this->setAttr($attr);
         $this->setLine($line);
         $this->setInd($ind);
-
+        if ($attr != null) {
+            
+            $this->_attr = $attr;
+            
+        }
     }
     
     
@@ -37,7 +41,7 @@ class Tag {
     }
     
     public function setAttr($attr) {
-        $this->_attr = $attr;
+        array_push($this->_attr, $attr);
     }
    
     public function getAttr() {

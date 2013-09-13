@@ -90,6 +90,7 @@ class JTree {
         if(array_key_exists($uid,$this->_list) === true) {
             $ret = $this->_list[$uid];
         }
+        
         return $ret;
     }
  
@@ -149,7 +150,7 @@ class JTree {
             throw new Exception('A value is required to create a node');
         }
  
-        $node = new JNode($value, $uid, $ln, $ind, $attr, $uid);
+        $node = new JNode($value, $ln, $ind, $attr, $uid);
         $uid = $node->getUid();
         $this->_list[$uid] = $node;
         return $uid;

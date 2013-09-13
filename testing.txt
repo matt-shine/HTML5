@@ -1,2 +1,8 @@
-INVALID TAG DETECTED - blah, At line:  Index: 7
-INVALID TAG DETECTED - blah, At line:  Index: 7
+titleTag attr: dir="rtl"
+INVALID TAG DETECTED - blah, At line: 7 Index: 12
+titleTag attr: dir="rtl"
+INVALID TAG DETECTED - blah, At line: 7 Index: 12
+titleTag attr: dir="rtl"
+INVALID TAG DETECTED - blah, At line: 7 Index: 12
+titleTag attr: dir="rtl"
+titleTag attr: dir="rtl"

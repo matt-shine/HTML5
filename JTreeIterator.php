@@ -64,7 +64,7 @@ class JTreeIterator extends ArrayIterator implements RecursiveIterator {
         $current = parent::current();
         $nObj = $this->_list[$current];
         $validator = new NodeValidator($nObj);
-        
+        $validator->validate();
         return $nObj;
     }
  

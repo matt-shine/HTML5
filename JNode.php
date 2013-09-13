@@ -53,7 +53,7 @@ class JNode {
         $this->setUid($uid);
         $this->setln($ln);
         $this->setInd($ind);
-        if (!empty($attr)) {
+        if (!($attr == null)) {
             $this->attr = $attr;
         }
     }

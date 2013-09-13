@@ -42,6 +42,10 @@ class NodeValidator {
         "script", "noscript", "ruby", "video", "audio", "input", "textarea", 
         "select", "button", "label", "output", "datalist", "keygen", "progress",
         "command", "canvas", "time", "meter");
+    
+    private $globalAttributes = array("accesskey", "class", "contenteditable", 
+        "contextmenu", "dir", "draggable", "dropzone", "hidden", "id", "lang", 
+        "spellcheck", "style", "tabindex", "title", "translate");
          
     private $node; //the tag to validate
     private $errors; //stores errors associated with this tag (multiple errors are possible)
@@ -56,9 +60,7 @@ class NodeValidator {
     public function validate() {
         /* check if tag is valid */
         if (!in_array($this->node->getValue(), $this->validTags)) {
-            $f = fopen("testing.txt", "a");
-            fwrite($f, "INVALID TAG DETECTED - " . $this->node->getValue() . ", At line: " . $this->node->getLn() . " Index: " . $this->node->getInd() . "\n");
-            fclose($f);
+            array_push($this->errors, "Invalid tag");
         }
         
         if (in_array($this->node->getValue(), $this->singularTags)) {
@@ -99,6 +101,16 @@ class NodeValidator {
                 break;
         }
     }
+    
+    private function validateTitleTag() {
+        $f = fopen("testing.txt", "a");
+        if (count($this->node->getAttr()) > 0) {
+            fwrite($f, "titleTag attr: " . $this->node->getAttr()[0] . "\n");
+            fclose($f);
+        } else {
+        }   
+    }
+    
     
     private function validateBodyTag() {
         switch ($this->node->getValue())
