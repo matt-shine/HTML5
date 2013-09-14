@@ -52,6 +52,7 @@ class NodeValidator {
     
     public function __construct($node) {
         $this->node = $node;
+        $this->errors = array();
     }
     
     /**
@@ -73,6 +74,11 @@ class NodeValidator {
         elseif (in_array($this->node->getValue(), $this->bodyTags)) {
             $this->validateBodyTag();
         }
+        $f = fopen("testing.txt", "a");
+        foreach ($this->errors as $err) {
+            fwrite($f, $err . ": " . $this->node->getValue() . "\n");
+        }
+        fclose($f);
      }
     
     private function validateHeadTag() {
