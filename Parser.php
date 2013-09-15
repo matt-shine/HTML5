@@ -24,19 +24,24 @@ class Parser {
     var $errors; /* Holds errors detected in the document */
     var $tree; /* The parse tree */
     
-    
     public function __construct($filepath) {
         $this->lines = array();
-        
-        $this->file = file_get_contents("test.html");
+        if (file_exists($filepath)) {
+            $this->file = file_get_contents($filepath);
+        } else {
+            throw new Exception("Error, File not found!");
+        }
         $this->lines = explode("\n", $this->file);
         $this->numlines = count($this->lines);
+        if (!isset($this->numlines) || $this->numlines < 2) {
+            throw new Exception("File was empty!");
+        }
         $this->tags = array();
         $this->errors = array();
         $this->tree = new JTree();
-        $this->parse();
-        $this->printTags();
-        $this->createParseTree();
+        //$this->parse();
+        //$this->printTags();
+        //$this->createParseTree();
                   
         
         $it = new JTreeRecursiveIterator($this->tree, new JTreeIterator($this->tree->getTree()), true);
@@ -133,7 +138,7 @@ class Parser {
     
     
     //TODO
-    private function createParseTree() {
+    public function createParseTree() {
         if (count($this->tags) > 0) {
             
             
@@ -144,12 +149,7 @@ class Parser {
             $first = $this->tags[0];            
             
             $uid = $this->tree->createNode($first->getValue(), $first->getLine(), $first->getInd(), $first->getAttr(), null);
-            //$this->tree->addFirst($uid);
-            $this->tree->addChild(null, $uid);
-            
-            //$f = fopen("testing.txt", "a");
-            //fwrite($f, "First node: " . $uid . "\n");
-            
+            $this->tree->addChild(null, $uid);          
             
             if ($this->tree->getValue($uid) != "!DOCTYPE") {
                 //TODO: error here

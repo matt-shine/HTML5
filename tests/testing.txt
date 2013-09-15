@@ -1,0 +1,89 @@
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+titleTag attr: dir="rtl"
+Invalid tag: blah
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope

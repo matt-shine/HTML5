@@ -16,6 +16,8 @@ elseif (isset($_POST['file-submit'])) {
         $path = "upload/" . $_FILES["uploaded_file"]["name"];
         move_uploaded_file($_FILES["uploaded_file"]["tmp_name"], $path);
         $parser = new Parser($path);
+        $parser->parse();
+        $parser->createParseTree();
     }
     
     

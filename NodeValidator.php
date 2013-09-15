@@ -55,6 +55,10 @@ class NodeValidator {
         $this->errors = array();
     }
     
+    public function getErrors() {
+        return $this->errors;
+    }
+    
     /**
      * 'Manages' the validation, by determining what tests should be run on the node
      */
@@ -83,7 +87,10 @@ class NodeValidator {
     
     private function validateHeadTag() {
         switch ($this->node->getValue())
-        {
+        {   
+            case "!DOCTYPE":
+                $this->validateDoctype();
+                break;
             case "title":
                 $this->validateTitleTag();
                 break;
@@ -108,17 +115,7 @@ class NodeValidator {
         }
     }
     
-    private function validateTitleTag() {
-        $f = fopen("testing.txt", "a");
-        if (count($this->node->getAttr()) > 0) {
-            fwrite($f, "titleTag attr: " . $this->node->getAttr()[0] . "\n");
-            fclose($f);
-        } else {
-        }   
-    }
-    
-    
-    private function validateBodyTag() {
+      private function validateBodyTag() {
         switch ($this->node->getValue())
         {
             case "a":
@@ -212,11 +209,28 @@ class NodeValidator {
     }
     
     
-    private function validateDoctype($node) {
-        
-        
+    private function validateDoctype() {
+        if (count($this->node->getAttr()) < 1)  {
+            array_push($this->errors, "Doctype is missing required specification.");
+        }
+        if (count($this->node->getAttr()) > 1) {
+            array_push($this->errors, "Doctype must have only one attribute.");
+        }
+        if (count($this->node->getAttr()) == 1 && $this->node->getAttr()[0] != "html") {
+            array_push($this->errors, "Declared Doctype is not HTML5.");
+        }
     }
     
+      private function validateTitleTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $att = $this->node->getAttr();
+            foreach ($att as $at) {
+                if (!in_array($at, $this->globalAttributes)) {
+                    array_push($this->errors, "Invalid Title Tag Attribute: " . $at);
+                }
+            }
+        }    
+    }
     
     
     

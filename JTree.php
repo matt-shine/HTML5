@@ -93,6 +93,10 @@ class JTree {
         
         return $ret;
     }
+    
+    public function getHeadNode() {
+        return $this->getNode($this->_head);
+    }
  
    /**
     * JTree::setChild()

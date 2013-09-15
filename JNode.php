@@ -113,19 +113,19 @@ class JNode {
     }
  
     public function setLn($ln) {
-        $this->ln = $ln;
+        $this->_ln = $ln;
     }
     
     public function getLn() {
-        return $this->ln;
+        return $this->_ln;
     }
     
     public function setInd($ind) {
-        $this->ind= $ind;
+        $this->_ind = $ind;
     }
     
     public function getInd() {
-        return $this->ind;
+        return $this->_ind;
     }
     
     /**
