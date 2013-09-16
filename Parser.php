@@ -24,6 +24,12 @@ class Parser {
     var $errors; /* Holds errors detected in the document */
     var $tree; /* The parse tree */
     
+    /**
+     * Constructor
+     * 
+     * @param type $filepath - path to the file to be validated
+     * @throws Exception
+     */
     public function __construct($filepath) {
         $this->lines = array();
         if (file_exists($filepath)) {
@@ -43,11 +49,17 @@ class Parser {
         //$this->printTags();
         //$this->createParseTree();
                   
-        
-        $it = new JTreeRecursiveIterator($this->tree, new JTreeIterator($this->tree->getTree()), true);
+        //Iterate through the tree - the iterator currently calls NodeValidator on each node
+        $it = new JTreeRecursiveIterator($this->tree, 
+                new JTreeIterator($this->tree->getTree()), true);
         foreach ($it as $k => $v) {}
     }
     
+    
+    /**
+     * Parses the document (as an array of lines) and extract
+     * html tags.
+     */
     public function parse() {
         for ($i = 0; $i < $this->numlines; $i++) { //$i keeps track of line #
             $line = $this->lines[$i];
@@ -66,6 +78,9 @@ class Parser {
         }
     }
     
+    /**
+     * Helper function for debugging
+     */
     private function printTags() {
         for ($i = 0; $i < count($this->tags); $i++) {
             $tag = $this->tags[$i];
@@ -105,7 +120,12 @@ class Parser {
         return $lines;
     }
     
-    
+    /**
+     * 
+     * @param type $line
+     * @param type $lineArr
+     * @param type $ln
+     */
     private function processLine($line, $lineArr, $ln) {
         for ($i = 0; $i < count($lineArr); $i++) {
             if ($lineArr[$i] == '<') {
@@ -137,7 +157,9 @@ class Parser {
     }
     
     
-    //TODO
+    /**
+     * 
+     */
     public function createParseTree() {
         if (count($this->tags) > 0) {
             
@@ -171,7 +193,13 @@ class Parser {
             //throw an error - nothing to parse
         }
     }  
-     
+    
+    /**
+     * 
+     * @param type $tag
+     * @param type $open
+     * @param type $empty
+     */
     private function processStartTag(&$tag, &$open, $empty) {
         
         $tagUid = $this->tree->createNode($tag->getValue(), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null);
@@ -184,6 +212,14 @@ class Parser {
 
     }
     
+    /**
+     * 
+     * @param type $tag
+     * @param type $open
+     * @param type $children
+     * @param type $head
+     * @param type $empty
+     */
     private function processEndTag(&$tag, &$open, &$children, &$head, $empty) {
         if ($open->isEmpty()) {
          //TODO: closing tag without a corresponding open tag - error here
@@ -214,9 +250,7 @@ class Parser {
             }
         } 
     }
-    
-    
-    
+       
     
     /**
      * 
@@ -232,7 +266,16 @@ class Parser {
     }
     
     
-    // Grabs the text between two identifying substrings in a string.
+
+    /**
+     * Grabs the text between two identifying substrings in a string.
+     * 
+     * @param type $InputString
+     * @param type $StartStr
+     * @param type $EndStr
+     * @param type $StartLoc
+     * @return boolean
+     */
     private function betweenStr($InputString, $StartStr, $EndStr=0, $StartLoc=0) {
         if (strlen($InputString) < $StartLoc) {
             return false;
