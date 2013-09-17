@@ -149,12 +149,12 @@ class JTree {
      * @param mixed $uid
      * @return string $uid
      */
-    public function createNode($value, $ln, $ind, $attr = null, $uid = null) {
+    public function createNode($value, $ln, $ind, $attr = null, $uid = null, $selfClosed = null) {
         if(!isset($value)) {
             throw new Exception('A value is required to create a node');
         }
  
-        $node = new JNode($value, $ln, $ind, $attr, $uid);
+        $node = new JNode($value, $ln, $ind, $attr, $uid, $selfClosed);
         $uid = $node->getUid();
         $this->_list[$uid] = $node;
         return $uid;

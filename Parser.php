@@ -145,10 +145,14 @@ class Parser {
                 } else {
                     $tagValue = $this->betweenStr($line, '<', '>', $i);
                 }
+                $selfClosing = false;
+                if (strripos($fullTag, "/") == strlen(($fullTag)-1)) {
+                    $selfClosing = true;
+                }
                 if (isset($tagAttr)) {
-                    $tag = new Tag($tagValue, $ln, $i, $tagAttr);
+                    $tag = new Tag($tagValue, $ln, $i, $tagAttr, $selfClosing);
                 } else {
-                    $tag = new Tag($tagValue, $ln, $i, null);
+                    $tag = new Tag($tagValue, $ln, $i, null, $selfClosing);
                 }
                 
                 array_push($this->tags, $tag);
@@ -186,7 +190,7 @@ class Parser {
                 if ($this->startsWith($currentTag->getValue(), "/")) { //Closing tag here (e.g. </head>)
                         $this->processEndTag($currentTag, $open, $children, $uid, $open->isEmpty());
                 } else {
-                    $this->processStartTag($currentTag, $open, $open->isEmpty());               
+                    $this->processStartTag($currentTag, $open, $open->isEmpty());
                 }
             }
         } else {
@@ -201,15 +205,20 @@ class Parser {
      * @param type $empty
      */
     private function processStartTag(&$tag, &$open, $empty) {
-        
-        $tagUid = $this->tree->createNode($tag->getValue(), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null);
+        $f = fopen("testing.txt", "a");
+        fwrite($f, "In processStartTag()\n");
+        $tagUid = $this->tree->createNode($tag->getValue(), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null, $tag->wasSelfClosed());
+        fwrite($f, "Created tag (" . $tagUid . "), for tag: " . $tag->getValue() . ")\n");
         if ($empty) {
              $this->tree->addChild(null, $tagUid);
+             fwrite($f, "Stack empty, adding as child of head\n");
         } else {
             $this->tree->addChild($open->top(), $tagUid);
+            fwrite($f, "Stack not empty, adding as child of " . $this->tree->getValue($open->top()) . "\n");
         }
+        fwrite($f, "*****\n");
+        fclose($f);
         $open->push($tagUid);
-
     }
     
     /**
@@ -224,18 +233,25 @@ class Parser {
         if ($open->isEmpty()) {
          //TODO: closing tag without a corresponding open tag - error here
         } else {
+            $f = fopen("testing.txt", "a");
+            fwrite($f, "=============\n");
+            fwrite($f, ">>>In processEndTag\n");
+            
             if (strcmp(ltrim($tag->getValue(), '/'), $this->tree->getValue($open->top())) != 0) {
                 //TODO: Generate an error here - misnested
             } else {
              /* Closing tag which matches the currently open tag */
              $tagUid = $this->tree->createNode(ltrim($tag->getValue(), '/'), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null);  
+             fwrite($f, ">>>createNode called on " . ltrim($tag->getValue(), '/') . "\n");
              $this->tree->setParent($tagUid, $open->top());
+             fwrite($f, ">>>setting " . $this->tree->getValue($tagUid) . " as child of " . $this->tree->getValue($open->top()) . "\n");
             
             /* add any elements in the children stack as this nodes children */
              while (!$children->isEmpty()) {
                  $this->tree->setChild($tagUid, $this->tree->getNode($children->pop()));
              }
-             
+             fwrite($f, "==========\n");
+             fclose($f);
              /* Remove the current parent */
              $tempNode = $open->pop();
              

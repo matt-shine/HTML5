@@ -33,9 +33,12 @@ class JNode {
     * @var _uid for this node 
    */
     private $_uid;
- 
+    
     private $_ln;
     private $_ind;
+    private $_selfClosed; /*  boolean, true if self closing tag e.g. <br /> */
+    private $_closeTagFound; /* boolean, true if close tag was found during
+                                    * parsing */
     private $attr = array();
 
     /**
@@ -45,7 +48,7 @@ class JNode {
      * @param mixed $uid
      * @return void
      */
-    public function __construct($value, $ln, $ind, $attr = null, $uid = null) {
+    public function __construct($value, $ln, $ind, $attr = null, $uid = null, $selfClosed=null) {
         if(!isset($value)) {
             throw new Exception('A value is required to create a node');
         }
@@ -56,8 +59,21 @@ class JNode {
         if (!($attr == null)) {
             $this->attr = $attr;
         }
+        if (!($selfClosed) == null) {
+            $this->_selfClosed = $selfClosed;
+        } else {
+            $this->_selfClosed = false;
+        }
     }
-
+    
+    public function setCloseTagFound() {
+        $this->_closeTagFound = true;
+    }
+    
+    public function getCloseTagFound() {
+        return $this->_closeTagFound;
+    }
+    
  
     /**
      * JNode::setUid()

@@ -1,0 +1,67 @@
+In processStartTag()
+Created tag (5237c3e9c4bc1), for tag: html)
+Stack empty, adding as child of head
+*****
+In processStartTag()
+Created tag (5237c3e9c4daa), for tag: head)
+Stack not empty, adding as child of html
+*****
+In processStartTag()
+Created tag (5237c3e9c5282), for tag: title)
+Stack not empty, adding as child of head
+*****
+=============
+>>>In processEndTag
+>>>createNode called on title
+>>>setting title as child of title
+==========
+=============
+>>>In processEndTag
+>>>createNode called on head
+>>>setting head as child of head
+==========
+In processStartTag()
+Created tag (5237c3e9c5b16), for tag: body)
+Stack not empty, adding as child of html
+*****
+In processStartTag()
+Created tag (5237c3e9c5cf4), for tag: ul)
+Stack not empty, adding as child of body
+*****
+In processStartTag()
+Created tag (5237c3e9c61ba), for tag: blah)
+Stack not empty, adding as child of ul
+*****
+=============
+>>>In processEndTag
+>>>createNode called on blah
+>>>setting blah as child of blah
+==========
+In processStartTag()
+Created tag (5237c3e9c6645), for tag: li)
+Stack not empty, adding as child of ul
+*****
+=============
+>>>In processEndTag
+>>>createNode called on li
+>>>setting li as child of li
+==========
+In processStartTag()
+Created tag (5237c3e9c6ab6), for tag: li)
+Stack not empty, adding as child of ul
+*****
+In processStartTag()
+Created tag (5237c3e9c6cd9), for tag: li)
+Stack not empty, adding as child of li
+*****
+=============
+>>>In processEndTag
+>>>createNode called on li
+>>>setting li as child of li
+==========
+=============
+>>>In processEndTag
+=============
+>>>In processEndTag
+=============
+>>>In processEndTag

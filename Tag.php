@@ -16,18 +16,29 @@ class Tag {
     private $_attr = array();
     private $_line;
     private $_ind;
- 
+    private $_closingTag; /* boolean - true if closing tag was found during 
+                                * parsing e.g <head></head> */
+    private $_selfClosed; /* boolean - true if this tag was 
+                                * self close e.g <br />*/
     
-    public function __construct($value, $line, $ind, $attr=null) {
+    public function __construct($value, $line, $ind, $attr=null, $selfClosed=null) {
         $this->setValue($value);
         $this->setAttr($attr);
         $this->setLine($line);
         $this->setInd($ind);
         if ($attr != null) {
-            
             $this->_attr = $attr;
-            
         }
+        if ($selfClosed != null) {
+            $this->_selfClosed = true;
+        } else {
+            $this->_selfClosed = false;
+        }
+        
+    }
+   
+    public function wasSelfClosed() {
+        return $this->_selfClosed;
     }
     
     
