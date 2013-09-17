@@ -91,3 +91,9 @@ Invalid Title Tag Attribute: NotAGlobalAttribute: title
 Invalid tag: nope
 Invalid Title Tag Attribute: NotAGlobalAttribute: title
 Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
+Invalid Title Tag Attribute: NotAGlobalAttribute: title
+Invalid tag: nope
