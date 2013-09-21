@@ -34,10 +34,16 @@ class TreeTests extends UnitTestCase {
      */
     function testAddFirst() {
         $tree = new JTree();
-        $node = new JNode("test", 0, 0, null, null);
+        $node = new JNode("title", 0, 0, null, null);
         $nodeUid = $node->getUid();
         $tree->addFirst($nodeUid);
-        $this->assertTrue(array_key_exists($nodeUid, $tree->getChildren($tree->getHeadNode()->getUid())));
+        //check head has child nodes now
+        $this->assertTrue(count($tree->getChildren($tree->getHeadNode()->getUid())) > 0);
+        //check node is a child of head node
+        $this->assertTrue(in_array($nodeUid, $tree->getChildren($tree->getHeadNode()->getUid())));
+        //check headnode is parent of our node
+        $this->assertTrue($tree->getParent($nodeUid) == $tree->getHeadNode()->getUid());
+        
         //Invalid arg
         $newTree = new JTree();
         $this->expectException();

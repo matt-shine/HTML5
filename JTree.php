@@ -231,7 +231,7 @@ class JTree {
         if(empty($uid)) {
             throw new Exception('A unique ID is required.');
         }
-        $ret = false;
+      $ret = false;
       $node = $this->getNode($uid);
  
         if($node !== false) {
