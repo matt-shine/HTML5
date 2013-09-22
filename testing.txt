@@ -2,3 +2,7 @@ Invalid Title Tag Attribute: dir="rtl": title
 Invalid tag: blah
 Invalid Title Tag Attribute: dir="rtl": title
 Invalid tag: blah
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah

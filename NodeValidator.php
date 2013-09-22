@@ -205,9 +205,12 @@ class NodeValidator {
         if (count($this->node->getAttr()) > 1) {
             array_push($this->errors, "Doctype must have only one attribute.");
         }
-        if (count($this->node->getAttr()) == 1 && $this->node->getAttr()[0] != "html") {
-            array_push($this->errors, "Declared Doctype is not HTML5.");
+        if (count($this->node->getAttr()) == 1) {
+            $attr = $this->node->getAttr();
+            if ($attr[0] != "html") {
+                array_push($this->errors, "Declared Doctype is not HTML5.");
         }
+    }
     }
     
       private function validateTitleTag() {

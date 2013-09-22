@@ -90,8 +90,9 @@ class Parser {
         for ($i = 0; $i < count($this->tags); $i++) {
             $tag = $this->tags[$i];
             if (count($tag->getAttr()) > 0) {
-                for ($j = 0; $j < count($tag->getAttr()); $j++) {
-                    echo "tag: " . $tag->getValue() . ", Location: " . $tag->getLine(). " " . $tag->getInd() . ", Attr: " . $tag->getAttr()[$j] . "<br />";
+                $att = $tag->getAttr();
+                for ($j = 0; $j < count($att); $j++) {
+                    echo "tag: " . $tag->getValue() . ", Location: " . $tag->getLine(). " " . $tag->getInd() . ", Attr: " . $att[$j] . "<br />";
                     }
             } else {
                 echo "Tag: " . $tag->getValue() . ", Line: " . $tag->getLine() . ", Index: " . $tag->getInd() . "<br />";
@@ -143,7 +144,8 @@ class Parser {
                     //we have attributes
                     $tagAttr = array();
                     $tagValue = $splitTag[0];
-                    if (str_split($splitTag[0])[1] == '/') {
+                    $test = str_split($splitTag[0]);
+                    if ($test[1] == '/') {
                         //attributes in a closing tag - error here
                     }
                     for ($j = 1; $j < count($splitTag); $j++) {
