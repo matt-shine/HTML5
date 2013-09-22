@@ -6,3 +6,9 @@ Invalid Title Tag Attribute: dir="rtl": title
 Invalid tag: blah
 Invalid Title Tag Attribute: dir="rtl": title
 Invalid tag: blah
+  Meta Tag requires a name attribute: meta
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+Meta Tag requires a name attribute: meta
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah

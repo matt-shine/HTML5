@@ -221,11 +221,26 @@ class NodeValidator {
                     array_push($this->errors, "Invalid Title Tag Attribute: " . $at);
                 }
             }
-        }    
+           
+        } 
+      }
+      private function validateMetaTag() 
+      {
+          if(count($this->node->getAttr()) > 0) {
+              if(!in_array("name",$this->node->getAttr())){
+                  array_push($this->errors, "Meta Tag requires a name attribute");
+              }
+              
+          }
+          else{
+              array_push($this->errors, "Meta Tag requires a name attribute");
+          }
+           
+      }
     }
     
     
     
-}
+
 
 ?>
