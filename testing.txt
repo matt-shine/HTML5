@@ -1,8 +1,10 @@
-Invalid Title Tag Attribute: dir="rtl": title
-Invalid tag: blah
-Invalid Title Tag Attribute: dir="rtl": title
-Invalid tag: blah
-Invalid Title Tag Attribute: dir="rtl": title
-Invalid tag: blah
-Invalid Title Tag Attribute: dir="rtl": title
-Invalid tag: blah
+V: !DOCTYPE
+V: html
+V: body
+V: ul
+V: li
+V: li
+V: li
+V: blah
+V: head
+V: title

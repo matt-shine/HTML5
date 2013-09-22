@@ -55,7 +55,13 @@ class Parser {
         //Iterate through the tree - the iterator currently calls NodeValidator on each node
         $it = new JTreeRecursiveIterator($this->tree, 
                 new JTreeIterator($this->tree->getTree()), true);
-        foreach ($it as $k => $v) {}
+        $f = fopen("testing.txt", "a");
+        //foreach ($it as $k => $v) {
+        //}
+        foreach ($it as $v) {
+            fwrite($f, "V: " . $v->getValue() . "\n");
+        }
+        fclose($f);
     }
     
     
@@ -215,11 +221,6 @@ class Parser {
      */
     private function processStartTag($tag) {
         $tagUid = $this->tree->createNode($tag->getValue(), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null, $tag->wasSelfClosed());
-        if ($this->_open->isEmpty()) {
-             $this->tree->addChild(null, $tagUid);
-        } else {
-            $this->tree->addChild($this->_open->top(), $tagUid);
-        }
         $this->_open->push($tagUid);
     }
     
@@ -238,25 +239,24 @@ class Parser {
             if (strcmp(ltrim($tag->getValue(), '/'), $this->tree->getValue($this->_open->top())) != 0) {
                 //TODO: Generate an error here - misnested
             } else {
-             /* Closing tag which matches the currently open tag */
-             $tagUid = $this->tree->createNode(ltrim($tag->getValue(), '/'), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null);  
-             $this->tree->setParent($tagUid, $this->_open->top());
-            
-            /* add any elements in the children stack as this nodes children */
-             while (!$this->_children->isEmpty()) {
-                 $this->tree->setChild($tagUid, $this->tree->getNode($this->_children->pop()));
-             }
-             /* Remove the current parent */
-             $tempNode = $this->_open->pop();
-             
-             /* Check if there are more tags on the open stack */
-             if ($this->_open->isEmpty()){ 
-                 /* Top level tag */
-                 $this->tree->addChild(null, $tempNode);
-             } else {
-                 /* Push the tempnode onto the child stack */
-                 $this->_children->push($tempNode);                 
+                /* Closing tag which matches the currently open tag */
+                $currentTag = $this->_open->pop();
+
+               /* add any elements in the children stack as this nodes children */
+                while (!$this->_children->isEmpty()) {
+                    $child = $this->tree->getNode($this->_children->pop());
+                    //Add as a parent
+                    $this->tree->setChild($currentTag, $child->getUid());
                 }
+
+                /* Check if there are more tags on the open stack */
+                if ($this->_open->isEmpty()){ 
+                    /* Top level tag */
+                    $this->tree->addChild(null, $currentTag);
+                } else {
+                    /* Push the tempnode onto the child stack */
+                    $this->_children->push($currentTag);                 
+                   }
             }
         } 
     }

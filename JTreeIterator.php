@@ -31,6 +31,8 @@ class JTreeIterator extends ArrayIterator implements RecursiveIterator {
     * @var _position the iterator position 
    */
     private $_position;
+    
+    private $errors = array();
  
     /**
      * JTreeIterator::__construct()
@@ -63,9 +65,16 @@ class JTreeIterator extends ArrayIterator implements RecursiveIterator {
       //then get the object
         $current = parent::current();
         $nObj = $this->_list[$current];
-        $validator = new NodeValidator($nObj);
-        $validator->validate();
+        
         return $nObj;
+    }
+    
+    public function getErrors() {
+        if (empty($this->errors)) {
+            return null;
+        } else {
+        return $this->errors;
+        }
     }
  
     /**

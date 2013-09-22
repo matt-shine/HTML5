@@ -42,6 +42,9 @@ class NodeValidator {
     public function __construct($node) {
         $this->node = $node;
         $this->errors = array();
+        $f = fopen("testing.txt", "a");
+        fwrite($f, "validating: " . $this->node->getValue() . "\n");
+        fclose($f);
     }
     
     public function getErrors() {
@@ -57,21 +60,17 @@ class NodeValidator {
             array_push($this->errors, "Invalid tag");
         }
         
-        if (in_array($this->node->getValue(), $this->singularTags)) {
-            //call function to validate these tags (Note: checking for multiple 
-            // instances of these tags will covered by StructureValidator (to be implemented)
-        }
         elseif (in_array($this->node->getValue(), $this->headTags)) {
             $this->validateHeadTag();
         }
         elseif (in_array($this->node->getValue(), $this->bodyTags)) {
             $this->validateBodyTag();
         }
-        $f = fopen("testing.txt", "a");
-        foreach ($this->errors as $err) {
-            fwrite($f, $err . ": " . $this->node->getValue() . "\n");
-        }
-        fclose($f);
+        //$f = fopen("testing.txt", "a");
+        //foreach ($this->errors as $err) {
+        //    fwrite($f, $err . ": " . $this->node->getValue() . "\n");
+        //}
+        //fclose($f);
      }
     
     private function validateHeadTag() {
@@ -199,6 +198,10 @@ class NodeValidator {
     
     
     private function validateDoctype() {
+        $f = fopen("testing.txt", "a");
+        fwrite($f, "VALIDATE DOCTYPE CALLED ON: " . $this->node->getValue() . "\n");
+        fclose($f);
+                
         if (count($this->node->getAttr()) < 1)  {
             array_push($this->errors, "Doctype is missing required specification.");
         }

@@ -30,10 +30,12 @@ class JTreeRecursiveIterator extends RecursiveIteratorIterator {
      * @param integer $flags
      * @return
      */
-    public function __construct(JTree $jt, $iterator, $mode = LEAVES_ONLY, $flags = 0) {
+    public function __construct(JTree $jt, $iterator, $mode = CHILD_FIRST, $flags = 0) {
  
         parent::__construct($iterator, $mode, $flags);
         $this->_jTree = $jt;
+        $errors = $iterator->getErrors();
+
     }
  
     /**
