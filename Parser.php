@@ -56,10 +56,17 @@ class Parser {
         $it = new JTreeRecursiveIterator($this->tree, 
                 new JTreeIterator($this->tree->getTree()), true);
         $f = fopen("testing.txt", "a");
-        //foreach ($it as $k => $v) {
-        //}
+        
+        
         foreach ($it as $v) {
-            fwrite($f, "V: " . $v->getValue() . "\n");
+            $validator = new NodeValidator($v);
+            $validator->validate();
+            if (!empty($v->getErrors())) {
+                $errors = $v->getErrors();
+                foreach ($errors as $error) {
+                    fwrite($f, "Error detected for " . $v->getValue() . ", error: " . $error . "\n");
+                }
+            }
         }
         fclose($f);
     }

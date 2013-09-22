@@ -39,12 +39,9 @@ class NodeValidator {
     private $node; //the tag to validate
     private $errors; //stores errors associated with this tag (multiple errors are possible)
     
-    public function __construct($node) {
+    public function __construct($node, $tree) {
         $this->node = $node;
         $this->errors = array();
-        $f = fopen("testing.txt", "a");
-        fwrite($f, "validating: " . $this->node->getValue() . "\n");
-        fclose($f);
     }
     
     public function getErrors() {
@@ -55,30 +52,36 @@ class NodeValidator {
      * 'Manages' the validation, by determining what tests should be run on the node
      */
     public function validate() {
+        
+        
+//        if ($this->node->getValue() == "!DOCTYPE") {
+//            $this->validateDoctype();
+//        }
+        
         /* check if tag is valid */
         if (!in_array($this->node->getValue(), $this->validTags)) {
             array_push($this->errors, "Invalid tag");
         }
         
-        elseif (in_array($this->node->getValue(), $this->headTags)) {
+        if (in_array($this->node->getValue(), $this->singularTags)) {
+            $this->validateSingularTag();
+        }
+        
+        if (in_array($this->node->getValue(), $this->headTags)) {
+            
             $this->validateHeadTag();
         }
-        elseif (in_array($this->node->getValue(), $this->bodyTags)) {
+        if (in_array($this->node->getValue(), $this->bodyTags)) {
             $this->validateBodyTag();
         }
-        //$f = fopen("testing.txt", "a");
-        //foreach ($this->errors as $err) {
-        //    fwrite($f, $err . ": " . $this->node->getValue() . "\n");
-        //}
-        //fclose($f);
+        foreach ($this->errors as $err) {
+            $this->node->addError($err);
+        }
      }
     
     private function validateHeadTag() {
         switch ($this->node->getValue())
-        {   
-            case "!DOCTYPE":
-                $this->validateDoctype();
-                break;
+        {
             case "title":
                 $this->validateTitleTag();
                 break;
@@ -102,6 +105,7 @@ class NodeValidator {
                 break;
         }
     }
+    
     
       private function validateBodyTag() {
         switch ($this->node->getValue())
@@ -196,7 +200,10 @@ class NodeValidator {
         }
     }
     
-    
+    /**
+     * I will be moving doctype checking to the StructureValidator.
+     *  -Matt
+     */
     private function validateDoctype() {
         $f = fopen("testing.txt", "a");
         fwrite($f, "VALIDATE DOCTYPE CALLED ON: " . $this->node->getValue() . "\n");
@@ -212,8 +219,8 @@ class NodeValidator {
             $attr = $this->node->getAttr();
             if ($attr[0] != "html") {
                 array_push($this->errors, "Declared Doctype is not HTML5.");
+            }
         }
-    }
     }
     
       private function validateTitleTag() {

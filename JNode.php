@@ -39,6 +39,7 @@ class JNode {
     private $_selfClosed; /*  boolean, true if self closing tag e.g. <br /> */
     private $_closeTagFound; /* boolean, true if close tag was found during
                                     * parsing */
+    private $_errors = array();
     private $attr = array();
 
     /**
@@ -72,6 +73,14 @@ class JNode {
     
     public function getCloseTagFound() {
         return $this->_closeTagFound;
+    }
+    
+    public function addError($error) {
+        array_push($this->_errors, $error);
+    }
+    
+    public function getErrors() {
+        return $this->_errors;
     }
     
  

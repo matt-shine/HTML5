@@ -1,10 +1,3 @@
-V: !DOCTYPE
-V: html
-V: body
-V: ul
-V: li
-V: li
-V: li
-V: blah
-V: head
-V: title
+Error detected for blah, error: Invalid tag
+Error detected for blah, error: Invalid tag
+Error detected for title, error: Invalid Title Tag Attribute: dir="rtl"
