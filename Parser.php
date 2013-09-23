@@ -21,6 +21,7 @@ class Parser {
     var $tree; /* The parse tree */
     private $_open;
     private $_children;
+    private $firstNodeUid;
     /**
      * Constructor
      * 
@@ -59,7 +60,11 @@ class Parser {
         
         
         foreach ($it as $v) {
-            $validator = new NodeValidator($v);
+            if ($v->getUid() == $this->firstNodeUid) {
+                $validator = new NodeValidator($v, $this->tree, true);
+            } else {
+                $validator = new NodeValidator($v, $this->tree);
+            }
             $validator->validate();
             if (!empty($v->getErrors())) {
                 $errors = $v->getErrors();
@@ -198,7 +203,7 @@ class Parser {
             
             $uid = $this->tree->createNode($first->getValue(), $first->getLine(), $first->getInd(), $first->getAttr(), null);
             $this->tree->addChild(null, $uid);          
-            
+            $this->firstNodeUid = $uid; //Store the first nodes UID
             if ($this->tree->getValue($uid) != "!DOCTYPE") {
                 //TODO: error here
                 $this_open->push($first); // push the first tag onto the stack

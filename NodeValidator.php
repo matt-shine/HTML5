@@ -18,6 +18,8 @@ class NodeValidator {
     
     private $singularTags = array("!DOCTYPE", "head", "body", "header", "footer");
     
+    private $firstLevel = array("!DOCTYPE","head","body");
+    
     private $headTags = array("title", "style", "meta", "link", "script", "noscript", "base");
     
     private $bodyTags = array("a", "p", "hr", "pre", "ul", "ol", "ol", "dl", 
@@ -38,10 +40,19 @@ class NodeValidator {
          
     private $node; //the tag to validate
     private $errors; //stores errors associated with this tag (multiple errors are possible)
+    private $tree;
+    private $first;
     
-    public function __construct($node, $tree) {
+    public function __construct($node, $tree, $first = false) {
         $this->node = $node;
         $this->errors = array();
+        $this->tree = $tree;
+        if ($first) {
+            $this->first = true;
+        } else {
+            $this->first = false;
+        }
+        
     }
     
     public function getErrors() {
@@ -54,19 +65,16 @@ class NodeValidator {
     public function validate() {
         
         
-//        if ($this->node->getValue() == "!DOCTYPE") {
-//            $this->validateDoctype();
-//        }
+        /* Check if the node is a first level node */
+        if (in_array($this->node->getUid(), $this->tree->getChildren($this->tree->getHeadNode()->getUid()))) {
+            $this->validateFirstLevelNode();
+        }
         
         /* check if tag is valid */
         if (!in_array($this->node->getValue(), $this->validTags)) {
             array_push($this->errors, "Invalid tag");
         }
-        
-        if (in_array($this->node->getValue(), $this->singularTags)) {
-            $this->validateSingularTag();
-        }
-        
+    
         if (in_array($this->node->getValue(), $this->headTags)) {
             
             $this->validateHeadTag();
@@ -77,6 +85,22 @@ class NodeValidator {
         foreach ($this->errors as $err) {
             $this->node->addError($err);
         }
+     }
+     
+     
+     private function validateFirstLevelNode() {
+         if (!in_array($this->node->getValue(), $this->firstLevel)) {
+             /* Non-First level node in first-level position.
+              *     First level nodes - <!DOCTYPE>, <head>, <body>
+              *     Non: e.g <p><b>... etc.
+              */
+             
+             //TODO: function to deal with this
+         }
+         
+         if ($this->first) {
+             $this->validateDoctype();
+         }
      }
     
     private function validateHeadTag() {
@@ -200,15 +224,8 @@ class NodeValidator {
         }
     }
     
-    /**
-     * I will be moving doctype checking to the StructureValidator.
-     *  -Matt
-     */
     private function validateDoctype() {
-        $f = fopen("testing.txt", "a");
-        fwrite($f, "VALIDATE DOCTYPE CALLED ON: " . $this->node->getValue() . "\n");
-        fclose($f);
-                
+  
         if (count($this->node->getAttr()) < 1)  {
             array_push($this->errors, "Doctype is missing required specification.");
         }
