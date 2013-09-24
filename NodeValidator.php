@@ -53,7 +53,6 @@ class NodeValidator {
         } else {
             $this->first = false;
         }
-        
     }
     
     public function getErrors() {
@@ -266,9 +265,5 @@ class NodeValidator {
            
       }
     }
-    
-    
-    
-
 
 ?>

@@ -206,12 +206,6 @@ class Parser {
             $uid = $this->tree->createNode($first->getValue(), $first->getLine(), $first->getInd(), $first->getAttr(), null);
             $this->tree->addChild(null, $uid);          
             $this->firstNodeUid = $uid; //Store the first nodes UID
-            if ($this->tree->getValue($uid) != "!DOCTYPE") {
-                //TODO: error here
-                $this_open->push($first); // push the first tag onto the stack
-            }
-            
-            
             
             for ($i = 1; $i < count($this->tags); $i++) {
                 $currentTag = $this->tags[$i];
@@ -234,6 +228,8 @@ class Parser {
      * @param type $empty
      */
     private function processStartTag($tag) {
+
+        
         $tagUid = $this->tree->createNode($tag->getValue(), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null, $tag->wasSelfClosed());
         $this->_open->push($tagUid);
     }

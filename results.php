@@ -1,7 +1,9 @@
 <?php
+require 'JNode.php';
+
 session_start();
 
-require_once 'JNode.php';
+
 
 if (!isset($_SESSION['lines'])) {
     $sessionError = "NOPE!";
@@ -46,25 +48,50 @@ if (!isset($_SESSION['lines'])) {
                                     if (isset($sessionError)) {
                                         echo 'Problem loading results....';
                                     } else {
+                                       
                                         $lines = array();
-                                        
+                                        $errorIndexes = array();
                                         array_merge($lines, $_SESSION['lines']);
-                                        
-                                        for ($i=0; $i < count($lines); $i++) {
+
+                                        echo '<pre>';
+                                        $i = 0;
+                                        foreach ($_SESSION['lines'] as $line) {
                                             //inefficient
-                                            $e = false;
+                                            $e = 0;
                                             
-                                            foreach ($_SESSION['nodeWithErrors'] as $node) {
+                                            foreach ($_SESSION['nodesWithErrors'] as $node) {
                                                 if ($node->getLn() == $i) {
-                                                    $e = true;
-                                                    $errorLn = $node->getLn();
-                                                    $errorInd = $node->getInd();
+                                                    $e++;
+                                                    array_push($errorIndexes, $node->getInd()); 
+                                                    
                                                 }
                                             }
-                                            if (!$e) {
+                                            if ($e == 0) {
+                                                echo htmlspecialchars($line);
+                                                $i++;
+                                                continue;
+                                            } else {
+                                                /* error(s) in this line */
                                                 
+                                                for ($i=0; $i < $e; $i++) {
+                                                    if ($errorIndexes[$i] == 0) {
+                                                        $start = strpos($line, "<");
+                                                        $end = strpos($line, ">") + 1;
+                                                        $outputString = htmlspecialchars(substr($line, 0, $start)) . "<span style=\"color:red;text-decoration:underline; \">" . htmlspecialchars(substr($line, $start, $end)) 
+                                                                . "</span>" . htmlspecialchars(substr($line, $end)); 
+                                                    } else {
+                                                        $end = strpos($line, ">", $errorIndexes[$i]) + 1;
+                                                        $outputString = $outputString + "<span style=\"color:red;text-decoration:underline; \">" . 
+                                                                htmlspecialchars(substr($line, $errorIndexes[$i]), $end) . "</span>" . 
+                                                            htmlspecialchars(substr($line, $end));
+                                                    }
+                                                }
+                                                //$outputString = $outputString + htmlspecialchars(substr($line,));
                                             }
+                                            echo $outputString;
+                                            $i++;
                                         }
+                                        echo '</pre>';
                                         
                                     }
                                 ?>

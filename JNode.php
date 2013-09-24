@@ -65,6 +65,7 @@ class JNode {
         } else {
             $this->_selfClosed = false;
         }
+
     }
     
     public function setCloseTagFound() {
@@ -82,6 +83,7 @@ class JNode {
     public function getErrors() {
         return $this->_errors;
     }
+      
     
  
     /**
