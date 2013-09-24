@@ -109,6 +109,8 @@ class NodeValidator {
         {
             case "a":
             case "p":
+                $this->validatePTag();
+                break;
             case "hr":
             case "pre":
             case "ul":
@@ -220,6 +222,7 @@ class NodeValidator {
                 if (!in_array($at, $this->globalAttributes)) {
                     array_push($this->errors, "Invalid Title Tag Attribute: " . $at);
                 }
+                
             }
            
         } 
@@ -263,7 +266,52 @@ class NodeValidator {
         } 
       }  
     
-    
+      private function validateScriptTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attscript = $this->node->getAttr();
+            foreach ($attscript as $atscript) {
+                if (!in_array($atscript, $this->headTags)) {
+                    array_push($this->errors, "Invalid Script Tag Attribute: " . $atscript);
+                }
+            }
+           
+        } 
+      }
 
+            private function validateNoScriptTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attnoscript = $this->node->getAttr();
+            foreach ($attnoscript as $atnoscript) {
+                if (!in_array($atnoscript, $this->headTags)) {
+                    array_push($this->errors, "Invalid No Script Attribute: " . $atnoscript);
+                }
+            }
+           
+        } 
+      }
+ 
+            private function validateBaseTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attbase = $this->node->getAttr();
+            foreach ($attbase as $atbase) {
+                if (!in_array($atbase, $this->headTags)) {
+                    array_push($this->errors, "Invalid Base Tag Attribute: " . $atbase);
+                }
+            }
+        
+        } 
+      }
+  /* Capturing tags for body tags*/
+      
+            private function validatePTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attp = $this->node->getAttr();
+            foreach ($attp as $atp) {
+                if (!in_array($atp, $this->bodyTags)) {
+                    array_push($this->errors, "Invalid P Tag Attribute: " . $atp);
+                }
+            }
+        } 
+      }
 }
 ?>
