@@ -1,3 +1,20 @@
+<<<<<<< HEAD
 Error detected for !DOCTYPE, error: Doctype must have only one attribute.
 Error detected for blah, error: Invalid tag
 Error detected for title, error: Invalid Title Tag Attribute: dir="rtl"
+=======
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+  Meta Tag requires a name attribute: meta
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+Meta Tag requires a name attribute: meta
+Invalid Title Tag Attribute: dir="rtl": title
+Invalid tag: blah
+>>>>>>> origin/A-team
