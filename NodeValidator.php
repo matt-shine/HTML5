@@ -237,10 +237,33 @@ class NodeValidator {
           }
            
       }
-    }
     
+     
+    private function validateLinkTag()
+    {
+        if (count($this->node->getAttr()) > 0) {
+            $attlink = $this->node->getAttr();
+            foreach ($attlink as $atlink) {
+                if (!in_array($atlink, $this->headTags)) {
+                    array_push($this->errors, "Invalid Link Tag Attribute: " . $atlink);
+                }
+            }
+           
+        } 
+      }
+        private function validateStyleTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attstyle = $this->node->getAttr();
+            foreach ($attstyle as $atstyle) {
+                if (!in_array($atstyle, $this->headTags)) {
+                    array_push($this->errors, "Invalid Style Tag Attribute: " . $atstyle);
+                }
+            }
+           
+        } 
+      }  
     
     
 
-
+}
 ?>
