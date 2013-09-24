@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+require_once 'JNode.php';
+
+if (!isset($_SESSION['lines'])) {
+    $sessionError = "NOPE!";
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -32,7 +43,30 @@
 			<div id="content">
                             <div id="results">
                                 <?php
-                                    
+                                    if (isset($sessionError)) {
+                                        echo 'Problem loading results....';
+                                    } else {
+                                        $lines = array();
+                                        
+                                        array_merge($lines, $_SESSION['lines']);
+                                        
+                                        for ($i=0; $i < count($lines); $i++) {
+                                            //inefficient
+                                            $e = false;
+                                            
+                                            foreach ($_SESSION['nodeWithErrors'] as $node) {
+                                                if ($node->getLn() == $i) {
+                                                    $e = true;
+                                                    $errorLn = $node->getLn();
+                                                    $errorInd = $node->getInd();
+                                                }
+                                            }
+                                            if (!$e) {
+                                                
+                                            }
+                                        }
+                                        
+                                    }
                                 ?>
                             </div>
 			</div>

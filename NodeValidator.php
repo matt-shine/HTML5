@@ -1,5 +1,6 @@
 <?php
 
+
 class NodeValidator {
     
     private $validTags = array("!--","--","!DOCTYPE","a","abbr","address",

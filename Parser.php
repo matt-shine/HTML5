@@ -17,7 +17,7 @@ class Parser {
     var $lines; /* array of lines in the file */
     var $tags; /* Holds tags found in the document (includes open and close tags) */
     var $numlines; /*number of lines in the file */
-    var $errors; /* Holds errors detected in the document */
+    var $nodesWithErrors; /* Holds errors detected in the document */
     var $tree; /* The parse tree */
     private $_open;
     private $_children;
@@ -41,7 +41,7 @@ class Parser {
             throw new Exception("File was empty!");
         }
         $this->tags = array();
-        $this->errors = array();
+        $this->nodesWithErrors = array();
         $this->tree = new JTree();
         
         /**
@@ -56,7 +56,6 @@ class Parser {
         //Iterate through the tree - the iterator currently calls NodeValidator on each node
         $it = new JTreeRecursiveIterator($this->tree, 
                 new JTreeIterator($this->tree->getTree()), true);
-        $f = fopen("testing.txt", "a");
         
         
         foreach ($it as $v) {
@@ -66,14 +65,17 @@ class Parser {
                 $validator = new NodeValidator($v, $this->tree);
             }
             $validator->validate();
-            if (!empty($v->getErrors())) {
-                $errors = $v->getErrors();
-                foreach ($errors as $error) {
-                    fwrite($f, "Error detected for " . $v->getValue() . ", error: " . $error . "\n");
+            $errors = $v->getErrors();
+            if (!empty($errors)) {
+                if (!empty($errors)) {
+                    array_push($this->nodesWithErrors, $v);
                 }
+                
             }
         }
-        fclose($f);
+        $_SESSION['lines'] = $this->lines;
+        $_SESSION['nodesWithErrors'] = $this->nodesWithErrors;
+        header('Location: results.php');
     }
     
     
