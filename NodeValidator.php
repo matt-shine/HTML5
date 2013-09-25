@@ -112,90 +112,220 @@ class NodeValidator {
                 $this->validatePTag();
                 break;
             case "hr":
+                $this->validateX($hr, $hr2, "hr");
+                break;
             case "pre":
-            case "ul":
-            case "ol":
-            case "ol":
-            case "dl":
+                $this->validateX($pre, $pre2, "pre");
+                break;
+            case "ul": // Todo
+            case "ol": // Todo
+            case "ol": // Todo
+            case "dl": // Todo
             case "div":
-            case "h1":
+                $this->validateX($div, $div2, "div");
+                break;
+            case "h1": // add only 1 h1
+                $this->validateX($h1, $hr12, "h1");
+                break;
             case "h2":
+                $this->validateX($h2, $hr22, "h2");
+                break;
             case "h3":
+                $this->validateX($h3, $hr32, "h3");
+                break;
             case "h4":
+                $this->validateX($h4, $hr42, "h4");
+                break;
             case "h5":
+                $this->validateX($h5, $hr52, "h5");
+                break;
             case "h6":
+                $this->validateX($h6, $hr62, "h6");
+                break;
             case "hgroup":
+                $this->validateX($hgroup, $hgroup2, "hgroup");
+                break;
             case "address":
+                $this->validateX($address, $address2, "address");
+                break;
             case "blockquote":
+                $this->validateX($blockquote, $blockquote2, "blockquote");
+                break;
             case "ins":
+                $this->validateX($ins, $ins2, "ins");
+                break;
             case "del":
+                $this->validateX($del, $del2, "del");
+                break;
             case "object":
+                $this->validateX($object, $object2, "object");
+                break;
             case "map":
+                $this->validateX($map, $map2, "map");
+                break;
             case "noscript":
+                $this->validateX($noscript, $noscript2, "noscript");
+                break;
             case "section":
+                $this->validateX($section, $section2, "section");
+                break;
             case "nav":
+                $this->validateX($nav, $nav2, "nav");
+                break;
             case "article":
+                $this->validateX($article, $article2, "article");
+                break;
             case "aside":
+                $this->validateX($aside, $aside2, "aside");
+                break;
             case "header":
+                $this->validateX($header, $herder2, "header");
+                break;
             case "footer":
+                $this->validateX($footer, $footer2, "footer");
+                break;
             case "video":
+                $this->validateX($video, $video2, "video");
+                break;
             case "audio":
+                $this->validateX($audio, $audio2, "audio");
+                break;
             case "figure":
-            case "table":
-            case "form":
-            case "fieldset":
+                $this->validateX($figure, $figure2, "figure");
+                break;
+            case "table": // TODO
+            case "form":  // TODO
+            case "fieldset": //TODO
             case "menu":
+                $this->validateX($menu, $menu2, "menu");
+                break;
             case "canvas":
+                $this->validateX($canvas, $canvas2, "canvas");
+                break;
             case "details":
+                $this->validateX($detail, $detail2, "detail");
+                break;
             case "em":
+                $this->validateX($em, $em2, "em");
+                break;
             case "strong":
+                $this->validateX($strong, $strong2, "strong");
+                break;
             case "small":
+                $this->validateX($small, $small2, "small");
+                break;
             case "mark":
+                $this->validateX($mark, $mark2, "mark");
+                break;
             case "abbr":
+                $this->validateX($abbr, $abbr2, "abbr");
+                break;
             case "dfn":
+                $this->validateX($dfn, $dfn2, "dfn");
+                break;
             case "i":
+                $this->validateX($i, $i2, "i");
+                break;
             case "b":
+                $this->validateX($b, $b2, "b");
+                break;
             case "s":
+                $this->validateX($s, $s2, "s");
+                break;
             case "u":
+                $this->validateX($u, $u2, "u");
+                break;
             case "code":
+                $this->validateX($code, $code2, "code");
+                break;
             case "var":
+                $this->validateX($var, $var2, "var");
+                break;
             case "samp":
+                $this->validateX($samp, $samp2, "samp");
+                break;
             case "kbd":
+                $this->validateX($kbd, $kbd2, "kbd");
+                break;
             case "sup":
+                $this->validateX($sup, $sup2, "sup");
+                break;
             case "sub":
+                $this->validateX($sub, $sub2, "sub");
+                break;
             case "q":
+                $this->validateX($q, $q2, "q");
+                break;
             case "cite":
+                $this->validateX($cite, $cite2, "cite");
+                break;
             case "span":
+                $this->validateX($span, $span2, "span");
+                break;
             case "bdo":
+                $this->validateX($bdo, $bdo2, "bdo");
+                break;
             case "bdi":
+                $this->validateX($bdi, $bdi2, "bdi");
+                break;
             case "br":
+                $this->validateX($br, $br2, "br2");
+                break;
             case "wbr":
+                $this->validateX($wbr, $wbr2, "wbr");
+                break;
             case "ins":
+                $this->validateX($ins, $ins2, "ins");
+                break;
             case "del":
-            case "img":
+                $this->validateX($del, $del2, "del");
+                break;
+            case "img": // TODO
             case "embed":
-            case "object":
+                $this->validateX($embed, $embed2, "embed");
+                break;
+// dupicate            case "object":
             case "iframe":
-            case "map":
+                $this->validateX($iframe, $iframe2, "iframe");
+                break;
+// dupicate            case "map":
             case "area":
+                $this->validateX($area, $area2, "area");
+                break;
             case "script":
-            case "noscript":
+                $this->validateX($script, $script2, "script");
+                break;
+// dupicate            case "noscript":
             case "ruby":
-            case "video":
-            case "audio":
-            case "input":
-            case "textarea":
-            case "select":
-            case "button":
-            case "label":
-            case "output":
+                $this->validateX($ruby, $ruby2, "ruby");
+                break;
+// dupicate            case "video":
+// dupicate            case "audio":
+            case "input":       // todo form
+            case "textarea":    // todo form
+            case "select":      // todo form
+            case "button":      // todo form
+            case "label":       // todo form
+            case "output":      // todo form
             case "datalist":
+                $this->validateX($datalist, $datalist2, "datalist");
+                break;
             case "keygen":
+                $this->validateX($keygen, $keygen2, "keygen");
+                break;
             case "progress":
+                $this->validateX($progess, $progess2, "progess");
+                break;
             case "command":
-            case "canvas":
+                $this->validateX($command, $command2, "command");
+                break;
+// dupicate            case "canvas":
             case "time":
+                $this->validateX($time, $time2, "time");
+                break;
             case "meter":
+                $this->validateX($meter, $meter2, "meter");
+                break;
         }
     }
     
@@ -312,6 +442,17 @@ class NodeValidator {
                 }
             }
         } 
+      }
+
+                  private function validateX($A,$B,$C) {
+        if (count($this->node->getAttr()) > 0) {
+            $A = $this->node->getAttr();
+            foreach ($A as $B) {
+                if (!in_array($B, $this->bodyTags)) {
+                    array_push($this->errors, "Invalid $C Tag Attribute: " . $B);
+                }
+            }
+        }
       }
 }
 ?>
