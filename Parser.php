@@ -79,8 +79,6 @@ class Parser {
     }
     
     
-    
-    
     /**
      * Parses the document (as an array of lines) and extract
      * html tags.
@@ -251,6 +249,9 @@ class Parser {
             } else {
                 /* Closing tag which matches the currently open tag */
                 $currentTag = $this->_open->pop();
+                $node = $this->tree->getNode($currentTag);
+                $node->setCloseTagLn($tag->getLine());
+                $node->setCloseTagInd($tag->getInd());
 
                /* add any elements in the children stack as this nodes children */
                 while (!$this->_children->isEmpty()) {

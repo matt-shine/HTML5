@@ -45,53 +45,133 @@ if (!isset($_SESSION['lines'])) {
 			<div id="content">
                             <div id="results">
                                 <?php
+                                    function compare_nodes($a, $b) {
+                                        if ($a->getInd() == $b->getInd()) {
+                                            return 0;
+                                        }
+                                        return ($a->getInd() < $b->getInd()) ? -1 : 1;
+                                    }
+                                
                                     if (isset($sessionError)) {
                                         echo 'Problem loading results....';
                                     } else {
-                                       
-                                        $lines = array();
-                                        $errorIndexes = array();
-                                        array_merge($lines, $_SESSION['lines']);
-
+                                        
                                         echo '<pre>';
-                                        $i = 0;
-                                        foreach ($_SESSION['lines'] as $line) {
-                                            //inefficient
-                                            $e = 0;
-                                            
-                                            foreach ($_SESSION['nodesWithErrors'] as $node) {
-                                                if ($node->getLn() == $i) {
-                                                    $e++;
-                                                    array_push($errorIndexes, $node->getInd()); 
-                                                    
-                                                }
-                                            }
-                                            if ($e == 0) {
-                                                echo htmlspecialchars($line);
-                                                $i++;
-                                                continue;
+                                        $lines = $_SESSION['lines'];
+                                        $nodesWithErrors = $_SESSION['nodesWithErrors'];
+                                        
+                                        /* Get the line numbers that contain errors */
+                                        $linesWithErrors = array();
+                                        foreach ($nodesWithErrors as $node) {
+                                            array_push($linesWithErrors, $node->getLn());
+                                        }
+                                        
+                                        for ($i = 0; $i < count($lines); $i++) {
+                                            if (!in_array($i, $linesWithErrors)) {
+                                                /* No error was found in this line */
+                                                echo htmlspecialchars($lines[$i]);
                                             } else {
-                                                /* error(s) in this line */
-                                                
-                                                for ($i=0; $i < $e; $i++) {
-                                                    if ($errorIndexes[$i] == 0) {
-                                                        $start = strpos($line, "<");
-                                                        $end = strpos($line, ">") + 1;
-                                                        $outputString = htmlspecialchars(substr($line, 0, $start)) . "<span style=\"color:red;text-decoration:underline; \">" . htmlspecialchars(substr($line, $start, $end)) 
-                                                                . "</span>" . htmlspecialchars(substr($line, $end)); 
-                                                    } else {
-                                                        $end = strpos($line, ">", $errorIndexes[$i]) + 1;
-                                                        $outputString = $outputString + "<span style=\"color:red;text-decoration:underline; \">" . 
-                                                                htmlspecialchars(substr($line, $errorIndexes[$i]), $end) . "</span>" . 
-                                                            htmlspecialchars(substr($line, $end));
+                                                /* Error(s) in this line */
+                                                $thisLinesErrorNodes = array();
+                                                foreach ($nodesWithErrors as $node) { //get the  nodes in this line with errors
+                                                    if ($node->getLn() == $i) {
+                                                        array_push($thisLinesErrorNodes, $node);
                                                     }
                                                 }
-                                                //$outputString = $outputString + htmlspecialchars(substr($line,));
+                                                
+                                                if (count($thisLinesErrorNodes) == 1) {
+                                                    /* Only one error */
+                                                    $singleNode = $thisLinesErrorNodes[0];
+                                                    if ($singleNode->getInd() == 0) {
+                                                        /* Error at position 0 */
+                                                        echo "<span style=\"color:red;text-decoration:underline; \">" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
+                                                                . "</span>" . htmlspecialchars(substr($lines[$i], strpos($lines[$i], ">")+1)); 
+                                                        
+                                                    }
+                                                } elseif (count($thisLinesErrorNodes) > 1) {
+                                                    
+                                                    /* sort the nodes based on their indexes */
+                                                    usort($thisLinesErrorNodes, 'compare_nodes');
+                                                    $formattedLine;
+                                                   
+                                                    for ($j = 0; $j < count($thisLinesErrorNodes); $j++) {
+                                                        if ($j == 0) {
+                                                            $formattedLine = htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), strlen($thisLinesErrorNodes[$j]->getValue())+1)) .
+                                                                    "<span style=\"color:red;text-decoration:underline; \">" . substr($lines[$i], strlen($thisLinesErrorNodes[$j]->getValue())+1, $thisLinesErrorNodes[$j]->getInd()-1) . "</span>";
+                                                        } elseif ($j == count($thisLinesErrorNodes)-1) {
+                                                            $formattedLine = formattedLine . "<span style=\"color:red;text-decoration:underline; \">" . 
+                                                            htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), strlen($thisLinesErrorNodes[$j]->getValue())+1)) . "</span>" . 
+                                                                    htmlspecialchars($substr($lines[$i], ))
+                                                                    
+                                                        }
+                                                        $formattedLine 
+                                                    }
+
+                                                    foreach ($thisLinesErrorNodes as $multiNode) {
+                                                        $thisNodesCloseTag = strpos($lines[$i], ">", $multiNode->getInd());
+                                                         htmlspecialchars(substr($lines[$i], 0, $multiNode->getInd())) . "<span style=\"color:red;text-decoration:underline; \">"
+                                                                . htmlspecialchars($lines[$i], )
+                                                    }
+                                                    
+                                                } else {
+                                                    echo "Something went horribly wrong";
+                                                }
+                                                
+                                                
+                                                
                                             }
-                                            echo $outputString;
-                                            $i++;
+                                            
+                                            
+                                            
                                         }
+                                        
+                                        
                                         echo '</pre>';
+                                        
+                                        
+                                        
+//                                        echo '<pre>';
+//                                        $i = 0;
+//                                        foreach ($_SESSION['lines'] as $line) {
+//                                            //inefficient
+//                                            $e = 0;
+//                                            
+//                                            
+//                                            
+//                                            
+//                                            foreach ($_SESSION['nodesWithErrors'] as $node) {
+//                                                if ($node->getLn() == $i) {
+//                                                    $e++;
+//                                                    array_push($errorIndexes, $node->getInd()); 
+//                                                    
+//                                                }
+//                                            }
+//                                            if ($e == 0) {
+//                                                /* No errors */
+//                                                echo htmlspecialchars($line);
+//                                                $i++;
+//                                                continue;
+//                                            } else {
+//                                                /* error(s) in this line */
+//                                                for ($i=0; $i < $e; $i++) {
+//                                                    if ($errorIndexes[$i] == 0) {
+//                                                        $start = strpos($line, "<");
+//                                                        $end = strpos($line, ">") + 1;
+//                                                        $outputString = htmlspecialchars(substr($line, 0, $start)) . "<span style=\"color:red;text-decoration:underline; \">" . htmlspecialchars(substr($line, $start, $end)) 
+//                                                                . "</span>" . htmlspecialchars(substr($line, $end)); 
+//                                                    } else {
+//                                                        $end = strpos($line, ">", $errorIndexes[$i]) + 1;
+//                                                        $outputString = $outputString + "<span style=\"color:red;text-decoration:underline; \">" . 
+//                                                                htmlspecialchars(substr($line, $errorIndexes[$i]), $end) . "</span>" . 
+//                                                            htmlspecialchars(substr($line, $end));
+//                                                    }
+//                                                }
+//                                                //$outputString = $outputString + htmlspecialchars(substr($line,));
+//                                            }
+//                                            echo $outputString;
+//                                            $i++;
+//                                        }
+//                                        echo '</pre>';
                                         
                                     }
                                 ?>
