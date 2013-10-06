@@ -16,8 +16,11 @@ if (!isset($_SESSION['lines'])) {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>HTML5 Learning Tool</title>
-		<link rel="stylesheet" href="style.css">
-		<script type="text/Javascript" src="javascript.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+                <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+                <script type="text/javascript" src="javascript.js"></script>
+                <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+                <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -85,7 +88,8 @@ if (!isset($_SESSION['lines'])) {
                                                     
                                                     if ($singleNode->getInd() == 0) {
                                                         /* Error at position 0 */
-                                                        echo "<span style=\"color:red;text-decoration:underline; \">" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
+                                                        
+                                                        echo "<span class=\"tooltip\" title=\"Error!\" >" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
                                                                 . "</span>" . htmlspecialchars(substr($lines[$i], strpos($lines[$i], ">")+1)) . "\n"; 
                                                         
                                                      } else {
@@ -99,7 +103,7 @@ if (!isset($_SESSION['lines'])) {
                                                              }
                                                          }
                                                          echo htmlspecialchars(substr($lines[$i], 0, $singleNode->getInd()-2)) . 
-                                                                    "<span style=\"color:red;text-decoration:underline; \">" . 
+                                                                    "<span class=\"tooltip\" title=\"Error!\">" . 
                                                                         htmlspecialchars(substr($lines[$i], $singleNode->getInd(), $tagLength)) . "</span>" . 
                                                                         htmlspecialchars(substr($lines[$i],$singleNode->getInd() + $tagLength)) . "\n";
                                                      }
@@ -115,14 +119,14 @@ if (!isset($_SESSION['lines'])) {
                                                         $tagLength = strlen($thisLinesErrorNodes[$j]->getValue())+2;
                                                         if ($j == 0) {
                                                             $formattedLine = htmlspecialchars(substr($lines[$i], 0, $thisLinesErrorNodes[$j]->getInd())) .
-                                                                    "<span style=\"color:red;text-decoration:underline; \">" . htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>";
+                                                                    "<span class=\"tooltip\" title=\"Error!\">" . htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>";
                                                         } elseif ($j == count($thisLinesErrorNodes)-1) {
-                                                            $formattedLine = $formattedLine . "<span style=\"color:red;text-decoration:underline; \">" . 
+                                                            $formattedLine = $formattedLine . "<span class=\"tooltip\" title=\"Error!\">" . 
                                                             htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>" . 
                                                                     htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd()+$tagLength));
                                                         } else {
                                                             $endOfPrevious = $thisLinesErrorNodes[$j-1]->getInd() + strlen($thisLinesErrorNodes[$j-1]->getValue()) + 2;
-                                                            $formattedLine  = $formattedLine . "<span style=\"color:red;text-decoration:underline; \">" . 
+                                                            $formattedLine  = $formattedLine . "<span class=\"tooltip\" title=\"Error!\">" . 
                                                                     htmlspecialchars(substr($lines[$i], $endOfPrevious, $tagLength)) . "</span>";
                                                         }
                                                     }
@@ -153,5 +157,10 @@ if (!isset($_SESSION['lines'])) {
 				</table>
 			</div> 
 		</div>
+            <script>
+        $(document).ready(function() {
+            $('.tooltip').tooltipster();
+        });
+    </script>
 	</body>
 </html>

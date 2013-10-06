@@ -200,6 +200,20 @@ label {
 
 /* Results */
 
+.tooltip {
+    background: #f46071; /* Old browsers */
+    background: -moz-linear-gradient(top, #f46071 3%, #f72500 56%, #ff011a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#f46071), color-stop(56%,#f72500), color-stop(100%,#ff011a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f46071 3%,#f72500 56%,#ff011a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f46071 3%,#f72500 56%,#ff011a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f46071 3%,#f72500 56%,#ff011a 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #f46071 3%,#f72500 56%,#ff011a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f46071', endColorstr='#ff011a',GradientType=0 ); /* IE6-9 */
+    border-style:solid;
+    border-width:1px;
+    border-color:white;
+    border-radius:25px;
+}
 
 /* end */
 
