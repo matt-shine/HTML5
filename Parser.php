@@ -15,6 +15,7 @@ class Parser {
     
     var $file; /* the file to parse */
     var $lines; /* array of lines in the file */
+    var $preservedLines;
     var $tags; /* Holds tags found in the document (includes open and close tags) */
     var $numlines; /*number of lines in the file */
     var $nodesWithErrors; /* Holds errors detected in the document */
@@ -37,6 +38,7 @@ class Parser {
         }
         $this->lines = explode("\n", $this->file);
         $this->numlines = count($this->lines);
+        $this->preservedLines = explode("\n", $this->file);
         if (!isset($this->numlines) || $this->numlines < 2) {
             throw new Exception("File was empty!");
         }
@@ -48,7 +50,6 @@ class Parser {
          * Comment out the following method calls when testing.
          */
         $this->parse();
-        $this->printTags();
         $this->createParseTree();
         /******************************************************/
        
@@ -73,7 +74,7 @@ class Parser {
                 
             }
         }
-        $_SESSION['lines'] = $this->lines;
+        $_SESSION['lines'] = $this->preservedLines;
         $_SESSION['nodesWithErrors'] = $this->nodesWithErrors;
         header('Location: results.php');
     }
@@ -84,39 +85,25 @@ class Parser {
      * html tags.
      */
     public function parse() {
-        for ($i = 0; $i < $this->numlines; $i++) { //$i keeps track of line #
+        $count = $this->numlines;
+        for ($i = 0; $i < $count; $i++) { //$i keeps track of line #
             $line = $this->lines[$i];
             //Convet line to an array of characters
             $lineArray = str_split($line);
             
             //Check if the line contains an unfinished tag
-            if ($this->betweenStr($line, '<', "\n", $i) != false) {
-                //it does, merge the next line with the current one
-                $this->lines = $this->mergeLines($this->lines, $lineArray, $i);
+            if ($this->betweenStr($line, "<", ">") == false) {
+                //it does, merge the next line with the current one;
+                $this->lines = $this->mergeLines($this->lines, $i);
                 //Need to process this index again, decrement $i and continue
                 $i--;
+                $count--;
                 continue;
             }
-            $this->processLine($line, $lineArray, $i);
+        $this->processLine($line, $lineArray, $i);
         }
     }
     
-    /**
-     * Helper function for debugging
-     */
-    private function printTags() {
-        for ($i = 0; $i < count($this->tags); $i++) {
-            $tag = $this->tags[$i];
-            if (count($tag->getAttr()) > 0) {
-                $att = $tag->getAttr();
-                for ($j = 0; $j < count($att); $j++) {
-                    echo "tag: " . $tag->getValue() . ", Location: " . $tag->getLine(). " " . $tag->getInd() . ", Attr: " . $att[$j] . "<br />";
-                    }
-            } else {
-                echo "Tag: " . $tag->getValue() . ", Line: " . $tag->getLine() . ", Index: " . $tag->getInd() . "<br />";
-            }
-        }
-    }
     
     
     /**
@@ -127,14 +114,17 @@ class Parser {
      * @param type $i
      */
     private function mergeLines($lines, $i) {
-        $ind = (int)$i;
-        if ($ind+1 > count($lines)) {
+        $ind = (int)$i+1;
+        if ($ind > count($lines)) {
             //TODO: unfinished tag error should be raised here
         }
-        $newString = $lines[$ind];
-        $newString += $lines[$ind+1];
-        $lines[$ind] = $newString;
-        for ($j = $ind+1; $j < count($lines); $j++) {
+        echo "[" . $ind . ", " . $i . "]";
+        $newString = $lines[$i];
+        echo '[newstring: ' . htmlspecialchars($newString) . ']';
+        $newString += $lines[$ind];
+        
+        $lines[$i] = $newString;
+        for ($j = $ind; $j < count($lines); $j++) {
             if ($j+1 >= count($lines)) {
                 $lines[$j] = null;
             } else {
@@ -226,8 +216,6 @@ class Parser {
      * @param type $empty
      */
     private function processStartTag($tag) {
-
-        
         $tagUid = $this->tree->createNode($tag->getValue(), $tag->getLine(), $tag->getInd(), $tag->getAttr(), null, $tag->wasSelfClosed());
         $this->_open->push($tagUid);
     }
@@ -310,7 +298,6 @@ class Parser {
         }
         return substr($InputString, $StartLoc, ($EndLoc-$StartLoc));
     }
-    
 }
 
 ?>
