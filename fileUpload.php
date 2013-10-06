@@ -9,7 +9,6 @@ if (isset($_POST['url-submit'])) {
 
 elseif (isset($_POST['file-submit'])) {
     //for now, this is a single file
-    echo "yp";
     if ($_FILES["uploaded_file"]["error"] > 0) {
         echo "Error: " . $_FILES["uploaded_file"]["error"] . "<br />";
     } else {
@@ -18,6 +17,7 @@ elseif (isset($_POST['file-submit'])) {
         $parser = new Parser($path);
         $parser->parse();
         $parser->createParseTree();
+        $parser->runValidator();
     }
     
     
@@ -28,7 +28,14 @@ elseif (isset($_POST['zip-submit'])) {
 }
 
 elseif (isset($_POST['direct-submit'])) {
-    
+    $input = $_POST['fragment'];
+    $temp = tempnam("./temp", "input-");
+    file_put_contents($temp, $input);
+    $parser = new Parser($temp);
+    $parser->parse();
+    $parser->createParseTree();
+    $parser->runValidator();
+    unlink($temp);
 }
 
 else {

@@ -21,6 +21,7 @@ if (!isset($_SESSION['lines'])) {
                 <script type="text/javascript" src="javascript.js"></script>
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
                 <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+                <link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<div id="container">
@@ -46,7 +47,7 @@ if (!isset($_SESSION['lines'])) {
 				<p id="slogan">Test. Check. Upload. Validate. <span>Learn.</span></p>
 			</div>
 			<div id="content">
-                            <div id="results">
+                            
                                 <?php
                                     function compare_nodes($a, $b) {
                                         if ($a->getInd() == $b->getInd()) {
@@ -59,11 +60,18 @@ if (!isset($_SESSION['lines'])) {
                                         echo 'Problem loading results....';
                                     } else {
                                         
-                                        echo '<pre>';
+                                        
                                     
                                         $lines = $_SESSION['lines'];
                                         $nodesWithErrors = $_SESSION['nodesWithErrors'];
                                         /* Get the line numbers that contain errors */
+                                        if (count($nodesWithErrors) > 0) {
+                                            echo "<div id=\"validation-fail\">Errors detected!</div>";
+                                        } else {
+                                            echo "<div id=\"validation-success\">Success!</div>";
+                                        }
+                                        echo '<div class="box results">';
+                                        echo '<pre>';
                                         $linesWithErrors = array();
                                         foreach ($nodesWithErrors as $node) {
                                             array_push($linesWithErrors, $node->getLn());

@@ -45,15 +45,12 @@ class Parser {
         $this->tags = array();
         $this->nodesWithErrors = array();
         $this->tree = new JTree();
+            
         
-        /**
-         * Comment out the following method calls when testing.
-         */
-        $this->parse();
-        $this->createParseTree();
-        /******************************************************/
-       
         
+    }
+    
+    public function runValidator() {
         //Iterate through the tree - the iterator currently calls NodeValidator on each node
         $it = new JTreeRecursiveIterator($this->tree, 
                 new JTreeIterator($this->tree->getTree()), true);
