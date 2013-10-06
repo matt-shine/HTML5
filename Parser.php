@@ -45,9 +45,6 @@ class Parser {
         $this->tags = array();
         $this->nodesWithErrors = array();
         $this->tree = new JTree();
-            
-        
-        
     }
     
     public function runValidator() {
@@ -115,9 +112,7 @@ class Parser {
         if ($ind > count($lines)) {
             //TODO: unfinished tag error should be raised here
         }
-        echo "[" . $ind . ", " . $i . "]";
         $newString = $lines[$i];
-        echo '[newstring: ' . htmlspecialchars($newString) . ']';
         $newString += $lines[$ind];
         
         $lines[$i] = $newString;

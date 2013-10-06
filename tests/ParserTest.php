@@ -46,9 +46,7 @@ class ParserTest extends UnitTestCase {
     function testConstructorArrays() {
         $parser = new Parser('files/test.html');
         $this->assertEqual(count($parser->lines), 14);
-        $this->assertEqual($parser->numlines, 14);
-        $this->assertIsA($parser->errors, "array");
-        $this->assertEqual(count($parser->errors), 0);
+        $this->assertEqual($parser->numlines, 14);;
         $this->assertIsA($parser->tags, "array");
         $this->assertEqual(count($parser->tags), 0);
     }
@@ -98,7 +96,7 @@ class ParserTest extends UnitTestCase {
         $parser->createParseTree();
         $this->assertEqual($parser->tree->getHeadNode()->getValue(), "HEAD");
         $firstChildren = $parser->tree->getChildren($parser->tree->getHeadNode()->getUid());
-        $this->assertTrue(sizeof($firstChildren) == 2);
+        $this->assertEqual(count($firstChildren), 2);
         $this->assertTrue($parser->tree->getValue($firstChildren[0]) == "!DOCTYPE");
         $this->assertEqual($parser->tree->getChildren($firstChildren[0]), null);
         $this->assertTrue($parser->tree->getValue($firstChildren[1]) == "html");
