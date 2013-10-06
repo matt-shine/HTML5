@@ -88,8 +88,13 @@ if (!isset($_SESSION['lines'])) {
                                                     
                                                     if ($singleNode->getInd() == 0) {
                                                         /* Error at position 0 */
+                                                        $errorString = "";
                                                         
-                                                        echo "<span class=\"tooltip\" title=\"Error!\" >" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
+                                                        $errors = $singleNode->getErrors();
+                                                        foreach ($errors as $e) {
+                                                            $errorString .= $e;
+                                                        }
+                                                        echo "<span class=\"tooltip\" title=\"$errorString\" >" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
                                                                 . "</span>" . htmlspecialchars(substr($lines[$i], strpos($lines[$i], ">")+1)) . "\n"; 
                                                         
                                                      } else {
@@ -102,8 +107,14 @@ if (!isset($_SESSION['lines'])) {
                                                                  }
                                                              }
                                                          }
+                                                         $errorString = "";
+                                                        
+                                                        $errors = $singleNode->getErrors();
+                                                        foreach ($errors as $e) {
+                                                            $errorString .= $e;
+                                                        }
                                                          echo htmlspecialchars(substr($lines[$i], 0, $singleNode->getInd()-2)) . 
-                                                                    "<span class=\"tooltip\" title=\"Error!\">" . 
+                                                                    "<span class=\"tooltip\" title=\"$errorString\">" . 
                                                                         htmlspecialchars(substr($lines[$i], $singleNode->getInd(), $tagLength)) . "</span>" . 
                                                                         htmlspecialchars(substr($lines[$i],$singleNode->getInd() + $tagLength)) . "\n";
                                                      }
@@ -116,17 +127,23 @@ if (!isset($_SESSION['lines'])) {
                                                     $formattedLine = "";
                                                     
                                                     for ($j = 0; $j < count($thisLinesErrorNodes); $j++) {
+                                                        $errorString = "";
+                                                        
+                                                        $errors = $thisLinesErrorNodes[$j]->getErrors();
+                                                        foreach ($errors as $e) {
+                                                            $errorString .= $e;
+                                                        }
                                                         $tagLength = strlen($thisLinesErrorNodes[$j]->getValue())+2;
                                                         if ($j == 0) {
                                                             $formattedLine = htmlspecialchars(substr($lines[$i], 0, $thisLinesErrorNodes[$j]->getInd())) .
-                                                                    "<span class=\"tooltip\" title=\"Error!\">" . htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>";
+                                                                    "<span class=\"tooltip\" title=\"$errorString!\">" . htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>";
                                                         } elseif ($j == count($thisLinesErrorNodes)-1) {
-                                                            $formattedLine = $formattedLine . "<span class=\"tooltip\" title=\"Error!\">" . 
+                                                            $formattedLine = $formattedLine . "<span class=\"tooltip\" title=\"$errorString!\">" . 
                                                             htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>" . 
                                                                     htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd()+$tagLength));
                                                         } else {
                                                             $endOfPrevious = $thisLinesErrorNodes[$j-1]->getInd() + strlen($thisLinesErrorNodes[$j-1]->getValue()) + 2;
-                                                            $formattedLine  = $formattedLine . "<span class=\"tooltip\" title=\"Error!\">" . 
+                                                            $formattedLine  = $formattedLine . "<span class=\"tooltip\" title=\"$errorString!\">" . 
                                                                     htmlspecialchars(substr($lines[$i], $endOfPrevious, $tagLength)) . "</span>";
                                                         }
                                                     }
