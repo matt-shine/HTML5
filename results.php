@@ -176,7 +176,7 @@ if (!isset($_SESSION['lines'])) {
 		</div>
             <script>
         $(document).ready(function() {
-            $('.tooltip').tooltipster();
+            $('.tooltip').tooltipster({position:'right'});
         });
     </script>
 	</body>
