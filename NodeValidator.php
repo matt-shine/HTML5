@@ -145,13 +145,9 @@ class NodeValidator {
                 $this->validateX($pre, $pre2, "pre");
                 break;
             case "ul": // Todo
-                break;
             case "ol": // Todo
-                break;
             case "ol": // Todo
-                break;
             case "dl": // Todo
-                break;
             case "div":
                 $this->validateX($div, $div2, "div");
                 break;
@@ -225,11 +221,8 @@ class NodeValidator {
                 $this->validateX($figure, $figure2, "figure");
                 break;
             case "table": // TODO
-                break;
             case "form":  // TODO
-                break;
             case "fieldset": //TODO
-                break;
             case "menu":
                 $this->validateX($menu, $menu2, "menu");
                 break;
@@ -315,7 +308,6 @@ class NodeValidator {
                 $this->validateX($del, $del2, "del");
                 break;
             case "img": // TODO
-                break;
             case "embed":
                 $this->validateX($embed, $embed2, "embed");
                 break;
@@ -337,17 +329,11 @@ class NodeValidator {
 // dupicate            case "video":
 // dupicate            case "audio":
             case "input":       // todo form
-                break;
             case "textarea":    // todo form
-                break;
             case "select":      // todo form
-                break;
             case "button":      // todo form
-                break;
             case "label":       // todo form
-                break;
             case "output":      // todo form
-                break;
             case "datalist":
                 $this->validateX($datalist, $datalist2, "datalist");
                 break;
@@ -410,7 +396,11 @@ class NodeValidator {
               array_push($this->errors, "Meta Tag requires a name attribute");
           }
            
-}   
+      }
+<<<<<<< HEAD
+    }
+=======
+    
      
     private function validateLinkTag()
     {
@@ -483,7 +473,7 @@ class NodeValidator {
             }
         } 
       }
-
+>>>>>>> origin/A-team
 
                   private function validateX($A,$B,$C) {
         if (count($this->node->getAttr()) > 0) {
