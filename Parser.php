@@ -39,7 +39,7 @@ class Parser {
         $this->lines = explode("\n", $this->file);
         $this->numlines = count($this->lines);
         $this->preservedLines = explode("\n", $this->file);
-        if (!isset($this->numlines) || $this->numlines < 2) {
+        if (!isset($this->numlines) || $this->numlines < 1) {
             throw new Exception("File was empty!");
         }
         $this->tags = array();
@@ -113,7 +113,7 @@ class Parser {
             //TODO: unfinished tag error should be raised here
         }
         $newString = $lines[$i];
-        $newString += $lines[$ind];
+        $newString = $newString . $lines[$ind];
         
         $lines[$i] = $newString;
         for ($j = $ind; $j < count($lines); $j++) {
