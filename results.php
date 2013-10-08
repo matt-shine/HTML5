@@ -189,7 +189,3 @@ if (!isset($_SESSION['lines'])) {
     </script>
 	</body>
 </html>
-<?php
-
-                    session_destroy();
-?>
