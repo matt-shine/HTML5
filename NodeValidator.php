@@ -109,113 +109,113 @@ class NodeValidator {
         {
             case "a":
             case "p":
-                $this->validatePTag();
+                $this->checkCloseTag("<P>");
                 break;
             case "hr":
-                $this->validateX($hr, $hr2, "hr");
+                 $this->checkCloseTag("<hr>");
                 break;
             case "pre":
-                $this->validateX($pre, $pre2, "pre");
+                 $this->checkCloseTag("<pre>");
                 break;
             case "ul": // Todo
             case "ol": // Todo
             case "ol": // Todo
             case "dl": // Todo
             case "div":
-                $this->validateX($div, $div2, "div");
+                 $this->checkCloseTag("<DIV>");
                 break;
             case "h1": // add only 1 h1
-                $this->validateX($h1, $hr12, "h1");
+                 $this->checkCloseTag("<h1>");
                 break;
             case "h2":
-                $this->validateX($h2, $hr22, "h2");
+                 $this->checkCloseTag("<h2>");
                 break;
             case "h3":
-                $this->validateX($h3, $hr32, "h3");
+                 $this->checkCloseTag("<h3>");
                 break;
             case "h4":
-                $this->validateX($h4, $hr42, "h4");
+                 $this->checkCloseTag("<h4>");
                 break;
             case "h5":
-                $this->validateX($h5, $hr52, "h5");
+                 $this->checkCloseTag("<h5>");
                 break;
             case "h6":
-                $this->validateX($h6, $hr62, "h6");
+                 $this->checkCloseTag("<h6>");
                 break;
             case "hgroup":
-                $this->validateX($hgroup, $hgroup2, "hgroup");
+                $this->checkCloseTag("<hgroup>");
                 break;
             case "address":
-                $this->validateX($address, $address2, "address");
+                 $this->checkCloseTag("<address>");
                 break;
             case "blockquote":
-                $this->validateX($blockquote, $blockquote2, "blockquote");
+                 $this->checkCloseTag("<blockquote>");
                 break;
             case "ins":
-                $this->validateX($ins, $ins2, "ins");
+                 $this->checkCloseTag("<ins>");
                 break;
             case "del":
-                $this->validateX($del, $del2, "del");
+                $this->checkCloseTag("<del>");
                 break;
             case "object":
-                $this->validateX($object, $object2, "object");
+                 $this->checkCloseTag("<object>");
                 break;
             case "map":
-                $this->validateX($map, $map2, "map");
+                $this->checkCloseTag("<map>");
                 break;
             case "noscript":
-                $this->validateX($noscript, $noscript2, "noscript");
+                $this->checkCloseTag("<noscript>");
                 break;
             case "section":
-                $this->validateX($section, $section2, "section");
+                 $this->checkCloseTag("<section>");
                 break;
             case "nav":
-                $this->validateX($nav, $nav2, "nav");
+                 $this->checkCloseTag("<nav>");
                 break;
             case "article":
-                $this->validateX($article, $article2, "article");
+                 $this->checkCloseTag("<article>");
                 break;
             case "aside":
-                $this->validateX($aside, $aside2, "aside");
+                 $this->checkCloseTag("<aside>");
                 break;
             case "header":
-                $this->validateX($header, $herder2, "header");
+                 $this->checkCloseTag("<header>");
                 break;
             case "footer":
-                $this->validateX($footer, $footer2, "footer");
+                 $this->checkCloseTag("<footer>");
                 break;
             case "video":
-                $this->validateX($video, $video2, "video");
+                 $this->checkCloseTag("<video>");
                 break;
             case "audio":
-                $this->validateX($audio, $audio2, "audio");
+                 $this->checkCloseTag("<audio>");
                 break;
             case "figure":
-                $this->validateX($figure, $figure2, "figure");
+                 $this->checkCloseTag("<figure>");
                 break;
             case "table": // TODO
             case "form":  // TODO
             case "fieldset": //TODO
             case "menu":
-                $this->validateX($menu, $menu2, "menu");
+                 $this->checkCloseTag("<menu>");
                 break;
             case "canvas":
-                $this->validateX($canvas, $canvas2, "canvas");
+                 $this->checkCloseTag("<canvas>");
                 break;
             case "details":
-                $this->validateX($detail, $detail2, "detail");
+                 $this->checkCloseTag("<detail>");
                 break;
             case "em":
-                $this->validateX($em, $em2, "em");
+                 $this->checkCloseTag("<em>");
                 break;
             case "strong":
-                $this->validateX($strong, $strong2, "strong");
+                 $this->checkCloseTag("<strong>");
                 break;
             case "small":
-                $this->validateX($small, $small2, "small");
+                 $this->checkCloseTag("<small>");
                 break;
             case "mark":
-                $this->validateX($mark, $mark2, "mark");
+                 $this->checkCloseTag("<mark>");
                 break;
             case "abbr":
                 $this->validateX($abbr, $abbr2, "abbr");
@@ -452,6 +452,15 @@ class NodeValidator {
                     array_push($this->errors, "Invalid $C Tag Attribute: " . $B);
                 }
             }
+        }
+      }
+	  
+	              private function checkCloseTag($tag) {
+        if (count($this->node->getAttr()) > 0) {
+            $close = $this->node->getCloseTagFound();
+                if ($close == false) {
+                    array_push($this->errors, "No closing tag was found for". $tag. "tag");
+                }
         }
       }
 }
