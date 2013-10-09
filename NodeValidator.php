@@ -218,86 +218,86 @@ class NodeValidator {
                  $this->checkCloseTag("<mark>");
                 break;
             case "abbr":
-                $this->validateX($abbr, $abbr2, "abbr");
+                $this->checkCloseTag("<abbr>");
                 break;
             case "dfn":
-                $this->validateX($dfn, $dfn2, "dfn");
+                 $this->checkCloseTag("<dfn>");
                 break;
             case "i":
-                $this->validateX($i, $i2, "i");
+                 $this->checkCloseTag("<i>");
                 break;
             case "b":
-                $this->validateX($b, $b2, "b");
+                 $this->checkCloseTag("<b>");
                 break;
             case "s":
-                $this->validateX($s, $s2, "s");
+                 $this->checkCloseTag("<s>");
                 break;
             case "u":
-                $this->validateX($u, $u2, "u");
+                 $this->checkCloseTag("<u>");
                 break;
             case "code":
-                $this->validateX($code, $code2, "code");
+                 $this->checkCloseTag("<code>");
                 break;
             case "var":
-                $this->validateX($var, $var2, "var");
+                 $this->checkCloseTag("<var>");
                 break;
             case "samp":
-                $this->validateX($samp, $samp2, "samp");
+                 $this->checkCloseTag("<samp>");
                 break;
             case "kbd":
-                $this->validateX($kbd, $kbd2, "kbd");
+                 $this->checkCloseTag("<kbd>");
                 break;
             case "sup":
-                $this->validateX($sup, $sup2, "sup");
+                 $this->checkCloseTag("<sup>");
                 break;
             case "sub":
-                $this->validateX($sub, $sub2, "sub");
+                 $this->checkCloseTag("<sub>");
                 break;
             case "q":
-                $this->validateX($q, $q2, "q");
+                 $this->checkCloseTag("<q>");
                 break;
             case "cite":
-                $this->validateX($cite, $cite2, "cite");
+                 $this->checkCloseTag("<cite>");
                 break;
             case "span":
-                $this->validateX($span, $span2, "span");
+                 $this->checkCloseTag("<span>");
                 break;
             case "bdo":
-                $this->validateX($bdo, $bdo2, "bdo");
+                 $this->checkCloseTag("<bdo>");
                 break;
             case "bdi":
-                $this->validateX($bdi, $bdi2, "bdi");
+                $this->checkCloseTag("<bdi>");
                 break;
             case "br":
-                $this->validateX($br, $br2, "br2");
+                 $this->checkCloseTag("<br>");
                 break;
             case "wbr":
-                $this->validateX($wbr, $wbr2, "wbr");
+                 $this->checkCloseTag("<wbr>");
                 break;
             case "ins":
-                $this->validateX($ins, $ins2, "ins");
+                 $this->checkCloseTag("<ins>");
                 break;
             case "del":
-                $this->validateX($del, $del2, "del");
+                 $this->checkCloseTag("<del>");
                 break;
             case "img": // TODO
             case "embed":
-                $this->validateX($embed, $embed2, "embed");
+                 $this->checkCloseTag("<embed>");
                 break;
 // dupicate            case "object":
             case "iframe":
-                $this->validateX($iframe, $iframe2, "iframe");
+                $this->checkCloseTag("<iframe>");
                 break;
 // dupicate            case "map":
             case "area":
-                $this->validateX($area, $area2, "area");
+                 $this->checkCloseTag("<area>");
                 break;
             case "script":
-                $this->validateX($script, $script2, "script");
+                 $this->checkCloseTag("<script>");
                 break;
 // dupicate            case "noscript":
             case "ruby":
-                $this->validateX($ruby, $ruby2, "ruby");
+                 $this->checkCloseTag("<ruby>");
                 break;
 // dupicate            case "video":
 // dupicate            case "audio":
@@ -308,23 +308,23 @@ class NodeValidator {
             case "label":       // todo form
             case "output":      // todo form
             case "datalist":
-                $this->validateX($datalist, $datalist2, "datalist");
+                 $this->checkCloseTag("<datalist>");
                 break;
             case "keygen":
-                $this->validateX($keygen, $keygen2, "keygen");
+                 $this->checkCloseTag("<keygen>");
                 break;
             case "progress":
-                $this->validateX($progess, $progess2, "progess");
+                 $this->checkCloseTag("<progress>");
                 break;
             case "command":
-                $this->validateX($command, $command2, "command");
+                $ $this->checkCloseTag("<command>");
                 break;
 // dupicate            case "canvas":
             case "time":
-                $this->validateX($time, $time2, "time");
+                 $this->checkCloseTag("<time>");
                 break;
             case "meter":
-                $this->validateX($meter, $meter2, "meter");
+                 $this->checkCloseTag("<meter>");
                 break;
         }
     }
@@ -432,28 +432,8 @@ class NodeValidator {
         } 
       }
   /* Capturing tags for body tags*/
-      
-            private function validatePTag() {
-        if (count($this->node->getAttr()) > 0) {
-            $attp = $this->node->getAttr();
-            foreach ($attp as $atp) {
-                if (!in_array($atp, $this->bodyTags)) {
-                    array_push($this->errors, "Invalid P Tag Attribute: " . $atp);
-                }
-            }
-        } 
-      }
 
-                  private function validateX($A,$B,$C) {
-        if (count($this->node->getAttr()) > 0) {
-            $A = $this->node->getAttr();
-            foreach ($A as $B) {
-                if (!in_array($B, $this->bodyTags)) {
-                    array_push($this->errors, "Invalid $C Tag Attribute: " . $B);
-                }
-            }
-        }
-      }
+                  
 	  
 	              private function checkCloseTag($tag) {
         if (count($this->node->getAttr()) > 0) {
