@@ -440,7 +440,6 @@ class NodeValidator {
   /* Capturing tags for body tags*/
 
                   
-
 	              private function checkCloseTag($tag) {
         if (count($this->node->getAttr()) > 0) {
             $close = $this->node->getCloseTagFound();

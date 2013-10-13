@@ -230,6 +230,7 @@ class Parser {
                 $node = $this->tree->getNode($currentTag);
                 $node->setCloseTagLn($tag->getLine());
                 $node->setCloseTagInd($tag->getInd());
+                $node->setCloseTagFound();
 
                /* add any elements in the children stack as this nodes children */
                 while (!$this->_children->isEmpty()) {

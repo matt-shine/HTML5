@@ -67,6 +67,7 @@ class JNode {
         } else {
             $this->_selfClosed = false;
         }
+        $this->_closeTagFound = false;
 
     }
     
