@@ -52,7 +52,7 @@ class Parser {
         $it = new JTreeRecursiveIterator($this->tree, 
                 new JTreeIterator($this->tree->getTree()), true);
         
-        
+        $f = fopen("validatorTest.txt","a");
         foreach ($it as $v) {
             if ($v->getUid() == $this->firstNodeUid) {
                 $validator = new NodeValidator($v, $this->tree, true);
@@ -62,12 +62,10 @@ class Parser {
             $validator->validate();
             $errors = $v->getErrors();
             if (!empty($errors)) {
-                if (!empty($errors)) {
                     array_push($this->nodesWithErrors, $v);
-                }
-                
             }
         }
+        fclose($f);
         $_SESSION['lines'] = $this->preservedLines;
         $_SESSION['nodesWithErrors'] = $this->nodesWithErrors;
         header('Location: results.php');
@@ -148,6 +146,7 @@ class Parser {
                     if ($test[1] == '/') {
                         //attributes in a closing tag - error here
                     }
+                    
                     for ($j = 1; $j < count($splitTag); $j++) {
                         array_push($tagAttr, $splitTag[$j]);
                     }
@@ -188,8 +187,7 @@ class Parser {
             $this->firstNodeUid = $uid; //Store the first nodes UID
             
             for ($i = 1; $i < count($this->tags); $i++) {
-                $currentTag = $this->tags[$i];
-                                
+                $currentTag = $this->tags[$i];          
                 if ($this->startsWith($currentTag->getValue(), "/")) { //Closing tag here (e.g. </head>)
                         $this->processEndTag($currentTag);
                 } else {
@@ -249,7 +247,8 @@ class Parser {
                     $this->_children->push($currentTag);                 
                    }
             }
-        } 
+        }
+        
     }
        
     

@@ -187,5 +187,8 @@ if (!isset($_SESSION['lines'])) {
             $('.tooltip').tooltipster({position:'right'});
         });
     </script>
+    <?php
+        session_destroy();
+    ?>
 	</body>
 </html>

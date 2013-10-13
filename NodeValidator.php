@@ -1,6 +1,5 @@
 <?php
 
-
 class NodeValidator {
     
     private $validTags = array("!--","--","!DOCTYPE","a","abbr","address",
@@ -19,8 +18,6 @@ class NodeValidator {
     
     private $singularTags = array("!DOCTYPE", "head", "body", "header", "footer");
     
-    private $firstLevel = array("!DOCTYPE","head","body");
-    
     private $headTags = array("title", "style", "meta", "link", "script", "noscript", "base");
     
     private $bodyTags = array("a", "p", "hr", "pre", "ul", "ol", "ol", "dl", 
@@ -38,7 +35,7 @@ class NodeValidator {
     private $globalAttributes = array("accesskey", "class", "contenteditable", 
         "contextmenu", "dir", "draggable", "dropzone", "hidden", "id", "lang", 
         "spellcheck", "style", "tabindex", "title", "translate");
-         
+                
     private $node; //the tag to validate
     private $errors; //stores errors associated with this tag (multiple errors are possible)
     private $tree;
@@ -55,57 +52,34 @@ class NodeValidator {
         }
     }
     
-    public function getErrors() {
-        return $this->errors;
-    }
-    
-    /**
+     /**
      * 'Manages' the validation, by determining what tests should be run on the node
      */
     public function validate() {
-        
-        
-        /* Check if the node is a first level node */
-        if (in_array($this->node->getUid(), $this->tree->getChildren($this->tree->getHeadNode()->getUid()))) {
-            $this->validateFirstLevelNode();
-        }
-        
         /* check if tag is valid */
         if (!in_array($this->node->getValue(), $this->validTags)) {
             array_push($this->errors, "Invalid tag");
         }
-    
-        if (in_array($this->node->getValue(), $this->headTags)) {
-            
+        
+        if (in_array($this->node->getValue(), $this->singularTags)) {
+            //call function to validate these tags (Note: checking for multiple 
+            // instances of these tags will covered by StructureValidator (to be implemented)
+        }
+        elseif (in_array($this->node->getValue(), $this->headTags)) {
             $this->validateHeadTag();
         }
-        if (in_array($this->node->getValue(), $this->bodyTags)) {
+        elseif (in_array($this->node->getValue(), $this->bodyTags)) {
             $this->validateBodyTag();
         }
-        foreach ($this->errors as $err) {
-            $this->node->addError($err);
-        }
-     }
-     
-     
-     private function validateFirstLevelNode() {
-         if (!in_array($this->node->getValue(), $this->firstLevel)) {
-             /* Non-First level node in first-level position.
-              *     First level nodes - <!DOCTYPE>, <head>, <body>
-              *     Non: e.g <p><b>... etc.
-              */
-             
-             //TODO: function to deal with this
-         }
-         
-         if ($this->first) {
-             $this->validateDoctype();
-         }
+        $this->node->addErrors($this->errors);
      }
     
     private function validateHeadTag() {
         switch ($this->node->getValue())
-        {
+        {   
+            case "!DOCTYPE":
+                $this->validateDoctype();
+                break;
             case "title":
                 $this->validateTitleTag();
                 break;
@@ -130,102 +104,247 @@ class NodeValidator {
         }
     }
     
-    
       private function validateBodyTag() {
         switch ($this->node->getValue())
         {
             case "a":
             case "p":
+                $this->validatePTag();
+                break;
             case "hr":
+                $this->validateX($hr, $hr2, "hr");
+                break;
             case "pre":
-            case "ul":
-            case "ol":
-            case "ol":
-            case "dl":
+                $this->validateX($pre, $pre2, "pre");
+                break;
+            case "ul": // Todo
+                break;
+            case "ol": // Todo
+                break;
+            case "ol": // Todo
+                break;
+            case "dl": // Todo
+                break;
             case "div":
-            case "h1":
+                $this->validateX($div, $div2, "div");
+                break;
+            case "h1": // add only 1 h1
+                $this->validateX($h1, $hr12, "h1");
+                break;
             case "h2":
+                $this->validateX($h2, $hr22, "h2");
+                break;
             case "h3":
+                $this->validateX($h3, $hr32, "h3");
+                break;
             case "h4":
+                $this->validateX($h4, $hr42, "h4");
+                break;
             case "h5":
+                $this->validateX($h5, $hr52, "h5");
+                break;
             case "h6":
+                $this->validateX($h6, $hr62, "h6");
+                break;
             case "hgroup":
+                $this->validateX($hgroup, $hgroup2, "hgroup");
+                break;
             case "address":
+                $this->validateX($address, $address2, "address");
+                break;
             case "blockquote":
+                $this->validateX($blockquote, $blockquote2, "blockquote");
+                break;
             case "ins":
+                $this->validateX($ins, $ins2, "ins");
+                break;
             case "del":
+                $this->validateX($del, $del2, "del");
+                break;
             case "object":
+                $this->validateX($object, $object2, "object");
+                break;
             case "map":
+                $this->validateX($map, $map2, "map");
+                break;
             case "noscript":
+                $this->validateX($noscript, $noscript2, "noscript");
+                break;
             case "section":
+                $this->validateX($section, $section2, "section");
+                break;
             case "nav":
+                $this->validateX($nav, $nav2, "nav");
+                break;
             case "article":
+                $this->validateX($article, $article2, "article");
+                break;
             case "aside":
+                $this->validateX($aside, $aside2, "aside");
+                break;
             case "header":
+                $this->validateX($header, $herder2, "header");
+                break;
             case "footer":
+                $this->validateX($footer, $footer2, "footer");
+                break;
             case "video":
+                $this->validateX($video, $video2, "video");
+                break;
             case "audio":
+                $this->validateX($audio, $audio2, "audio");
+                break;
             case "figure":
-            case "table":
-            case "form":
-            case "fieldset":
+                $this->validateX($figure, $figure2, "figure");
+                break;
+            case "table": // TODO
+                break;
+            case "form":  // TODO
+                break;
+            case "fieldset": //TODO
+                break;
             case "menu":
+                $this->validateX($menu, $menu2, "menu");
+                break;
             case "canvas":
+                $this->validateX($canvas, $canvas2, "canvas");
+                break;
             case "details":
+                $this->validateX($detail, $detail2, "detail");
+                break;
             case "em":
+                $this->validateX($em, $em2, "em");
+                break;
             case "strong":
+                $this->validateX($strong, $strong2, "strong");
+                break;
             case "small":
+                $this->validateX($small, $small2, "small");
+                break;
             case "mark":
+                $this->validateX($mark, $mark2, "mark");
+                break;
             case "abbr":
+                $this->validateX($abbr, $abbr2, "abbr");
+                break;
             case "dfn":
+                $this->validateX($dfn, $dfn2, "dfn");
+                break;
             case "i":
+                $this->validateX($i, $i2, "i");
+                break;
             case "b":
+                $this->validateX($b, $b2, "b");
+                break;
             case "s":
+                $this->validateX($s, $s2, "s");
+                break;
             case "u":
+                $this->validateX($u, $u2, "u");
+                break;
             case "code":
+                $this->validateX($code, $code2, "code");
+                break;
             case "var":
+                $this->validateX($var, $var2, "var");
+                break;
             case "samp":
+                $this->validateX($samp, $samp2, "samp");
+                break;
             case "kbd":
+                $this->validateX($kbd, $kbd2, "kbd");
+                break;
             case "sup":
+                $this->validateX($sup, $sup2, "sup");
+                break;
             case "sub":
+                $this->validateX($sub, $sub2, "sub");
+                break;
             case "q":
+                $this->validateX($q, $q2, "q");
+                break;
             case "cite":
+                $this->validateX($cite, $cite2, "cite");
+                break;
             case "span":
+                $this->validateX($span, $span2, "span");
+                break;
             case "bdo":
+                $this->validateX($bdo, $bdo2, "bdo");
+                break;
             case "bdi":
+                $this->validateX($bdi, $bdi2, "bdi");
+                break;
             case "br":
+                $this->validateX($br, $br2, "br2");
+                break;
             case "wbr":
+                $this->validateX($wbr, $wbr2, "wbr");
+                break;
             case "ins":
+                $this->validateX($ins, $ins2, "ins");
+                break;
             case "del":
-            case "img":
+                $this->validateX($del, $del2, "del");
+                break;
+            case "img": // TODO
+                break;
             case "embed":
-            case "object":
+                $this->validateX($embed, $embed2, "embed");
+                break;
+// dupicate            case "object":
             case "iframe":
-            case "map":
+                $this->validateX($iframe, $iframe2, "iframe");
+                break;
+// dupicate            case "map":
             case "area":
+                $this->validateX($area, $area2, "area");
+                break;
             case "script":
-            case "noscript":
+                $this->validateX($script, $script2, "script");
+                break;
+// dupicate            case "noscript":
             case "ruby":
-            case "video":
-            case "audio":
-            case "input":
-            case "textarea":
-            case "select":
-            case "button":
-            case "label":
-            case "output":
+                $this->validateX($ruby, $ruby2, "ruby");
+                break;
+// dupicate            case "video":
+// dupicate            case "audio":
+            case "input":       // todo form
+                break;
+            case "textarea":    // todo form
+                break;
+            case "select":      // todo form
+                break;
+            case "button":      // todo form
+                break;
+            case "label":       // todo form
+                break;
+            case "output":      // todo form
+                break;
             case "datalist":
+                $this->validateX($datalist, $datalist2, "datalist");
+                break;
             case "keygen":
+                $this->validateX($keygen, $keygen2, "keygen");
+                break;
             case "progress":
+                $this->validateX($progess, $progess2, "progess");
+                break;
             case "command":
-            case "canvas":
+                $this->validateX($command, $command2, "command");
+                break;
+// dupicate            case "canvas":
             case "time":
+                $this->validateX($time, $time2, "time");
+                break;
             case "meter":
+                $this->validateX($meter, $meter2, "meter");
+                break;
         }
     }
     
+    
     private function validateDoctype() {
-  
         if (count($this->node->getAttr()) < 1)  {
             array_push($this->errors, "Doctype is missing required specification.");
         }
@@ -236,8 +355,8 @@ class NodeValidator {
             $attr = $this->node->getAttr();
             if ($attr[0] != "html") {
                 array_push($this->errors, "Declared Doctype is not HTML5.");
-            }
         }
+    }
     }
     
       private function validateTitleTag() {
@@ -264,6 +383,90 @@ class NodeValidator {
           }
            
       }
-    }
+    
+     
+    private function validateLinkTag()
+    {
+        if (count($this->node->getAttr()) > 0) {
+            $attlink = $this->node->getAttr();
+            foreach ($attlink as $atlink) {
+                if (!in_array($atlink, $this->headTags)) {
+                    array_push($this->errors, "Invalid Link Tag Attribute: " . $atlink);
+                }
+            }
+           
+        } 
+      }
+        private function validateStyleTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attstyle = $this->node->getAttr();
+            foreach ($attstyle as $atstyle) {
+                if (!in_array($atstyle, $this->headTags)) {
+                    array_push($this->errors, "Invalid Style Tag Attribute: " . $atstyle);
+                }
+            }
+           
+        } 
+      }  
+    
+      private function validateScriptTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attscript = $this->node->getAttr();
+            foreach ($attscript as $atscript) {
+                if (!in_array($atscript, $this->headTags)) {
+                    array_push($this->errors, "Invalid Script Tag Attribute: " . $atscript);
+                }
+            }
+           
+        } 
+      }
+
+            private function validateNoScriptTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attnoscript = $this->node->getAttr();
+            foreach ($attnoscript as $atnoscript) {
+                if (!in_array($atnoscript, $this->headTags)) {
+                    array_push($this->errors, "Invalid No Script Attribute: " . $atnoscript);
+                }
+            }
+           
+        } 
+      }
+ 
+            private function validateBaseTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attbase = $this->node->getAttr();
+            foreach ($attbase as $atbase) {
+                if (!in_array($atbase, $this->headTags)) {
+                    array_push($this->errors, "Invalid Base Tag Attribute: " . $atbase);
+                }
+            }
+        
+        } 
+      }
+  /* Capturing tags for body tags*/
+      
+            private function validatePTag() {
+        if (count($this->node->getAttr()) > 0) {
+            $attp = $this->node->getAttr();
+            foreach ($attp as $atp) {
+                if (!in_array($atp, $this->bodyTags)) {
+                    array_push($this->errors, "Invalid P Tag Attribute: " . $atp);
+                }
+            }
+        } 
+      }
+
+            private function validateX($A,$B,$C) {
+        if (count($this->node->getAttr()) > 0) {
+            $A = $this->node->getAttr();
+            foreach ($A as $B) {
+                if (!in_array($B, $this->bodyTags)) {
+                    array_push($this->errors, "Invalid $C Tag Attribute: " . $B);
+                }
+            }
+        }
+      }
+}
 
 ?>

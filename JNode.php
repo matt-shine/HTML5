@@ -93,13 +93,17 @@ class JNode {
     public function getCloseTagInd() {
         return $this->_closeTagInd;
     }
-    
-    public function addError($error) {
-        array_push($this->_errors, $error);
-    }
-    
+       
     public function getErrors() {
         return $this->_errors;
+    }
+    
+    public function addErrors($errorArray) {
+        foreach ($errorArray as $error) {
+            array_push($this->_errors, $error);
+        }
+        
+        
     }
       
     

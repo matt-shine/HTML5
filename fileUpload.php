@@ -18,6 +18,7 @@ elseif (isset($_POST['file-submit'])) {
         $parser->parse();
         $parser->createParseTree();
         $parser->runValidator();
+        unlink($temp);
     }
     
     
