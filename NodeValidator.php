@@ -110,9 +110,13 @@ class NodeValidator {
                  $this->checkCloseTag("<pre>");
                 break;
             case "ul": // Todo
+                break;
             case "ol": // Todo
+                break;
             case "ol": // Todo
+                break;
             case "dl": // Todo
+                break;
             case "div":
                  $this->checkCloseTag("<DIV>");
                 break;
@@ -186,8 +190,11 @@ class NodeValidator {
                  $this->checkCloseTag("<figure>");
                 break;
             case "table": // TODO
+                break;
             case "form":  // TODO
+                break;
             case "fieldset": //TODO
+                break;
             case "menu":
                  $this->checkCloseTag("<menu>");
                 break;
@@ -273,6 +280,7 @@ class NodeValidator {
                  $this->checkCloseTag("<del>");
                 break;
             case "img": // TODO
+                break;
             case "embed":
                  $this->checkCloseTag("<embed>");
                 break;
@@ -294,11 +302,17 @@ class NodeValidator {
 // dupicate            case "video":
 // dupicate            case "audio":
             case "input":       // todo form
+                break;
             case "textarea":    // todo form
+                break;
             case "select":      // todo form
+                break;
             case "button":      // todo form
+                break;
             case "label":       // todo form
+                break;
             case "output":      // todo form
+                break;
             case "datalist":
                  $this->checkCloseTag("<datalist>");
                 break;
