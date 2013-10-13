@@ -52,7 +52,6 @@ class Parser {
         $it = new JTreeRecursiveIterator($this->tree, 
                 new JTreeIterator($this->tree->getTree()), true);
         
-        $f = fopen("validatorTest.txt","a");
         foreach ($it as $v) {
             if ($v->getUid() == $this->firstNodeUid) {
                 $validator = new NodeValidator($v, $this->tree, true);
@@ -65,7 +64,6 @@ class Parser {
                     array_push($this->nodesWithErrors, $v);
             }
         }
-        fclose($f);
         $_SESSION['lines'] = $this->preservedLines;
         $_SESSION['nodesWithErrors'] = $this->nodesWithErrors;
         header('Location: results.php');
