@@ -348,22 +348,21 @@ class NodeValidator {
             if ($attr[0] != "html") {
                 array_push($this->errors, "Declared Doctype is not HTML5.");
         }
-    }
+        }
     }
     
-      private function validateTitleTag() {
+    private function validateTitleTag() {
         if (count($this->node->getAttr()) > 0) {
             $att = $this->node->getAttr();
             foreach ($att as $at) {
                 if (!in_array($at, $this->globalAttributes)) {
                     array_push($this->errors, "Invalid Title Tag Attribute: " . $at);
-                }
-                
+                }   
             }
-           
         } 
       }
-      private function validateMetaTag() 
+      
+    private function validateMetaTag() 
       {
           if(count($this->node->getAttr()) > 0) {
               if(!in_array("name",$this->node->getAttr())){
@@ -390,7 +389,8 @@ class NodeValidator {
            
         } 
       }
-        private function validateStyleTag() {
+      
+    private function validateStyleTag() {
         if (count($this->node->getAttr()) > 0) {
             $attstyle = $this->node->getAttr();
             foreach ($attstyle as $atstyle) {
@@ -402,7 +402,7 @@ class NodeValidator {
         } 
       }  
     
-      private function validateScriptTag() {
+    private function validateScriptTag() {
         if (count($this->node->getAttr()) > 0) {
             $attscript = $this->node->getAttr();
             foreach ($attscript as $atscript) {
@@ -414,7 +414,7 @@ class NodeValidator {
         } 
       }
 
-            private function validateNoScriptTag() {
+    private function validateNoScriptTag() {
         if (count($this->node->getAttr()) > 0) {
             $attnoscript = $this->node->getAttr();
             foreach ($attnoscript as $atnoscript) {
@@ -426,7 +426,7 @@ class NodeValidator {
         } 
       }
  
-            private function validateBaseTag() {
+    private function validateBaseTag() {
         if (count($this->node->getAttr()) > 0) {
             $attbase = $this->node->getAttr();
             foreach ($attbase as $atbase) {
@@ -440,13 +440,26 @@ class NodeValidator {
   /* Capturing tags for body tags*/
 
                   
-	              private function checkCloseTag($tag) {
+    private function checkCloseTag($tag) {
         if (count($this->node->getAttr()) > 0) {
             $close = $this->node->getCloseTagFound();
                 if ($close == false) {
                     array_push($this->errors, "No closing tag was found for". $tag. "tag");
                 }
         }
-      }
+    }
+    
+    private function getMisspelledAttributeSuggestion($attribute, $possibleAttributes) {
+        $shortest = "";
+        $shortestDistance = 100;
+        foreach ($possibleAttributes as $att) {
+            $lev = levenshtein($attribute, $att);
+            if ($lev < $shortestDistance) {
+                $shortest = $att;
+                $shortestDistance = $lev;
+            }
+        }
+        return $shortest;
+    }
 }
 ?>
