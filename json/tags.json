@@ -1,0 +1,1881 @@
+[
+    {
+        "tag": "!--",
+        "allowglobals": "false",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "false",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "!DOCTYPE",
+        "allowglobals": "false",
+        "requiredattributes": [
+            "html"
+        ],
+        "eventattributes": "",
+        "isdeprecated": "false",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "a",
+        "allowglobals": "true",
+        "requiredattributes": [
+        ],
+        "eventattributes": "true",
+		"isdeprecated": "false",
+        "optionalattributes": [
+			"href",
+            "rel",
+            "hreflang",
+            "rev",
+            "shape",
+            "target"
+        ],
+        "deprecatedattributes": [
+            "charset",
+            "coords",
+            "name",
+            "rev",
+            "shape"
+        ]
+    },
+    {
+        "tag": "abbr",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "acronym",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "address",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "applet",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "area",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "article",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "aside",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "audio",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "b",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "base",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "basefont",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "bdi",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "bdo",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "big",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "blockquote",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "body",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "br",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "button",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "canvas",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "caption",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "center",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "cite",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "code",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "col",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "colgroup",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "command",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "datalist",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "dd",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "del",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "details",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "dfn",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "dialog",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "dir",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "div",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "dl",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "dt",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "em",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "embed",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "fieldset",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "figcaption",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "figure",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "font",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "footer",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "form",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "frame",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "frameset",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "head",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "header",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "h1 - h6",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "hr",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "html",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "i",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "iframe",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "img",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "input",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "ins",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "kbd",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "keygen",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "label",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "legend",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "li",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "link",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "map",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "mark",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "menu",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "meta",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "meter",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "nav",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "noframes",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "noscript",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "object",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "ol",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "optgroup",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "option",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "output",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "p",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "param",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "pre",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "progress",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "q",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "rp",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "rt",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "ruby",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "s",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "samp",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "script",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "section",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "select",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "small",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "source",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "span",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "strike",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "strong",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "style",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "sub",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "summary",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "sup",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "table",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "tbody",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "td",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "textarea",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "tfoot",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "th",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "thead",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "time",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "title",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "tr",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "track",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "tt",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "u",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "ul",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "var",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "video",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    },
+    {
+        "tag": "wbr",
+        "allowglobals": "",
+        "requiredattributes": [
+            
+        ],
+        "eventattributes": "",
+        "isdeprecated": "",
+
+        "optionalattributes": [
+            
+        ],
+        "deprecatedattributes": [
+            
+        ]
+    }
+]
