@@ -19,6 +19,7 @@ class Parser {
     var $tags; /* Holds tags found in the document (includes open and close tags) */
     var $numlines; /*number of lines in the file */
     var $nodesWithErrors; /* Holds errors detected in the document */
+    var $nodesWithWarnings;
     var $tree; /* The parse tree */
     private $_open;
     private $_children;
@@ -44,6 +45,7 @@ class Parser {
         }
         $this->tags = array();
         $this->nodesWithErrors = array();
+        $this->nodesWithWarnings = array();
         $this->tree = new JTree();
     }
     
@@ -60,12 +62,18 @@ class Parser {
             }
             $validator->validate();
             $errors = $v->getErrors();
+            $warnings = $v->getWarnings();
+            
             if (!empty($errors)) {
                     array_push($this->nodesWithErrors, $v);
+            }
+            if (!empty($warnings)) {
+                array_push($this->nodesWithWarnings, $v);
             }
         }
         $_SESSION['lines'] = $this->preservedLines;
         $_SESSION['nodesWithErrors'] = $this->nodesWithErrors;
+        $_SESSION['nodesWithWarnings'] = $this->nodesWithWarnings;
         header('Location: results.php');
     }
     
@@ -146,7 +154,13 @@ class Parser {
                     }
                     
                     for ($j = 1; $j < count($splitTag); $j++) {
-                        array_push($tagAttr, $splitTag[$j]);
+                        $attribute = substr($splitTag[$j], 0, strpos($splitTag[$j], "="));
+                        $value = $this->betweenStr($splitTag[$j], "\"", "\"");
+                        if ($value != false) {
+                            $tagAttr[$attribute] = $value;
+                        } else {
+                            $tagAttr[$splitTag[$j]] = "null";
+                        }
                     }
                 } else {
                     $tagValue = $this->betweenStr($line, '<', '>', $i);
@@ -160,7 +174,6 @@ class Parser {
                 } else {
                     $tag = new Tag($tagValue, $ln, $i, null, $selfClosing);
                 }
-                
                 array_push($this->tags, $tag);
             }
         }

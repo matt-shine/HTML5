@@ -1,43 +1,55 @@
 [
     {
         "tag": "!--",
-        "allowglobals": "false",
+        "allowglobals": false,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "false",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "!DOCTYPE",
-        "allowglobals": "false",
+        "allowglobals": false,
         "requiredattributes": [
             "html"
         ],
-        "eventattributes": "",
-        "isdeprecated": "false",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "a",
-        "allowglobals": "true",
+        "allowglobals": true,
         "requiredattributes": [
         ],
-        "eventattributes": "true",
-		"isdeprecated": "false",
+        "eventattributes": true,
+		"isdeprecated": false,
         "optionalattributes": [
 			"href",
             "rel",
@@ -52,1830 +64,2805 @@
             "name",
             "rev",
             "shape"
-        ]
+        ],
+		"description": "The &lta&gt tag defines a hyperlink, which is used to link from one page to another. The most important attribute of the &lta&gt element is the href attribute, which indicates the link’s destination.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "abbr",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The abbr tag indicates an abbreviation or an acronym. By marking up abbreviations you can give useful information to browsers, spell checkers, translation systems and search-engine indexers.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "acronym",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. We recommend looking into the &ltabbr&gt tag instead.",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "address",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltaddress&gt tag defines the contact information for the author/owner of a document or an article.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "applet",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. We recommend looking into the &ltapplet&gt tag instead.",
+		"within": [
+			"body"
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "area",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+			"coords",
+			"shape",
+			"alt",
+			"href",
+			"hrefang",
+			"media",
+			"rel",
+			"target",
+			"type"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "nohref"
+        ],
+		"description": "The &ltarea&gt tag defines an area inside an image-map (an image-map is an image with clickable areas).",
+		"within": [
+			"body", "map"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "article",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltarticle&gt tag specifies independent, self-contained content. An article should make sense on its own and it should be possible to distribute it independently from the rest of the site.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "aside",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltaside&gt tag defines some content aside from the content it is placed in.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "audio",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+		
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+			"autoplay",
+			"controls",
+			"loop",
+			"muted",
+			"preload",
+			"src"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltaudio&gt tag defines sound, such as music or other audio streams.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "b",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltb&gt tag specifies bold text.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "base",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "href",
+			"target"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltbase&gt tag specifies the base URL/target for all relative URLs in a document. There can be at maximum one &ltbase&gt element in a document, and it must be inside the &lthead&gt element.",
+		"within": [
+			"head"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "basefont",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. Use CSS instead!",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "bdi",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "bdi stands for Bi-directional Isolation. The &ltbdi&gt tag isolates a part of text that might be formatted in a different direction from other text outside it.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "bdo",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+            "dir"
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "bdo stands for Bi-Directional Override. The &ltbdo&gt tag is used to override the current text direction.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "big",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. Use CSS instead!",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "blockquote",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "cite"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltblockquote&gt tag specifies a section that is quoted from another source. Browsers usually indent &ltblockquote&gt elements.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "body",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+		"alink",
+		"background",
+		"bgcolor",
+		"link",
+		"text",
+		"vlink"   
+        ],
+		"description": "The &ltblockquote&gt tag specifies a section that is quoted from another source. Browsers usually indent &ltblockquote&gt elements.",
+		"within": [
+		
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "br",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltbr&gt tag inserts a single line break. The &ltbr&gt tag is an empty tag which means that it has no end tag.",
+		"within": [
+			"body"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "button",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "autofocus",
+			"disabled",
+			"form",
+			"formaction",
+			"formenctype",
+			"formmethod",
+			"formnovalidate",
+			"formtarget",
+			"name",
+			"type",
+			"value"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltbutton&gt tag defines a clickable button. Tip: Always specify the type attribute for a &ltbutton&gt element. Different browsers use different default types for the &ltbutton&gt element.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "canvas",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "height",
+			"width"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltcanvas&gt tag is used to draw graphics, on the fly, via scripting (usually JavaScript). The &ltcanvas&gt tag is only a container for graphics, you must use a script to actually draw the graphics.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "caption",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align"
+        ],
+		"description": "The &ltcaption&gt tag defines a table caption. The &ltcaption&gt tag must be inserted immediately after the &lttable&gt tag.",
+		"within": [
+			"body","table"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "center",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. Use CSS instead!",
+		"within": [
+			
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "cite",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltcite&gt tag defines the title of a work (e.g. a book, a song, a movie, a TV show, a painting, a sculpture, etc.).",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "code",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "em",
+			"strong",
+			"dfn",
+			"code",
+			"samp",
+			"kbd",
+			"var"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltcode&gt tag is a phrase tag. It defines a piece of computer code.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "col",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "span"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"char",
+			"charoff",
+			"valign",
+			"width"
+        ],
+		"description": "The &ltcol&gt tag specifies column properties for each column within a &ltcolgroup&gt element.",
+		"within": [
+			"body", "colgroup"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "colgroup",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "span"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"char",
+			"charoff",
+			"valign",
+			"width"
+        ],
+		"description": "The &ltcolgroup&gt tag specifies a group of one or more columns in a table for formatting.",
+		"within": [
+			"body", "table"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "command",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+            "label"
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "checked",
+			"disabled",
+			"icon",
+			"radiogroup",
+			"type"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltcommand&gt tag defines a command (a radiobutton, a checkbox, or a command button) that the user can invoke.",
+		"within": [
+			"body", "menu"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "datalist",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdatalist&gt tag specifies a list of pre-defined options for an &ltinput&gt element.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "dd",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdd&gt tag is used to describe a term/name in a description list. The &ltdd&gt tag is used in conjunction with &ltdl&gt (defines a description list) and &ltdt&gt (defines terms/names).",
+		"within": [
+			"body", "dl"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "del",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "cite",
+			"datetime"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdel&gt tag defines text that has been deleted from a document. Tip: Use &ltdel&gt and &ltins&gt to markup updates and modifications in a document. Browsers will normally strike a line through deleted text and underline inserted text.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "details",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "open"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdetails&gt tag specifies additional details that the user can view or hide on demand.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "dfn",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "em",
+			"strong",
+			"dfn",
+			"code",
+			"samp",
+			"kbd",
+			"var"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdfn&gt tag is a phrase tag. It defines a definition term.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "dialog",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "open"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdialog&gt tag defines a a dialog box, inpector, or window.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "dir",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. Use CSS instead!",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "div",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align"
+        ],
+		"description": "The &ltdiv&gt tag defines a division or a section in an HTML document. The &ltdiv&gt tag is used to group block-elements to format them with CSS.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "dl",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdl&gt tag defines a description list. The &ltdl&gt tag is used in conjunction with &ltdt&gt (defines terms/names) and &ltdd&gt (describes each term/name).",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "dt",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltdt&gt tag defines a term/name in a description list. The &ltdt&gt tag is used in conjunction with &ltdl&gt (defines a description list) and &ltdd&gt (describes each term/name).",
+		"within": [
+			"body", "dl"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "em",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "em",
+			"strong",
+			"dfn",
+			"code",
+			"samp",
+			"kbd",
+			"var"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltem&gt tag is a phrase tag. It renders as emphasized text.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "embed",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "height",
+			"src",
+			"type",
+			"width"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltembed&gt tag defines a container for an external application or interactive content (a plug-in).",
+		"within": [
+			"body"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "fieldset",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "disabled",
+			"form",
+			"name"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltfieldset&gt tag is used to group related elements in a form. The &ltfieldset&gt tag draws a box around the related elements.",
+		"within": [
+			"body", "form"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "figcaption",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltfigcaption&gt tag defines a caption for a &ltfigure&gt element. The &ltfigcaption&gt element can be placed as the first or last child of the &ltfigure&gt element.",
+		"within": [
+			"body", "figure"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "figure",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltfigure&gt tag specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "font",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. Use CSS instead!",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "footer",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltfooter&gt tag defines a footer for a document or section. A &ltfooter&gt element should contain information about its containing element.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "form",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "accept-charset",
+			"action",
+			"autocomplete",
+			"enctype",
+			"method",
+			"name",
+			"novalidate",
+			"target"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "accept"
+        ],
+		"description": "The &ltform&gt tag is used to create an HTML form for user input.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "frame",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5! (Frames are BAD!)",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "frameset",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5! (Frames are BAD!)",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "head",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "profile"
+        ],
+		"description": "The &lthead&gt element is a container for all the head elements. The &lthead&gt element must include a title for the document, and can include scripts, styles, meta information, and more.",
+		"within": [
+		
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "header",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltheader&gt tag specifies a header for a document or section.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "h1 - h6",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align"
+        ],
+		"description": "The &lth1&gt to &lth6&gt tags are used to define HTML headings.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "hr",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"noshade",
+			"size",
+			"width"
+        ],
+		"description": "The &lthr&gt tag defines a thematic break in an HTML page (e.g. a shift of topic). The &lthr&gt element is used to separate content (or define a change) in an HTML page.",
+		"within": [
+			"body"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "html",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "manifest"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "xmlns"
+        ],
+		"description": "The &lthtml&gt tag tells the browser that this is an HTML document.",
+		"within": [
+		
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "i",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &lti&gt tag defines a part of text in an alternate voice or mood. The content of the &lti&gt tag is usually displayed in italic.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "iframe",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "height",
+			"name",
+			"sandbox",
+			"seamless",
+			"src",
+			"srcdoc",
+			"width"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"frameborder",
+			"longdesc",
+			"marginheight",
+			"marginwidth",
+			"scrolling"
+        ],
+		"description": "The &ltiframe&gt tag specifies an inline frame. An inline frame is used to embed another document within the current HTML document.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "img",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+            "src",
+			"alt"
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+			"crossorigin",
+			"height",
+			"ismap",
+			"usemap",
+			"width"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"border",
+			"hspace",
+			"longdesc",
+			"vspace"
+        ],
+		"description": "The &ltimg&gt tag defines an image in an HTML page. The &ltimg&gt tag has two required attributes: src and alt.",
+		"within": [
+			"body"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "input",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "accept",
+			"alt",
+			"autocomplete",
+			"autofocus",
+			"checked",
+			"disabled",
+			"form",
+			"formaction",
+			"formenctype",
+			"formmethod",
+			"formnovalidate",
+			"formtarget",
+			"height",
+			"list",
+			"max",
+			"maxlength",
+			"min",
+			"multiple",
+			"name",
+			"pattern",
+			"placeholder",
+			"readonly",
+			"required",
+			"size",
+			"src",
+			"step",
+			"type",
+			"value",
+			"width"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align"
+        ],
+		"description": "The &ltinput&gt tag specifies an input field where the user can enter data. &ltinput&gt elements are used within a &ltform&gt element to declare input controls that allow users to input data.",
+		"within": [
+			"body", "form"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "ins",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "cite",
+			"datetime"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltins&gt tag defines a text that has been inserted into a document.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "kbd",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "em",
+			"strong",
+			"dfn",
+			"code",
+			"samp",
+			"kbd",
+			"var"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltkbd&gt tag is a phrase tag. It defines keyboard input.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "keygen",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "autofocus",
+			"challenge",
+			"disabled",
+			"form",
+			"keytype",
+			"name"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltkeygen&gt tag specifies a key-pair generator field used for forms. When the form is submitted, the private key is stored locally, and the public key is sent to the server.",
+		"within": [
+			"body", "form"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "label",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "for",
+			"form"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltlabel&gt tag defines a label for an &ltinput&gt element.",
+		"within": [
+			"body", "form"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "legend",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align"
+        ],
+		"description": "The &ltlegend&gt tag defines a caption for the &ltfieldset&gt element.",
+		"within": [
+			"body", "fieldset"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "li",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "value"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "type"
+        ],
+		"description": "The &ltli&gt tag defines a list item. The &ltli&gt tag is used in ordered lists(&ltol&gt), unordered lists (&ltul&gt), and in menu lists (&ltmenu&gt).",
+		"within": [
+			"body",
+			"ol",
+			"ul",
+			"menu"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "link",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+            "rel"
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "href",
+			"hreflang",
+			"media",
+			"sizes",
+			"type"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "charset",
+			"rev",
+			"target"
+        ],
+		"description": "The &ltlink&gt tag defines the relationship between a document and an external resource. The &ltlink&gt tag is most used to link to style sheets.",
+		"within": [
+			"body",
+			"head"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "map",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+            "name"
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltmap&gt tag is used to define a client-side image-map. An image-map is an image with clickable areas.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "mark",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltmark&gt tag defines marked text.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "menu",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "label",
+			"type"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltmenu&gt tag defines a list/menu of commands. The &ltmenu&gt tag is used for context menus, toolbars and for listing form controls and commands.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "meta",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "charset",
+			"content",
+			"http-equiv",
+			"name"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "scheme"
+        ],
+		"description": "Metadata is data (information) about data.",
+		"within": [
+			"head"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "meter",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+            "value"
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "form",
+			"high",
+			"low",
+			"max",
+			"min",
+			"optimum"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltmeter&gt tag defines a scalar measurement within a known range, or a fractional value. This is also known as a gauge.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "nav",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltnav&gt tag defines a set of navigation links.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "noframes",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5! (You shouldn't be using frames!)",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "noscript",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltnoscript&gt tag defines an alternate content for users that have disabled scripts in their browser or have a browser that doesn’t support script.",
+		"within": [
+			"head",
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "object",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "data",
+			"form",
+			"height",
+			"name",
+			"type",
+			"usemap",
+			"width"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"archive",
+			"border",
+			"classid",
+			"codebase",
+			"codetype",
+			"declare",
+			"hapace",
+			"standby",
+			"vspace"
+        ],
+		"description": "The &ltobject&gt tag defines an embedded object within an HTML document.",
+		"within": [
+		"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "ol",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "reversed",
+			"start",
+			"type"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "compact"
+        ],
+		"description": "The &ltol&gt tag defines an ordered list. An ordered list can be numerical or alphabetical. Use the &ltli&gt tag to define list items.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "optgroup",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "disabled",
+			"label"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltoptgroup&gt is used to group related options in a drop-down list. If you have a long list of options, groups of related options are easier to handle for a user.",
+		"within": [
+			"body", "select"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "option",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "disabled",
+			"label",
+			"selected",
+			"value"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltoption&gt tag defines an option in a select list. &ltoption&gt elements go inside a &ltselect&gt or &ltdatalist&gt element.",
+		"within": [
+			"body", "select",
+		"datalist"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "output",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "for",
+			"form",
+			"name"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltoutput&gt tag represents the result of a calculation (like one performed by a script).",
+		"within": [
+			"body", "form"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "p",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align"
+        ],
+		"description": "The &ltp&gt tag defines a paragraph.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "param",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "name",
+			"value"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "type",
+			"valuetype"
+        ],
+		"description": "the &ltparam&gt tag is used to define parameters for plugins embedded with an &ltobject&gt element.",
+		"within": [
+			"body", "object"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "pre",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "width"
+        ],
+		"description": "The &ltpre&gt tag defines preformatted text.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "progress",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "max",
+			"value"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltprogress&gt tag represents the progress of a task.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "q",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "cite"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltq&gt tag defines a short quotation. Browsers normally insert quotation marks around the quotation.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "rp",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "the &ltrp&gt tag defines what to show if a browser does NOT support ruby annotations.",
+		"within": [
+			"body", "rt"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "rt",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltrt&gt tag defines an explanation or pronunciation of characters in a ruby annotation.",
+		"within": [
+			"body", "ruby"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "ruby",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltruby&gt tag specifies a ruby annotation.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "s",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &lts&gt tag specifies text that is no longer correct, accurate or relevant.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "samp",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "em",
+			"strong",
+			"dfn",
+			"code",
+			"samp",
+			"kbd",
+			"var"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltsamp&gt tag is a phrase tag. It defines sample output from a computer program.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "script",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "async",
+			"charset",
+			"defer",
+			"src",
+			"type"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "xml:space"
+        ],
+		"description": "The &ltscript&gt tag is used to define a client-side script, such as a JavaScript.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "section",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltsection&gt tag defines sections in a document, such as chapters, headers, footers, or any other sections of the document.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "select",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "autofocus",
+			"disabled",
+			"form",
+			"multiple",
+			"name",
+			"required",
+			"size"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltselect&gt element is used to create a drop-down list.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "small",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltsmall&gt tag defines smaller text (and other side comments).",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "source",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "media",
+			"src",
+			"type"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltsource&gt tag is used to specify multiple media resources for media elements, such as &ltvideo&gt and &ltaudio&gt.",
+		"within": [
+			"body",
+			"video",
+			"audio"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "span",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltspan&gt tag is used to group inline-elements in a document.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "strike",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "Oops, this tag isn't supported in HTML5. You should use CSS instead!",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "strong",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "em",
+			"strong",
+			"dfn",
+			"code",
+			"samp",
+			"kbd",
+			"var"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltstrong&gt tag is a phrase tag. It defines important text.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "style",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "media",
+			"scoped",
+			"type"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltstyle&gt tag is used to define style information for an HTML document.",
+		"within": [
+			"head"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "sub",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltsub&gt tag defines subscript text. Subscript text appears half a character below the baseline.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "summary",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltsummary&gt tag defines a visible heading for the &ltdetails&gt element. The heading can be clicked to view/hide the details.",
+		"within": [
+			"body", "detail"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "sup",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltsup&gt tag defines superscript text. Superscript text appears half a character above the baseline.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "table",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "border"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"bgcolor",
+			"cellpadding",
+			"cellspacing",
+			"frame",
+			"rules",
+			"summary",
+			"width"
+        ],
+		"description": "The &lttable&gt tag defines an HTML table. An HTML table consists of the &lttable&gt element and one or more &lttr&gt, &ltth&gt, and &lttd&gt elements.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "tbody",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"char",
+			"charoff",
+			"valign"
+        ],
+		"description": "The &lttbody&gt tag is used to group the body content in an HTML table.",
+		"within": [
+			"body", "table"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "td",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "colspan",
+			"headers",
+			"rowspan"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "abbr",
+			"align",
+			"axis",
+			"bgcolor",
+			"char",
+			"charoff",
+			"height",
+			"nowrap",
+			"scope",
+			"valign",
+			"width"
+        ],
+		"description": "The &lttd&gt tag defines a standard cell in an HTML table. The text in &lttd&gt elements are regular and left-aligned by default.",
+		"within": [
+			"body", "tr"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "textarea",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "autofocus",
+			"cols",
+			"disabled",
+			"form",
+			"maxlength",
+			"name",
+			"placeholder",
+			"readonly",
+			"required",
+			"rows",
+			"wrap"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &lttextarea&gt tag defines a multi-line text input control.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "tfoot",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"char",
+			"charoff",
+			"valign"
+        ],
+		"description": "The &lttfoot&gt tag is used to group footer content in an HTML table.",
+		"within": [
+			"body", "table"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "th",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "colspan",
+			"headers",
+			"rowspan",
+			"scope"
         ],
         "deprecatedattributes": [
-            
-        ]
+            "abbr",
+			"align",
+			"axis",
+			"bgcolor",
+			"char",
+			"charoff",
+			"height",
+			"nowrap",
+			"valign",
+			"width"
+        ],
+		"description": "The &ltth&gt tag defines a header cell in an HTML table. The text in &ltth&gt elements are bold and centered by default.",
+		"within": [
+			"body", "tr"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "thead",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "align",
+			"char",
+			"charoff",
+			"valign"
+        ],
+		"description": "The &ltthead&gt tag is used to group header content in an HTML table.",
+		"within": [
+			"body", "table"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "time",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "datetime"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &lttime&gt tag defines either a time (24 hour clock), or a date in the Gregorian calendar, optionally with a time and a time-zone offset.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "title",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": false,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &lttitle&gt tag is required in all HTML documents and it defines the title of the document.",
+		"within": [
+			"head"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "tr",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "alugn",
+			"bgcolor",
+			"char",
+			"charoff",
+			"valign"
+        ],
+		"description": "The &lttr&gt tag defines a row in an HTML table. A &lttr&gt element contains one or more &ltth&gt or &lttd&gt elements.",
+		"within": [
+			"body", "table"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "track",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
-            
+            "src"
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "defult",
+			"kind",
+			"label",
+			"srclang"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &lttrack&gt tag specifies text tracks for media elements (&ltaudio&gt and &ltvideo&gt).",
+		"within": [
+			"body",
+			"audio",
+			"video"
+		],
+		"closingtag": false,
+		"selfclose": true 
     },
     {
         "tag": "tt",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": true,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "",
+		"within": [
+		
+		],
+		"closingtag": "",
+		"selfclose": "" 
     },
     {
         "tag": "u",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltu&gt tag represents some text that should be stylistically different from normal text, such as misspelled words or proper nouns in Chinese.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "ul",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
-            
-        ]
+            "compact",
+			"type"
+        ],
+		"description": "The &ltul&gt tag defines an unordered (bulleted) list. Use the &ltul&gt tag together with the &ltli&gt tag to create unordered lists.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "var",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "em",
+			"strong",
+			"dfn",
+			"code",
+			"samp",
+			"kbd",
+			"var"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltvar&gt tag is a phrase tag. It defines a variable. Tip: This tag is not deprecated, but it is possible to achieve richer effect with CSS.",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "video",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
-            
+            "autoplay",
+			"controls",
+			"height",
+			"loop",
+			"muted",
+			"poster",
+			"preload",
+			"src",
+			"width"
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltvideo&gt tag specifies video, such as a movie clip or other video streams. Currently, there are 3 supported video formats for the &ltvideo&gt element: MP4, WebM, and Ogg",
+		"within": [
+			"body"
+		],
+		"closingtag": true,
+		"selfclose": false 
     },
     {
         "tag": "wbr",
-        "allowglobals": "",
+        "allowglobals": true,
         "requiredattributes": [
             
         ],
-        "eventattributes": "",
-        "isdeprecated": "",
+        "eventattributes": true,
+        "isdeprecated": false,
 
         "optionalattributes": [
             
         ],
         "deprecatedattributes": [
             
-        ]
+        ],
+		"description": "The &ltwbr&gt (Word Break Opportunity) tag specifies where in a text it would be ok to add a line-break.",
+		"within": [
+			"body"
+		],
+		"closingtag": false,
+		"selfclose": true 
     }
 ]

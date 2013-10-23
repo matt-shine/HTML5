@@ -1,0 +1,322 @@
+[
+    {
+        "attribute": "rel",
+        "possiblevalues": [
+			"alternate",
+			"archives",
+			"author",
+			"bookmark",
+			"external",
+			"first",
+			"help",
+			"icon",
+			"last",
+			"license",
+			"next",
+			"nofollow",
+			"noreferrer",
+			"prefetch",
+			"prev",
+			"search",
+			"sidebar",
+			"stylesheet",
+			"tag",
+			"up"
+		]
+    },
+	{
+        "attribute": "target",
+        "possiblevalues": [
+			"_blank",
+			"_parent",
+			"_self",
+			"_top"
+		]
+    },
+	{
+        "attribute": "shape",
+        "possiblevalues": [
+			"default",
+			"rect",
+			"circle",
+			"poly"
+		]
+    },
+	{
+        "attribute": "autoplay",
+        "possiblevalues": [
+			"autoplay"
+		]
+    },
+	{
+        "attribute": "controls",
+        "possiblevalues": [
+			"controls"
+		]
+    },
+	{
+        "attribute": "loop",
+        "possiblevalues": [
+			"loop"
+		]
+    },
+	{
+        "attribute": "muted",
+        "possiblevalues": [
+			"muted"
+		]
+    },
+	{
+        "attribute": "preload",
+        "possiblevalues": [
+			"auto",
+			"metadata",
+			"none"
+		]
+    },
+	{
+        "attribute": "dir",
+        "possiblevalues": [
+			"ltr",
+			"rtl"
+		]
+    },
+	{
+        "attribute": "autofocus",
+        "possiblevalues": [
+			"autofocus"
+		]
+    },
+	{
+        "attribute": "disabled",
+        "possiblevalues": [
+			"disabled"
+		]
+    },
+	{
+        "attribute": "formenctype",
+        "possiblevalues": [
+			"application",
+			"text",
+			"multipart"
+		]
+    },
+	{
+        "attribute": "formmethod",
+        "possiblevalues": [
+			"get",
+			"post"
+		]
+    },
+	{
+        "attribute": "formnovalidate",
+        "possiblevalues": [
+			"formnovalidate"
+		]
+    },
+	{
+        "attribute": "formtarget",
+        "possiblevalues": [
+			"_blank",
+			"_self",
+			"_parent",
+			"_top"
+		]
+    },
+	{
+        "attribute": "checked",
+        "possiblevalues": [
+			"checked"
+		]
+    },
+	{
+        "attribute": "type",
+        "possiblevalues": [
+			"button",
+			"reset",
+			"submit",
+			"checkbox",
+			"command",
+			"radio",
+			"color",
+			"date ",
+			"datetime",
+			"datetime-local",
+			"email",
+			"file",
+			"hidden",
+			"image",
+			"month",
+			"number",
+			"password",
+			"range",
+			"search",
+			"tel",
+			"text",
+			"time",
+			"url",
+			"week",
+			"context",
+			"toolbar",
+			"list",
+			"1",
+			"A",
+			"a",
+			"I",
+			"i",
+			"text/css"
+		]
+    },
+	{
+        "attribute": "open",
+        "possiblevalues": [
+			"open"
+		]
+    },
+	{
+        "attribute": "autocomplete",
+        "possiblevalues": [
+			"on",
+			"off"
+		]
+    },
+	{
+        "attribute": "novalidate",
+        "possiblevalues": [
+			"novalidate"
+		]
+    },
+	{
+        "attribute": "seamless",
+        "possiblevalues": [
+			"seamless"
+		]
+    },
+	{
+        "attribute": "ismap",
+        "possiblevalues": [
+			"ismap"
+		]
+    },
+	{
+        "attribute": "accept",
+        "possiblevalues": [
+			"audio/*",
+			"video/*",
+			"image/*"
+		]
+    },
+	{
+        "attribute": "multiple",
+        "possiblevalues": [
+			"multiple"
+		]
+    },
+	{
+        "attribute": "readonly",
+        "possiblevalues": [
+			"readonly"
+		]
+    },
+	{
+        "attribute": "required",
+        "possiblevalues": [
+			"required"
+		]
+    },
+	{
+        "attribute": "challenge",
+        "possiblevalues": [
+			"challenge"
+		]
+    },
+	{
+        "attribute": "scoped",
+        "possiblevalues": [
+			"scoped"
+		]
+    },
+	{
+        "attribute": "keytype",
+        "possiblevalues": [
+			"rsa",
+			"dsa",
+			"ec"
+		]
+    },
+	{
+        "attribute": "http-equiv",
+        "possiblevalues": [
+			"content-type",
+			"default-style",
+			"refresh"
+		]
+    },
+	{
+        "attribute": "name",
+        "possiblevalues": [
+			"application-name",
+			"author",
+			"description",
+			"generator",
+			"keywords"
+		]
+    },
+	{
+        "attribute": "selected",
+        "possiblevalues": [
+			"selected"
+		]
+    },
+	{
+        "attribute": "async",
+        "possiblevalues": [
+			"async"
+		]
+    },
+	{
+        "attribute": "defer",
+        "possiblevalues": [
+			"defer"
+		]
+    },
+	{
+        "attribute": "border",
+        "possiblevalues": [
+			"1",
+			""
+		]
+    },
+	{
+        "attribute": "wrap",
+        "possiblevalues": [
+			"hard",
+			"soft"
+		]
+    },
+	{
+        "attribute": "scope",
+        "possiblevalues": [
+			"col",
+			"colgroup",
+			"row",
+			"rowgroup"
+		]
+    },
+	{
+        "attribute": "default",
+        "possiblevalues": [
+			"default"
+		]
+    },
+	{
+        "attribute": "kind",
+        "possiblevalues": [
+			"captions",
+			"chapters",
+			"descriptions",
+			"metadata",
+			"subtitles"
+		]
+    }
+]

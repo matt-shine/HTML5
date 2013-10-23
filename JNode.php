@@ -42,6 +42,7 @@ class JNode {
     private $_closeTagln;
     private $_closeTagInd;
     private $_errors = array();
+    private $_warnings = array();
     private $attr = array();
 
     /**
@@ -99,12 +100,20 @@ class JNode {
         return $this->_errors;
     }
     
+    public function getWarnings() {
+        return $this->_warnings;
+    }
+    
     public function addErrors($errorArray) {
         foreach ($errorArray as $error) {
             array_push($this->_errors, $error);
         }
-        
-        
+    }
+    
+    public function addWarnings($warningArray) {
+        foreach ($warningArray as $warning) {
+            array_push($this->_warnings, $warning);
+        }
     }
       
     
