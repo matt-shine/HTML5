@@ -241,7 +241,7 @@ background-image: linear-gradient(to bottom,#005ab4 0,#175ea6 100%);
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #DADDE3;
+	background-color: #FAFAFA;
 	margin-top: 20px;
 	padding: 15px;
 	padding-top:20px;
@@ -252,10 +252,14 @@ background-image: linear-gradient(to bottom,#005ab4 0,#175ea6 100%);
 }
 
 fieldset {
-	background: #DADDE3;
+	background: #CED2D5;
 	margin-right:auto;
 	margin-left:auto;
-	border: 1px solid #DCDDE0;
+        border-style:none;
+}
+fieldset input {
+    border: 2px solid #dadada;
+    border-radius: 7px;
 }
 
 h2.tabset_label {
@@ -445,6 +449,13 @@ label {
     font-family: 'Oswald', sans-serif;
     text-align: center;
     text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.linenumber {
+    display:inline;
+    padding:0;
+    color:grey;
+    margin-right:20px;
 }
 
 

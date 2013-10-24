@@ -22,7 +22,7 @@
 		"selfclose": "" 
     },
     {
-        "tag": "!DOCTYPE",
+        "tag": "!doctype",
         "allowglobals": false,
         "requiredattributes": [
             "html"

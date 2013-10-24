@@ -67,9 +67,9 @@
 						<div class="footer_menu_title">w3schools</div>
 						<div class="footer_links_list">
 						<ul>
-								<li><a href="#">HTML</a></li>
-								<li><a href="#">CSS</a></li>
-								<li><a href="#">JavaScript</a></li>
+								<li><a href="http://www.w3schools.com/html/html5_intro.asp">HTML5</a></li>
+								<li><a href="http://www.w3schools.com/css/default.asp">CSS</a></li>
+								<li><a href="http://www.w3schools.com/js/default.asp">JavaScript</a></li>
 							</ul>
 						</div>
 					</div>

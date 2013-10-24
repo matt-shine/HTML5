@@ -86,7 +86,7 @@ class Parser {
         $count = $this->numlines;
         for ($i = 0; $i < $count; $i++) { //$i keeps track of line #
             $line = $this->lines[$i];
-            //Convet line to an array of characters
+            //Convert line to an array of characters
             $lineArray = str_split($line);
             
             //Check if the line contains an unfinished tag

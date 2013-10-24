@@ -39,6 +39,18 @@ class NodeValidator {
     private $globalAttributes = array("accesskey", "class", "contenteditable", 
         "contextmenu", "dir", "draggable", "dropzone", "hidden", "id", "lang", 
         "spellcheck", "style", "tabindex", "title", "translate");
+    
+    private $eventAttributes = array("onafterprint","onbeforeprint","onbeforeunload",
+        "onerror","onhaschange","onload","onmessage","onoffline","ononline","onpagehide",
+        "onpageshow","onpopstate","onredo","onresize","onstorage","onundo","onunload","onblur",
+        "onchange","oncontextmenu","onfocus","onformchange","onforminput","oninput","oninvalid",
+        "onreset","onselect","onsubmit","onkeydown","onkeypress","onkeyup","onclick","ondblclick",
+        "ondrag","ondragend","ondragenter","ondragleave","ondragover","ondragstart",
+        "ondrop","onmousedown","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel",
+        "onscroll","onabort","oncanplay","oncanplaythrough","ondurationchange","onemptied","onended",
+        "onerror","onloadeddata","onloadedmetadata","onloadstart","onpause","onplay","onplaying",
+        "onprogress","onratechange","onreadystatechange","onseeked","onseeking","onstalled","onsuspend",
+        "ontimeupdate","onvolumechange","onwaiting");
          
     private $node; //the tag to validate
     private $errors; //stores errors associated with this tag (multiple errors are possible)
@@ -53,7 +65,7 @@ class NodeValidator {
         $this->errors = array();
         $this->warnings = array();
         $this->tagList = new TagsList();
-        $this->tagInfo = $this->tagList->getTagInfo($this->node->getValue());
+        $this->tagInfo = $this->tagList->getTagInfo(strtolower($this->node->getValue()));
         $this->attributeList = new AttributeList();
     }
     
@@ -64,7 +76,8 @@ class NodeValidator {
         /* Make sure we're dealing with a valid tag */
         $tagValue = $this->node->getValue();
         if ($this->tagInfo === false) {
-            array_push($this->errors, "Invalid Tag [$tagValue]. Suggestions: <br/> ". $this->getMisspelledSuggestion($tagValue, $this->validTags));
+            array_push($this->errors, "Invalid Tag [$tagValue]. Suggestions: <br/> " 
+                    . $this->getMisspelledSuggestion($tagValue, $this->validTags));
             $this->node->addErrors($this->errors);
             return;
         }
@@ -84,8 +97,9 @@ class NodeValidator {
         
         /* Check if the tag has attributes set, if so, validate them */
         foreach ($this->node->getAttr() as $att => $val) {
-            if (!$this->validateRequiredAttributeValue($att)) {
-                array_push($this->errors, $this->node->getValue() . ' Attribute ' . $att . " has an invalid value. Should be one of the following: "  . implode(",", $this->attributeList->getAttributeInfo($att)). "<br />");
+            if (!$this->validateAttributeValue($att,$val)) {
+                array_push($this->errors, "The '$att' attribute has an invalid value. The allowed values are: <br />"  
+                        . implode("<br />", $this->attributeList->getAttributeInfo($att)->getValues()). "<br />");
             }
         }
           
@@ -95,7 +109,56 @@ class NodeValidator {
         
      }
      
-    public function validateRequiredAttributes() {
+     public function validateAttributes() {
+         $tagValue = $this->node->getValue();
+         $tagsAttributes = $this->node->getAttr();
+            
+         /* First check the attributes given are valid */
+         foreach ($tagsAttributes as $att => $val) {
+             /* Check if the tag is a global attribute, if so, check if tag supports these. */
+             if (in_array($att, $this->globalAttributes)) {
+                 if (!$this->tagInfo->areGlobalAttributesSupported()) {
+                     array_push($this->errors, "Oops, \"$att\" isn't a valid attribute for &lt$tagValue&gt. 
+                         <br />(This tag doesn't support global attributes...)");
+                     continue;
+                 }
+             }
+             /* Check if the tag is an event attribute, if so, check if the tag supports these. */
+             if (in_array($att, $this->eventAttributes)) {
+                 if (!$this->tagInfo->areEventAttributesSupported()) {
+                     array_push($this->errors, "Oops, \"$att\" isn't a valid attribute for &lt$tagValue&gt. 
+                         <br />(This tag doesn't support that event attribute!");
+                     continue;
+                 }
+             }
+             /* Check attributes is listed as optional/required (i.e. valid) */
+             if (!in_array($att, $this->tagInfo->getOptionalAttributes() && !in_array($att, $this->tagInfo->getRequiredAttributes()))) {
+                 array_push($this->errors, "Oops, \"$att\" isn't a valida ttribute for &lt$tagValue&gt!");
+                 continue;
+             }
+             /* If we get this far, it's a valid attribute, now check it's value */
+             if (!validateAttributeValue($att,$val)) {
+                 array_push($this->errors, "Hmmm... \"$val\" doesn't appear to be a valid value for \"$att\". 
+                     <br />Maybe you meant one of these:<br />" 
+                         . getMisspelledSuggestion($val, $this->attributeList->getAttributeInfo($att)));
+                 continue;
+             }
+         }
+     }
+     
+         
+     public function validateAttributeValue($att, $val) {
+        $info = $this->attributeList->getAttributeInfo($att);
+        if ($info != false) {
+            /* There are required values for this attribute */
+            if (!in_array($val, $info->getValues())) {
+                return false;
+            }
+        }
+        return true;
+     }
+     
+        public function validateRequiredAttributes() {
         $tagValue = $this->node->getValue();
         /* Get the list of attributes for this node */
         $nodesAttributes = $this->node->getAttr();
@@ -105,23 +168,8 @@ class NodeValidator {
                 /* Not found */
                 array_push($this->errors, $tagValue . " tag is missing a required attribute [$val]<br />");
             }
-            //If the required attribute is present, it's value will be verified by the next
-                //call in validate()
         }
     }
-     
-     public function validateRequiredAttributeValue($att) {
-        $info = $this->attributeList->getAttributeInfo($att);
-        if ($info != false) {
-            /* There are required values for this attribute */
-            if (!in_array($att, $info->getValues())) {
-                return false;
-            }
-        }
-        return true;
-     }
-     
-    
    
     
     public function getMisspelledSuggestion($string, $possibilities) {

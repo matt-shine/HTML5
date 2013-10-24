@@ -45,11 +45,8 @@ if (!isset($_SESSION['lines'])) {
                                     }
                                 
                                     if (isset($sessionError)) {
-                                        echo 'Problem loading results....';
+                                        header('Location: uhoh.php');
                                     } else {
-                                        
-                                        
-                                    
                                         $lines = $_SESSION['lines'];
                                         $nodesWithErrors = $_SESSION['nodesWithErrors'];
                                         $nodesWithWarnings = $_SESSION['nodesWithWarnings'];
@@ -74,7 +71,7 @@ if (!isset($_SESSION['lines'])) {
                                         for ($i = 0; $i < count($lines); $i++) {
                                             if (!in_array($i, $linesWithErrors)) {
                                                 /* No error was found in this line */
-                                                echo "$i\t" . htmlspecialchars($lines[$i]) . "\n";
+                                                echo "<div class=\"linenumber\">$i</div>" . htmlspecialchars($lines[$i]) . "\n";
                                             } else {
                                                 /* Error(s) in this line */
                                                 $thisLinesErrorNodes = array();
@@ -110,13 +107,13 @@ if (!isset($_SESSION['lines'])) {
                                                             foreach ($errors as $e) {
                                                                 $errorString .= $e;
                                                             }
-                                                            echo "$i\t" . "<span class=\"tooltip\" title=\"$errorString\" style=\"background-color:#FF3030;border-style:solid;border-width:1px;border-color:white;border-radius:4px;\">" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
+                                                            echo "<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$errorString\" style=\"background: url(img/underline.gif) bottom repeat-x;\">" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
                                                                 . "</span>" . htmlspecialchars(substr($lines[$i], strpos($lines[$i], ">")+1)) . "\n"; 
                                                         } else {
                                                             foreach ($warnings as $w) {
                                                                 $warningString .= $w;
                                                             }
-                                                            echo "$i\t" . "<span class=\"tooltip\" title=\"" . htmlspecialchars($warningString) . "\" style=\"background-color:#FFCC00;border-style:solid;border-width:1px;border-color:white;border-radius:4px;\">" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
+                                                            echo "<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$warningString\" style=\"background: url(img/underline_w.gif) bottom repeat-x;\">" . htmlspecialchars(substr($lines[$i], 0, strpos($lines[$i], ">")+1)) 
                                                                 . "</span>" . htmlspecialchars(substr($lines[$i], strpos($lines[$i], ">")+1)) . "\n"; 
                                                         }
                                                      } else {
@@ -144,60 +141,96 @@ if (!isset($_SESSION['lines'])) {
                                                             foreach ($errors as $e) {
                                                                 $errorString .= $e;
                                                             }
-                                                            echo "$i\t" . htmlspecialchars(substr($lines[$i], 0, $singleNode->getInd()-2)) . 
-                                                                    "<span class=\"tooltip\" title=\"$errorString\" style=\"background-color:#FF3030;border-style:solid;border-width:1px;border-color:white;border-radius:4px;\">" . 
+                                                            echo "<div class=\"linenumber\">$i</div>" . htmlspecialchars(substr($lines[$i], 0, $singleNode->getInd()-2)) . 
+                                                                   "<span class=\"tooltip\" title=\"$errorString\" style=\"background: url(img/underline.gif) bottom repeat-x;\">" . 
                                                                         htmlspecialchars(substr($lines[$i], $singleNode->getInd(), $tagLength)) . "</span>" . 
                                                                         htmlspecialchars(substr($lines[$i],$singleNode->getInd() + $tagLength)) . "\n";
                                                         } else {
                                                             foreach ($warnings as $w) {
                                                                 $warningString .= $w;
                                                             }
-                                                            echo "$i\t" . htmlspecialchars(substr($lines[$i], 0, $singleNode->getInd()-2)) . 
-                                                                    "<span class=\"tooltip\" title=\"" . htmlspecialchars($warningString) . "\" style=\"background-color:#FFCC00;border-style:solid;border-width:1px;border-color:white;border-radius:4px;\">" . 
+                                                            echo "<div class=\"linenumber\">$i</div>" . htmlspecialchars(substr($lines[$i], 0, $singleNode->getInd()-2)) . 
+                                                                    "<span class=\"tooltip\" title=\"$warningString\" style=\"background: url(img/underline_w.gif) bottom repeat-x;\">" . 
                                                                         htmlspecialchars(substr($lines[$i], $singleNode->getInd(), $tagLength)) . "</span>" . 
                                                                         htmlspecialchars(substr($lines[$i],$singleNode->getInd() + $tagLength)) . "\n";
                                                         }
                                                      }
                                                  }
                                                         
-                                                 elseif (count($thisLinesErrorNodes) > 1) {
+                                                 else {
                                                     
                                                     /* sort the nodes based on their indexes */
-                                                    usort($thisLinesErrorNodes, 'compare_nodes');
+                                                    $combined = array();
+                                                    foreach ($thisLinesErrorNodes as $e) {
+                                                        $temp = array($e => 'e');
+                                                        $combined = array_merge($combined, $temp);
+                                                    }
+                                                    foreach ($thisLinesWarningNodes as $w) {
+                                                        $temp = array($w => 'w');
+                                                        $combined = array_merge($combined, $temp);
+                                                    }
+                                                    usort($combined, 'compare_nodes');
                                                     $formattedLine = "";
-                                                    
-                                                    if (count($thisLinesErrorNodes) > 0) {
-                                                        for ($j = 0; $j < count($thisLinesErrorNodes); $j++) {
-                                                            $errorString = "";
-
-                                                            $errors = $thisLinesErrorNodes[$j]->getErrors();
+                                                    $keys = array_keys($combined);
+                                                    for ($j = 0; $j < count($combined); $j++) {
+                                                        $issue = $keys[$j];
+                                                        $type = $combined[$issue];
+                                                        $issueString = "";
+                                                        
+                                                        $errors = $combined[$j]->getErrors();
+                                                        $warnings = $combined[$j]->getWarnings();
+                                                        if (count($errors) > 0) {
                                                             foreach ($errors as $e) {
-                                                                $errorString .= $e;
+                                                                $issueString .= $e;
                                                             }
-                                                            $tagLength = strlen($thisLinesErrorNodes[$j]->getValue())+2;
-                                                            if ($j == 0) {
-                                                                $formattedLine = htmlspecialchars(substr($lines[$i], 0, $thisLinesErrorNodes[$j]->getInd())) .
-                                                                        "<span class=\"tooltip\" title=\"$errorString\" style=\"background-color:#FF3030;border-style:solid;border-width:1px;border-color:white;border-radius:4px;\">" . htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>";
-                                                            } elseif ($j == count($thisLinesErrorNodes)-1) {
-                                                                $formattedLine = $formattedLine . "<span class=\"tooltip\" title=\"$errorString\" style=\"background-color:#FF3030;border-style:solid;border-width:1px;border-color:white;border-radius:4px;\">" . 
-                                                                htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd(), $tagLength)) . "</span>" . 
-                                                                        htmlspecialchars(substr($lines[$i], $thisLinesErrorNodes[$j]->getInd()+$tagLength));
+                                                        } else {
+                                                            foreach ($warnings as $w) {
+                                                                $issueString .= $w;
+                                                            }
+                                                        }
+                                                        $tagLength = strlen($combined[$j]->getValue()+2);
+                                                        if ($j == 0) {
+                                                            if ($type == 'e') {
+                                                                //Error
+                                                                $formattedLine = htmlspecialchars(substr($lines[$i], 0, $combined[$j]->getInd())) .
+                                                                        "<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$issueString\" style=\"background: url(img/underline.gif) bottom repeat-x;\">" 
+                                                                        . htmlspecialchars(substr($lines[$i], $combined[$j]->getInd(), $tagLength)) . "</span>";
                                                             } else {
-                                                                $endOfPrevious = $thisLinesErrorNodes[$j-1]->getInd() + strlen($thisLinesErrorNodes[$j-1]->getValue()) + 2;
-                                                                $formattedLine  = $formattedLine ."<span class=\"tooltip\" title=\"$errorString\" style=\"background-color:#FF3030;border-style:solid;border-width:1px;border-color:white;border-radius:4px;\">" . 
+                                                                //Warning
+                                                                $formattedLine = htmlspecialchars(substr($lines[$i], 0, $combined[$j]->getInd())) .
+                                                                        "<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$issueString\" style=\"background: url(img/underline_w.gif) bottom repeat-x;\">" 
+                                                                        . htmlspecialchars(substr($lines[$i], $combined[$j]->getInd(), $tagLength)) . "</span>";
+                                                            }
+                                                        } elseif ($j == count($combined)-1) {
+                                                            if ($type == 'e') {
+                                                                //error
+                                                                 $formattedLine = $formattedLine . "<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$issueString\" style=\"background: url(img/underline.gif) bottom repeat-x;\">" . 
+                                                                htmlspecialchars(substr($lines[$i], $combined[$j]->getInd(), $tagLength)) . "</span>" . 
+                                                                        htmlspecialchars(substr($lines[$i], $combined[$j]->getInd()+$tagLength));
+                                                            } else {
+                                                                //warning
+                                                                 $formattedLine = $formattedLine . "<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$issueString\" style=\"background: url(img/underline_w.gif) bottom repeat-x;\">" . 
+                                                                htmlspecialchars(substr($lines[$i], $combined[$j]->getInd(), $tagLength)) . "</span>" . 
+                                                                        htmlspecialchars(substr($lines[$i], $combined[$j]->getInd()+$tagLength));
+                                                            }
+                                                        } else {
+                                                            if ($type == 'e') {
+                                                                //error
+                                                                $endOfPrevious = $combined[$j-1]->getInd() + strlen($combined[$j-1]->getValue()) + 2;
+                                                                $formattedLine  = $formattedLine ."<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$issueString\" style=\"background: url(img/underline.gif) bottom repeat-x;\">" . 
+                                                                        htmlspecialchars(substr($lines[$i], $endOfPrevious, $tagLength)) . "</span>";
+                                                            } else {
+                                                                //warning
+                                                                $endOfPrevious = $combined[$j-1]->getInd() + strlen($combined[$j-1]->getValue()) + 2;
+                                                                $formattedLine  = $formattedLine ."<div class=\"linenumber\">$i</div>" . "<span class=\"tooltip\" title=\"$issueString\" style=\"background: url(img/underline_w.gif) bottom repeat-x;\">" . 
                                                                         htmlspecialchars(substr($lines[$i], $endOfPrevious, $tagLength)) . "</span>";
                                                             }
                                                         }
                                                     }
                                                     
-                                                    echo "$i\t" . $formattedLine . "\n";
-                                                    
-
-                                                    
-                                                } else {
-                                                    echo "Something went horribly wrong";
-                                                }  
+                                                    echo "<div class=\"linenumber\">$i</div>" . $formattedLine . "\n";
                                             }  
+                                        }
                                         }
                                         echo '</pre>';
                                     }
@@ -231,9 +264,9 @@ if (!isset($_SESSION['lines'])) {
 						<div class="footer_menu_title">w3schools</div>
 						<div class="footer_links_list">
 						<ul>
-								<li><a href="#">HTML</a></li>
-								<li><a href="#">CSS</a></li>
-								<li><a href="#">JavaScript</a></li>
+								<li><a href="http://www.w3schools.com/html/html5_intro.asp">HTML5</a></li>
+								<li><a href="http://www.w3schools.com/css/default.asp">CSS</a></li>
+								<li><a href="http://www.w3schools.com/js/default.asp">JavaScript</a></li>
 							</ul>
 						</div>
 					</div>
