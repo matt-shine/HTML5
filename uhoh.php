@@ -31,9 +31,9 @@
                             <div class="error_pane">
                                 <div class="error_pane_title">Ooops.. Something wen't wrong!</div>
                                 <?php
-                                    if (isset($_SESSION['errorMessage'])) {
+                                    //if (isset($_SESSION['errorMessage'])) {
                                         echo "<div class=\"error_message\">" . $_SESSION['errorMessage'] . "<div><br />";
-                                    }
+                                    //}
                                 ?>
                                     <form id="homelink" name="homelink" action="index.php">
                                         <button title="Take me home" type="submit" class="submit_button">Home</button>

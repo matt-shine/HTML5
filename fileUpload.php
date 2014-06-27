@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'Parser.php';
-
+include 'newParser.php';
 
 if (isset($_POST['url-submit'])) {
     try {
@@ -58,16 +58,16 @@ elseif (isset($_POST['file-submit'])) {
         } else {
             $path = "upload/" . $_FILES["uploaded_file"]["name"];
             move_uploaded_file($_FILES["uploaded_file"]["tmp_name"], $path);
-            $parser = new Parser($path);
+            $parser = new newParser($path);
             $parser->parse();
-            $parser->createParseTree();
-            $parser->runValidator();
+            //$parser->createParseTree();
+            //$parser->runValidator();
             if (file_exists($path)) {
                 unlink($path);
             }
         }
     } catch (Exception $e) {
-        $_SESSION['errorMessage'] = $e->getMessage;
+        $_SESSION['errorMessage'] = $e->getMessage();
         header('Location: uhoh.php');
     }
 } 

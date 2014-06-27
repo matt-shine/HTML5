@@ -9,9 +9,7 @@ class AllTests extends TestSuite {
     function __construct() {
         parent::__construct('All tests');
         $this->TestSuite('All tests for SimpleTest ' . SimpleTest::getVersion());
-        $this->addFile('ParserTest.php');
-        $this->addFile('TreeTests.php');
-        $this->addFile('NodeValidatorTests.php');
+        $this->addFile('NewParserTest.php');
     }
 }
 ?>
