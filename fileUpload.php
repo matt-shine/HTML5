@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'Parser.php';
 include 'newParser.php';
 
 if (isset($_POST['url-submit'])) {
@@ -59,9 +58,21 @@ elseif (isset($_POST['file-submit'])) {
             $path = "upload/" . $_FILES["uploaded_file"]["name"];
             move_uploaded_file($_FILES["uploaded_file"]["tmp_name"], $path);
             $parser = new newParser($path);
-            $parser->parse();
-            //$parser->createParseTree();
-            //$parser->runValidator();
+            $valid = $parser->parse();
+            if ($valid) {
+                echo 'Valid html!';
+            } else {
+                
+                
+                echo '<h2>Errors</h2>';
+                echo '<pre>';
+                var_dump($parser->getErrors());
+                echo '</pre>';
+                echo '<h2>Warnings</h2>';
+                echo '<pre>';
+                var_dump($parser->getWarnings());
+                echo '</pre>';
+            }
             if (file_exists($path)) {
                 unlink($path);
             }
