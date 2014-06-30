@@ -201,7 +201,6 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @covers JNode::anyChildren
-     * @todo   Implement testAnyChildren().
      */
     public function testAnyChildrenTrue() {
         $node = new JNode('test',1,1);
@@ -212,7 +211,6 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @covers JNode::anyChildren
-     * @todo   Implement testAnyChildrenFalse().
      */
     public function testAnyChildrenFalse() {
         $node = new JNode('test',1,1);
@@ -221,13 +219,20 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
     
     /**
      * @covers JNode::childrenCount
-     * @todo   Implement testChildrenCount().
      */
-    public function testChildrenCount() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+    public function testChildrenCountFalse() {
+        $node = new JNode('test',1,1);
+        $this->assertEquals(0, $node->childrenCount(), 'Children count was incorrect. ');
+    }
+    
+        /**
+     * @covers JNode::childrenCount
+     */
+    public function testChildrenCountTrue() {
+        $node = new JNode('test',1,1);
+        $child = new JNode('test2',2,2);
+        $node->setChild($child->getUid());
+        $this->assertEquals(1, $node->childrenCount(), 'Children count was incorrect. ');
     }
 
 }

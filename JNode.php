@@ -248,13 +248,10 @@ class JNode {
      * 
     * returns the number of children
     * 
-     * @return bool/int
+     * @return int
      */
     public function childrenCount() {
-      $ret = false;
-     if(is_array($this->_children)){
-      $ret = count($this->_children);
-     }
+     $ret = count($this->_children);
      return $ret;
     }
 }
