@@ -69,7 +69,6 @@ class JNode {
             $this->_selfClosed = false;
         }
         $this->_closeTagFound = false;
-
     }
     
     public function setCloseTagFound() {
@@ -89,7 +88,7 @@ class JNode {
     }
     
     public function setCloseTagInd($ind) {
-        $this->_closeTagln = $ind;
+        $this->_closeTagInd = $ind;
     }
     
     public function getCloseTagInd() {
@@ -137,9 +136,9 @@ class JNode {
         return $this->attr;
     }
     
-    public function addAttr($att) {
-        array_push($this->attr, $att);
-    }
+//    public function addAttr($att) {
+//        array_push($this->attr, $att);
+//    }
  
     /**
      * JNode::getUid()
