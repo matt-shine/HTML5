@@ -76,6 +76,16 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
     }
     
     /**
+     * @covers JNode::__construct
+     */
+    public function testConstrcutorWithAttributes() {
+        $attributes = array();
+        $attributes['testAtt'] = 'value';
+        $node = new JNode('test',1,1,$attributes,null,null);
+        $this->assertEquals($attributes, $node->getAttr());
+    }
+    
+    /**
      * @covers JNode::setCloseTagFound
      */
     public function testGetCloseTagFoundTrue() {
