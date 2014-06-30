@@ -146,126 +146,57 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($attributes, $node->getAttr(), 'Attribute arrays were not equal.');
     }
 
-   
-    /**
-     * @covers JNode::addAttr
-     * @todo   Implement testAddAttr().
-     */
-    public function testAddAttr() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
     /**
      * @covers JNode::setValue
-     * @todo   Implement testSetValue().
+     * @covers JNode::getValue
+     * 
      */
     public function testSetValue() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers JNode::getValue
-     * @todo   Implement testGetValue().
-     */
-    public function testGetValue() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $node = new JNode('foo',1,1);
+        $node->setValue('bar');
+        $this->assertEquals('bar',$node->getValue(), 'JNodes value was incorrect. ');
     }
 
     /**
      * @covers JNode::setLn
-     * @todo   Implement testSetLn().
+     * @covers JNode::getLn
      */
     public function testSetLn() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers JNode::getLn
-     * @todo   Implement testGetLn().
-     */
-    public function testGetLn() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $node = new JNode('test',1,1);
+        $node->setLn(3);
+        $this->assertEquals(3,$node->getLn(), 'Line Number was not as expected. ');
     }
 
     /**
      * @covers JNode::setInd
-     * @todo   Implement testSetInd().
+     * @covers JNode::getInd
      */
     public function testSetInd() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers JNode::getInd
-     * @todo   Implement testGetInd().
-     */
-    public function testGetInd() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $node = new JNode('test',1,1);
+        $node->setInd(3);
+        $this->assertEquals(3,$node->getInd(), 'JNodes index was not as expected. ');
     }
 
     /**
      * @covers JNode::getParent
-     * @todo   Implement testGetParent().
+     * @covers JNode::setParent
      */
     public function testGetParent() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers JNode::setParent
-     * @todo   Implement testSetParent().
-     */
-    public function testSetParent() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $child = new JNode('child',1,1);
+        $parent = new JNode('parent',2,2);
+        $child->setParent($parent->getUid());
+        $this->assertEquals($parent->getUid(), $child->getParent());
     }
 
     /**
      * @covers JNode::getChildren
-     * @todo   Implement testGetChildren().
+     * @covers JNode::setChild
      */
     public function testGetChildren() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @covers JNode::setChild
-     * @todo   Implement testSetChild().
-     */
-    public function testSetChild() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $child = new JNode('child',1,1);
+        $parent = new JNode('parent',2,2);
+        $parent->setChild($child->getUid());
+        $this->assertTrue(in_array($child->getUid(), $parent->getChildren()));
     }
 
     /**

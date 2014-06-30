@@ -136,10 +136,6 @@ class JNode {
         return $this->attr;
     }
     
-//    public function addAttr($att) {
-//        array_push($this->attr, $att);
-//    }
- 
     /**
      * JNode::getUid()
      * 
