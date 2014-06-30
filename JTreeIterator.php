@@ -1,6 +1,6 @@
 <?php
 
-require 'NodeValidator.php';
+require_once 'NodeValidator.php';
 
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-include_once 'TagInfo.php';
+require_once 'TagInfo.php';
 
 /**
  * Description of TagsList

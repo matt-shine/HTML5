@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'Parser.php';
+require_once 'Parser.php';
 
 
 if (isset($_POST['url-submit'])) {

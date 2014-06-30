@@ -1,10 +1,10 @@
 <?php
 session_start();
-require 'JNode.php';
-require 'JTree.php';
-require 'Tag.php';
-require 'JTreeRecursiveIterator.php';
-require 'JTreeIterator.php';
+require_once 'JNode.php';
+require_once 'JTree.php';
+require_once 'Tag.php';
+require_once 'JTreeRecursiveIterator.php';
+require_once 'JTreeIterator.php';
 
 /**
  * Description of Parser

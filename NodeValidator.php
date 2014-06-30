@@ -1,8 +1,8 @@
 <?php
-include_once 'TagsList.php';
-include_once 'TagInfo.php';
-include_once 'AttributeList.php';
-include_once 'AttributeInfo.php';
+require_once 'TagsList.php';
+require_once 'TagInfo.php';
+require_once 'AttributeList.php';
+require_once 'AttributeInfo.php';
 
 class NodeValidator {
     
