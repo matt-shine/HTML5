@@ -1,9 +1,6 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+require_once 'AttributeInfo.php';
 
 /**
  * Description of AttributeList
@@ -15,7 +12,7 @@ class AttributeList {
     private $attributes;
     
        public function __construct() {
-        $f = file_get_contents('json/attributes.json');
+        $f = file_get_contents('../json/attributes.json');
         $attributes = json_decode($f);
         $this->attributes = array();
         foreach ($attributes as $attribute) {

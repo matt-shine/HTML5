@@ -1,5 +1,7 @@
 <?php
 
+require_once 'JNode.php';
+
 /**
  * JTree
  * 

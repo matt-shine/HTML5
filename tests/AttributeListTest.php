@@ -8,35 +8,20 @@ require_once '../AttributeList.php';
 class AttributeListTest extends PHPUnit_Framework_TestCase {
 
     /**
-     * @var AttributeList
-     */
-    protected $object;
-
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp() {
-        $this->object = new AttributeList;
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown() {
-        
-    }
-
-    /**
+     * @covers AttributeList::__construct
      * @covers AttributeList::getAttributeInfo
-     * @todo   Implement testGetAttributeInfo().
      */
     public function testGetAttributeInfo() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $list = new AttributeList();
+        $this->assertTrue(is_a($list->getAttributeInfo('rel'), 'AttributeInfo'));
     }
 
+    /**
+     * @covers AttributeList::__construct
+     * @covers AttributeList::getAttributeInfo
+     */
+    public function testGetAttributeEmpty() {
+        $list = new AttributeList();
+        $this->assertFalse($list->getAttributeInfo(''));
+    }
 }

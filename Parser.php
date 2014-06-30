@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require_once 'JNode.php';
 require_once 'JTree.php';
 require_once 'Tag.php';
@@ -113,7 +113,7 @@ class Parser {
      */
     private function mergeLines($lines, $i) {
         $ind = (int)$i+1;
-        if ($ind > count($lines)) {
+        if ($ind >= count($lines)) {
             //TODO: unfinished tag error should be raised here
         }
         $newString = $lines[$i];
@@ -149,9 +149,9 @@ class Parser {
                     $tagAttr = array();
                     $tagValue = $splitTag[0];
                     $test = str_split($splitTag[0]);
-                    if ($test[1] == '/') {
-                        //attributes in a closing tag - error here
-                    }
+//                    if ($test[1] == '/') {
+//                        //attributes in a closing tag - error here
+//                    }
                     
                     for ($j = 1; $j < count($splitTag); $j++) {
                         $attribute = substr($splitTag[$j], 0, strpos($splitTag[$j], "="));
