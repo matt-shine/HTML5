@@ -8,35 +8,35 @@ require_once '../AttributeInfo.php';
 class AttributeInfoTest extends PHPUnit_Framework_TestCase {
 
     /**
-     * @var AttributeInfo
+     * @covers AttributeInfo::__construct
+     * @expectedException Exception
      */
-    protected $object;
-
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp() {
-        $this->object = new AttributeInfo;
+    public function testConstructorWithEmptyAttribute() {
+        $att = new AttributeInfo("","");
     }
-
+    
     /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
+     * @covers AttributeInfo::__construct
      */
-    protected function tearDown() {
-        
+    public function testConstructorValidStringValues() {
+        $att = new AttributeInfo("test","value");
     }
-
+    
+    /**
+     * @covers AttributeInfo::__construct
+     */
+public function testConstructorValidArrayValues() {
+        $values = ["1","2"];
+        $att = new AttributeInfo("test",$values);
+    }
+    
     /**
      * @covers AttributeInfo::getName
      * @todo   Implement testGetName().
      */
     public function testGetName() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $att = new AttributeInfo("test","value");
+        $this->assertEquals("test",$att->getName());
     }
 
     /**
@@ -44,10 +44,9 @@ class AttributeInfoTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testGetValues().
      */
     public function testGetValues() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $values = ["1","2"];
+        $att = new AttributeInfo("test",$values);
+        $this->assertEquals($values,$att->getValues());
     }
 
 }

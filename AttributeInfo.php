@@ -15,6 +15,9 @@ class AttributeInfo {
     private $possibleValues;
     
     public function __construct($name, $possibleValues) {
+        if ($name == null || $name == "") {
+            throw new Exception("Attribute didn't have a name");
+        }
         $this->name = $name;
         $this->possibleValues = $possibleValues;
     }
