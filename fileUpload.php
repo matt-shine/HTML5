@@ -67,7 +67,7 @@ elseif (isset($_POST['file-submit'])) {
             }
         }
     } catch (Exception $e) {
-        $_SESSION['errorMessage'] = $e->getMessage;
+        $_SESSION['errorMessage'] = $e->getMessage();
         header('Location: uhoh.php');
     }
 } 
