@@ -28,6 +28,54 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * @covers JNode::__construct
+     * @expectedException Exception
+     */
+    public function testConstructWithoutValue() {
+        $node = new JNode(null,1,1);
+    }
+    
+    /**
+     * @covers JNode::__construct
+     */
+    public function testConstructorFunctionCalls() {
+        $classname = 'JNode';
+        $mock = $this->getMockBuilder($classname)
+            ->disableOriginalConstructor()
+            ->getMock();
+        
+        // set expectations for constructor calls
+        $mock->expects($this->once())
+          ->method('setValue')
+          ->with(
+                  $this->equalTo('test')
+                );
+        
+        $mock->expects($this->once())
+                ->method('setUid')
+                ->with(
+                        $this->equalTo(null)
+                    );
+        
+        $mock->expects($this->once())
+                ->method('setln')
+                ->with(
+                        $this->equalTo(1)
+                    );
+        
+        $mock->expects($this->once())
+                ->method('setInd')
+                ->with(
+                        $this->equalTo(2)
+                    );
+        
+        // now call the constructor
+      $reflectedClass = new ReflectionClass($classname);
+      $constructor = $reflectedClass->getConstructor();
+      $constructor->invoke($mock, 'test',1,2);
+    }
+    
+    /**
      * @covers JNode::setCloseTagFound
      */
     public function testGetCloseTagFoundTrue() {
@@ -46,21 +94,14 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @covers JNode::setCloseTagLn
+     * @covers JNode::getCloseTagLn
      */
     public function testSetCloseTagLn() {
         $node = new JNode('test',1,1);
-        $node->setCloseTagFound();
-        $this->assertTrue($node->getCloseTagFound());
+        $node->setCloseTagLn(2);
+        $this->assertEquals(2, $node->getCloseTagLn());
     }
-
-    /**
-     * @covers JNode::getCloseTagLn
-     */
-    public function testGetCloseTagLn() {
-        $node = new JNode('test',1,1);
-        $this->assertFalse($node->getCloseTagFound());
-    }   
-    
+   
     /**
      * @covers JNode::setCloseTagInd
      */
