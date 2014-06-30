@@ -115,7 +115,9 @@ class JNode {
         }
     }
       
-    
+    public function isSelfClosed() {
+        return $this->_selfClosed;
+    }
  
     /**
      * JNode::setUid()

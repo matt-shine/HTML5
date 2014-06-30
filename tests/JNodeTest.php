@@ -86,6 +86,24 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
     }
     
     /**
+     * @covers JNode::__construct
+     * @covers JNode::isSelfClosed
+     */
+    public function testConstructorSelfClosing() {
+        $node = new JNode('test',1,1,null,null,true);
+        $this->assertTrue($node->isSelfClosed());
+    }
+    
+    /**
+     * @covers JNode::__construct
+     * @covers JNode::isSelfClosed
+     */
+    public function testConstructorNotSelfClosed() {
+        $node = new JNode('test',1,1);
+        $this->assertFalse($node->isSelfClosed());
+    }
+    
+    /**
      * @covers JNode::setCloseTagFound
      */
     public function testGetCloseTagFoundTrue() {
