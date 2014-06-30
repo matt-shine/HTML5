@@ -203,13 +203,22 @@ class JNodeTest extends PHPUnit_Framework_TestCase {
      * @covers JNode::anyChildren
      * @todo   Implement testAnyChildren().
      */
-    public function testAnyChildren() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+    public function testAnyChildrenTrue() {
+        $node = new JNode('test',1,1);
+        $child = new JNode('test2',2,2);
+        $node->setChild($child->getUid());
+        $this->assertTrue($node->anyChildren());
     }
 
+    /**
+     * @covers JNode::anyChildren
+     * @todo   Implement testAnyChildrenFalse().
+     */
+    public function testAnyChildrenFalse() {
+        $node = new JNode('test',1,1);
+        $this->assertFalse($node->anyChildren());
+    }
+    
     /**
      * @covers JNode::childrenCount
      * @todo   Implement testChildrenCount().
