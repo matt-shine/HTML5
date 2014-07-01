@@ -140,15 +140,23 @@ class JTreeTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @covers JTree::addChild
-     * @todo   Implement testAddChild().
+     * @expectedException Exception
      */
-    public function testAddChild() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+    public function testAddChildNoChildUid() {
+        $tree = new JTree();
+        $tree->addChild(null,null);
     }
-
+    
+    /**
+     * @covers JTree::addChild
+     */
+    public function testAddChildNoParent() {
+        $tree = new JTree();
+        $uid = $tree->createNode('test',1,1);
+        $ret = $tree->addChild(null, $uid);
+        $this->assertNotNull($tree->getTree()[$uid]);
+    }
+    
     /**
      * @covers JTree::addFirst
      * @todo   Implement testAddFirst().
