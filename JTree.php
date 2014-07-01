@@ -83,7 +83,7 @@ class JTree {
    * @return JNode/Boolean
    */
     public function getNode($uid) {
-        if(empty($uid)) {
+        if(empty($uid) || null) {
             throw new Exception('A unique id is required.');
         }
         $ret = false;
@@ -111,7 +111,7 @@ class JTree {
     * @return void
     */
     public function setChild($uid, $childUid) {
-        if(empty($uid) || empty($childUid)) {
+        if(empty($childUid) || $childUid == "") {
             throw new Exception('Both a from and a to UIDs are required.');
         }
       //get the node object for this node uid
@@ -139,7 +139,7 @@ class JTree {
  
         if($node !== false) {
             $node->setParent($parentUid);
-        }
+        } 
     }
  
     /**

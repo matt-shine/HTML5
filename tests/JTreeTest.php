@@ -46,46 +46,96 @@ class JTreeTest extends PHPUnit_Framework_TestCase {
     
     /**
      * @covers JTree::getHeadNode
-     * @todo   Implement testGetHeadNode().
      */
     public function testGetHeadNode() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $tree = new JTree();
+        $head = $tree->getHeadNode();
+        $this->assertEquals('HEAD',$head->getValue());
     }
 
     /**
      * @covers JTree::setChild
-     * @todo   Implement testSetChild().
+     * @expectedException Exception
      */
     public function testSetChild() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $tree = new JTree();
+        $tree->setChild('','');
+    }
+    
+    /**
+     * @covers JTree::setChild
+     */
+    public function testSetChildMissingNode() {
+        $tree = new JTree();
+        $parent = new JNode('parent',1,1);
+        $node = new JNode('child',1,1);
+        $tree->addFirst($parent->getUid());
+        $tree->setChild($node->getUid(),$parent->getUid());
+        $this->assertEquals(0,count($parent->getChildren()));
     }
 
     /**
      * @covers JTree::setParent
-     * @todo   Implement testSetParent().
+     * @expectedException Exception
      */
-    public function testSetParent() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+    public function testSetParentNullUid() {
+        $tree = new JTree();
+        $node = new JNode('test',1,1);
+        $tree->setParent(null,$node);
     }
+    
+    /**
+     * @covers JTree::setParent
+     * @expectedException Exception
+     */
+    public function testSetParentNullParent() {
+        $tree = new JTree();
+        $node = new JNode('test',1,1);
+        $tree->setParent($node,null);
+    }
+    
+    /**
+     * @covers JTree::setParent
+     */
+    public function testSetParentMissingNode() {
+        $tree = new JTree();
+        $node = new JNode('test',1,1);
+        $tree->addFirst($node->getUid());
+        $tree->setParent('nope', $node->getUid());
+        $this->assertFalse($tree->getParent($node->getUid()));
+    }
+    
+    /**
+     * @covers JTree::setParent
+     */
+    public function testSetParentValid() {
+        $tree = new JTree();
+        $parent = new JNode('parent',1,1);
+        $child = new JNode('child',1,1);
+        $tree->addFirst($parent->getUid());
+        $tree->addChild($parent->getUid(),$child->getUid());
+        $tree->setParent($child->getUid(), $parent->getUid());
+        $this->assertEquals($child->getUid(), $tree->getParent($child->getUid()));
+    }
+    
 
     /**
      * @covers JTree::createNode
-     * @todo   Implement testCreateNode().
+     * @expectedException Exception
      */
-    public function testCreateNode() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+    public function testCreateNodeNoValue() {
+        $tree = new JTree();
+        $uid = $tree->createNode(null, 1, 1);
+    }
+    
+    /**
+     * @covers JTree::createNode
+     */
+    public function testCreateNodeValid() {
+        $tree = new JTree();
+        $uid = $tree->createNode('test', 1, 1);
+        $treeList = $tree->getTree();
+        $this->assertNotNull($treeList[$uid]);
     }
 
     /**
