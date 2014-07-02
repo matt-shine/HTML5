@@ -110,12 +110,11 @@ class JTreeTest extends PHPUnit_Framework_TestCase {
      */
     public function testSetParentValid() {
         $tree = new JTree();
-        $parent = new JNode('parent',1,1);
-        $child = new JNode('child',1,1);
-        $tree->addFirst($parent->getUid());
-        $tree->addChild($parent->getUid(),$child->getUid());
-        $tree->setParent($child->getUid(), $parent->getUid());
-        $this->assertEquals($child->getUid(), $tree->getParent($child->getUid()));
+        $parentUid = $tree->createNode('parent',1,1);
+        $childUid = $tree->createNode('child',1,1);
+        $tree->addChild($parentUid,$childUid);
+        $tree->setParent($childUid, $parentUid);
+        $this->assertEquals($parentUid, $tree->getParent($childUid));
     }
     
 
