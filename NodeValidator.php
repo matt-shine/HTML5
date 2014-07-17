@@ -64,7 +64,7 @@ class NodeValidator {
         $this->node = $node;
         $this->errors = array();
         $this->warnings = array();
-        $this->tagList = new TagsList();
+        $this->tagList = TagsList::getInstance();
         $this->tagInfo = $this->tagList->getTagInfo(strtolower($this->node->getValue()));
         $this->attributeList = new AttributeList();
     }

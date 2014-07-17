@@ -13,6 +13,7 @@
  * @copyright Jayesh Wadhwani
  * @license  GNU GENERAL PUBLIC LICENSE 3.0
  * @version 1.0 2011
+ * @codeCoverageIgnore
  */
 class JTreeRecursiveIterator extends RecursiveIteratorIterator {
    /**

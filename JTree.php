@@ -37,6 +37,7 @@ require_once 'JNode.php';
  * @copyright 2011 Jayesh Wadhwani. 
  * @license  GNU GENERAL PUBLIC LICENSE 3.0
  * @version 1.0
+ * @codeCoverageIgnore
  */
 class JTree {
    /**

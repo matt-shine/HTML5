@@ -17,6 +17,8 @@ require_once 'NodeValidator.php';
  * @author  Jayesh Wadhwani
  * @copyright Jayesh Wadhwani
  * @version 2011
+ * 
+ * @codeCoverageIgnore
  */
 class JTreeIterator extends ArrayIterator implements RecursiveIterator {
    /**
@@ -110,5 +112,4 @@ class JTreeIterator extends ArrayIterator implements RecursiveIterator {
         return new JTreeIterator($this->_list, $children);
     }
 }
-
 ?>

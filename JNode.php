@@ -15,6 +15,7 @@
  * @author Jayesh Wadhwani
  * @copyright Jayesh Wadhwani
  * @version 2011
+ * @codeCoverageIgnore
  */
 class JNode {
    /**
